@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 
 import cv2
+import numpy as np
 import torch
 from PIL import Image
 
@@ -100,8 +101,10 @@ def _save_camera_images(
     """Save camera observation images for one rollout step.
 
     Args:
-        images_obs: Non-concatenated image observation group keyed by term name.
-        save_camera_dir: Directory where PNG images are written.
+        images_obs: Non-concatenated camera observation group keyed by term name.
+            RGB images are saved as PNG files. Other arrays, such as float32 depth
+            maps in meters, are saved as compressed NPZ files with key ``image``.
+        save_camera_dir: Directory where camera observations are written.
         step: Rollout step index used in output filenames.
 
     Returns:
@@ -109,9 +112,13 @@ def _save_camera_images(
     """
     for obs_name, image_tensor in images_obs.items():
         image = image_tensor[0].detach().cpu()
-        output_path = save_camera_dir / f"step_{step:06d}_{obs_name}.png"
         output_image = image.contiguous().numpy()
-        Image.fromarray(output_image).save(output_path)
+        if image.ndim == 3 and image.shape[-1] == 3 and image.dtype == torch.uint8:
+            output_path = save_camera_dir / f"step_{step:06d}_{obs_name}.png"
+            Image.fromarray(output_image).save(output_path)
+        else:
+            output_path = save_camera_dir / f"step_{step:06d}_{obs_name}.npz"
+            np.savez_compressed(output_path, image=output_image)
 
 
 def _show_camera_images(images_obs: dict[str, torch.Tensor]) -> None:
