@@ -1,0 +1,11 @@
+{
+  "python/bricksim/cap/heart.py": "bf0262bddc63d73511d2edb43989a20c4e055e47ab30d1d8e1feb793d4fa89ca",
+  "python/bricksim/cap/kinematics.py": "750a26511862a9a253f8b1edf4a2a4d2a28b14ef4cd1c58d1ed33c1c3f7ccc56",
+  "python/bricksim/cap/policy.py": "9b6e800f44080be08076c4b811728e4f3e329e32b5c4fb1680953731dfcb4c12",
+  "python/bricksim/cap/__init__.py": "002ecadf36166e55bd275ee0573df0cb37af63752a9d58f8a70450d3278249b3",
+  "python/bricksim/cap/yam.py": "7b5b5ccbfb32d845945f6e845b285250c4b0986e800999ddcddb74fde7de95eb",
+  "python/bricksim/cap/basket.py": "83abaa130863ff9f726c500ac6d9bd5279f8bd97492fbcda657ff69d9a19bb5b",
+  "demos/demo_yam_assembly.py": "8904d89c2eef20bb5294d16ffa290c314b3fbafe67d70941fc5356e236bb8bff",
+  "demos/generate_yam_policy.py": "0152f179ad4040b4f68be6579654c9c4f6b3742675213a1d2ea65c75853583fa",
+  "demos/demo_yam_heart.py": "c0b0c5b8751b4301ab663964d243461527f8f45e2b7b986d41b0c36ca70e7b16"
+}
