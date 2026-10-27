@@ -91,6 +91,7 @@ uv run bricksim demos/demo_assembly.py
 ```
 
 Other demos include:
+- [Dual YAM arms with a Qwen-generated assembly policy](docs/yam/README.md)
 - `demos/demo_inhand.py` for in-hand manipulation experiments
 - `demos/demo_keyboard_teleop.py` for keyboard-driven interaction
 - `demos/demo_teleop.py` for teleoperation, recording, and replay workflows
