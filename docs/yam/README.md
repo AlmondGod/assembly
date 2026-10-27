@@ -100,3 +100,7 @@ The [seed-7 result](basket/result-seed7.json), [seed-11 result](basket/result-se
 ![Four scattered bricks in the physical basket](basket/initial.png)
 
 ![Verified completed tower beside the empty basket](basket/tower.png)
+
+## Assemble an eleven-brick heart
+
+The [separate heart demonstration](HEART.md) uses exactly two YAM arms, six 2×4 bricks and five 2×2 bricks from organized tabletop sources, with a fresh Qwen3.5-0.8B policy and a support baseplate.
