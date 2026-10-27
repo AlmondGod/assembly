@@ -231,11 +231,32 @@ class YamArm:
         approach[2, 3] += 0.10
         print(f"YAM_PLACE {hole} onto {stud}", flush=True)
         await self.move(approach)
-        press = goal.copy()
-        press[2, 3] -= 0.0005
-        await self.move(press, speed=0.015, tolerance=0.003)
-        for _ in range(120):
-            await self.tick()
+        if basket is not None:
+            # Account for contact slip while rotating the brick out of the basket.
+            relative_grasp = (
+                np.linalg.inv(self.pose(hole)) @ self.pose(self.flange_path) @ self.tool
+            )
+            goal = self.pose(stud) @ relative @ relative_grasp
+            approach = goal.copy()
+            approach[2, 3] += 0.10
+            await self.move(approach, speed=0.035)
+        for depth in [0.0005, 0.0015, 0.0025] if basket is not None else [0.0005]:
+            press = goal.copy()
+            press[2, 3] -= depth
+            await self.move(press, speed=0.015, tolerance=0.003)
+            for _ in range(120):
+                await self.tick()
+            error = np.linalg.inv(self.pose(stud) @ relative) @ self.pose(hole)
+            connected = are_parts_connected(stud, hole)
+            print(
+                f"YAM_PRESS {connection.hole} depth={depth:.4f} connected={connected} "
+                f"offset={error[:3, 3]} "
+                f"angle={Rotation.from_matrix(error[:3, :3]).magnitude():.6g}",
+                flush=True,
+            )
+            pick["press_depth_m"] = depth
+            if connected:
+                break
         await self.grip(0.06)
         await self.move(approach, speed=0.035)
         if not are_parts_connected(stud, hole):
