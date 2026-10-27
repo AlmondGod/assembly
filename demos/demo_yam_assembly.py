@@ -213,10 +213,9 @@ class Demo:
         # Spawn disconnected bricks before physics; never teleport during actions.
         scene_parts = self.target.topology["parts"]
         if isinstance(self.basket, BulkBasket):
-            template = scene_parts[1]
-            scene_parts = [scene_parts[0]] + [
-                dict(template, id=part) for part in scattered
-            ]
+            template = next(part for part in scene_parts if part["id"] != 0)
+            baseplate = next(part for part in scene_parts if part["id"] == 0)
+            scene_parts = [baseplate] + [dict(template, id=part) for part in scattered]
         for index, part in enumerate(scene_parts):
             topology = dict(
                 self.target.topology,
@@ -418,8 +417,20 @@ class Demo:
             "seed": self.seed if self.basket is not None else None,
         }
         if isinstance(self.basket, BulkBasket):
+            remaining_poses = {
+                part: YamArm.pose(path) for part, path in loose_paths.items()
+            }
+            outside = [
+                part
+                for part, pose in remaining_poses.items()
+                if np.any(pose[:2, 3] < self.basket.minimum)
+                or np.any(pose[:2, 3] > self.basket.maximum)
+                or not self.basket.floor - 0.002 <= pose[2, 3] <= self.basket.rim
+            ]
+            if outside:
+                raise RuntimeError(f"Unconsumed supply left the basket: {outside}")
             result["remaining_supply_poses"] = {
-                part: YamArm.pose(path).tolist() for part, path in loose_paths.items()
+                part: pose.tolist() for part, pose in remaining_poses.items()
             }
         if not self.scene_only and not all(connected.values()):
             raise RuntimeError(f"Assembly validation failed: {connected}")
