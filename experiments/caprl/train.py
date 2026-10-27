@@ -58,6 +58,9 @@ def main():
         parser.error(
             "Adapter loading is for evaluation; training starts at pinned base"
         )
+    if not torch.cuda.is_available():
+        parser.error("Physical training/evaluation requires the CUDA GPU runtime")
+    torch.cuda.reset_peak_memory_stats()
     args.output = args.output.resolve()
     args.output.mkdir(parents=True, exist_ok=False)
     set_seed(args.seed)
@@ -74,6 +77,7 @@ def main():
         ]
     }
     provenance = {
+        "cuda_device": torch.cuda.get_device_name(0),
         "model": MODEL,
         "revision": REVISION,
         "arguments": vars(args)
@@ -198,6 +202,8 @@ def main():
     records = reward.records
     metrics.update(
         {
+            "torch_peak_allocated_bytes": torch.cuda.max_memory_allocated(),
+            "torch_peak_reserved_bytes": torch.cuda.max_memory_reserved(),
             "rollouts": len(records),
             "format_valid_rate": sum(r["valid"] for r in records) / len(records),
             "completion_rate": sum(r["success"] for r in records) / len(records),

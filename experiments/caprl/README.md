@@ -9,12 +9,13 @@ The model writes four literal `await robot.assemble(stud, hole, arm)` calls. Pro
 Keep training dependencies separate from the existing Isaac environment. On the GPU machine, from the repository root:
 
 ```sh
+export UV_CACHE_DIR="$PWD/.cache/caprl-uv"
 uv sync --project experiments/caprl --locked
 source .runtime/environment.sh
 export PYTHONPATH="$PWD/python:$PWD"
 ```
 
-The checked-in lock pins training dependencies, including TRL 1.16.0, Transformers 5.21.0, and Torch 2.10.0. `uv` uses Python 3.12 for this project; Isaac continues using its existing Python 3.11 environment. No vLLM, flash-attn, W&B account or external model endpoint is required. Model weights are pinned to revision `2fc06364715b967f1860aea9cf38778875588b17`. The runtime environment script is the current RunPod Vulkan configuration; another machine must provide its own functioning Isaac/Vulkan setup.
+The repository-local cache avoids permission failures on the RunPod network-mounted shared cache. The checked-in lock pins training dependencies, including TRL 1.16.0, Transformers 5.21.0, and Torch 2.10.0. `uv` uses Python 3.12 for this project; Isaac continues using its existing Python 3.11 environment. No vLLM, flash-attn, W&B account or external model endpoint is required. Model weights are pinned to revision `2fc06364715b967f1860aea9cf38778875588b17`. The runtime environment script is the current RunPod Vulkan configuration; another machine must provide its own functioning Isaac/Vulkan setup.
 
 Use one training process and reserve the GPU for the entire job. Each valid generated program launches Isaac separately while the small LoRA training model remains resident. The adapter serializes its own workers, but cannot detect unrelated demos. Stop those first. Available GPU memory and this particular model/trainer combination must be verified by the physical smoke test before a longer run.
 
@@ -51,7 +52,7 @@ uv run --project experiments/caprl --locked python -m experiments.caprl.train ev
   --output outputs/caprl/grpo-eval
 ```
 
-For a bounded integration check, add `--eval-limit 1 --eval-repeats 1`; this cannot establish improvement. `metrics.json` separates format-valid rate, physical completion rate and mean verified action fraction. Compare repeated held-out completion rates and inspect failures; contact simulation can vary even for the same initial seed. Do not select checkpoints using the held-out set. More trials and independent training seeds are needed before asserting reliable gains. No real-robot transfer claim follows from these simulations.
+For a bounded integration check, add `--eval-limit 1 --eval-repeats 1`; this cannot establish improvement. `metrics.json` records peak CUDA allocation/reservation for the model process (excluding the separate simulator) and separates format-valid rate, physical completion rate and mean verified action fraction. Compare repeated held-out completion rates and inspect failures; contact simulation can vary even for the same initial seed. Do not select checkpoints using the held-out set. More trials and independent training seeds are needed before asserting reliable gains. No real-robot transfer claim follows from these simulations.
 
 ## Tests
 
