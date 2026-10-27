@@ -96,6 +96,12 @@ def main():
             ["git", "status", "--porcelain"], cwd=ROOT, text=True
         ),
         "source_sha256": hashes,
+        "adapter_sha256": {
+            name: hashlib.sha256((args.adapter / name).read_bytes()).hexdigest()
+            for name in ("adapter_config.json", "adapter_model.safetensors")
+        }
+        if args.adapter
+        else None,
         "train_seeds": TRAIN_SEEDS,
         "held_out_seeds": EVAL_SEEDS,
         "reward": "-0.25 invalid; verified actions / 4 + full completion",
@@ -174,6 +180,14 @@ def main():
         result = trainer.train()
         trainer.save_model(str(args.output / "adapter"))
         tokenizer.save_pretrained(args.output / "adapter")
+        checkpoint_hashes = {
+            path.name: hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in (args.output / "adapter").iterdir()
+            if path.is_file()
+        }
+        (args.output / "adapter-sha256.json").write_text(
+            json.dumps(checkpoint_hashes, indent=2)
+        )
         trainer.save_state()
         metrics = result.metrics
     else:
