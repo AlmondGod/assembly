@@ -118,7 +118,7 @@
       "type": "brick",
       "payload": {
         "L": 2,
-        "W": 4,
+        "W": 2,
         "H": 3,
         "color": [
           201,
@@ -132,7 +132,7 @@
       "type": "brick",
       "payload": {
         "L": 2,
-        "W": 2,
+        "W": 4,
         "H": 3,
         "color": [
           201,
@@ -257,7 +257,7 @@
     },
     {
       "id": 7,
-      "stud_id": 5,
+      "stud_id": 6,
       "hole_id": 8,
       "stud_iface": 1,
       "hole_iface": 0,
@@ -269,7 +269,7 @@
     },
     {
       "id": 8,
-      "stud_id": 6,
+      "stud_id": 5,
       "hole_id": 9,
       "stud_iface": 1,
       "hole_iface": 0,
@@ -293,7 +293,7 @@
     },
     {
       "id": 10,
-      "stud_id": 8,
+      "stud_id": 9,
       "hole_id": 11,
       "stud_iface": 1,
       "hole_iface": 0,
