@@ -157,6 +157,7 @@ class YamArm:
         loose_paths: dict[int, str] | None = None,
         source_id: int | None = None,
         press_depths: tuple[float, ...] | None = None,
+        grasp_width: float | None = None,
     ) -> dict[str, object]:
         """Grasp and place one brick, then require an actual connection.
 
@@ -170,12 +171,15 @@ class YamArm:
             source_id: Physical supply ID when distinct from the target hole ID.
             press_depths: Optional successive downward offsets in metres; stop
                 once a physical connection forms. Defaults to the scene behavior.
+            grasp_width: Optional open-finger gap in metres for known stock width.
 
         Returns:
             Pick evidence including observed source pose, attempts and lift height.
         """
         stud, hole = paths[connection.stud], paths[connection.hole]
         opening = basket.grasp_width if isinstance(basket, BulkBasket) else 0.06
+        if grasp_width is not None:
+            opening = grasp_width
         attempts = 2 if basket is not None else 1
         pick: dict[str, object] = {}
         for attempt in range(1, attempts + 1):

@@ -79,6 +79,7 @@ class Demo:
         self.events: list[dict[str, object]] = []
         self.source_poses: dict[int, np.ndarray] = {}
         self.press_depths: tuple[float, ...] | None = None
+        self.grasp_width: float | None = None
 
     async def capture(self, name: str):
         """Save a rendered frame after the viewport settles.
@@ -390,6 +391,7 @@ class Demo:
                 loose_paths=loose_paths,
                 source_id=source_id,
                 press_depths=self.press_depths,
+                grasp_width=self.grasp_width,
             )
             del loose_paths[source_id]
             if isinstance(self.basket, BulkBasket):
