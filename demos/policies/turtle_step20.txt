@@ -1,0 +1,2 @@
+await robot.assemble(0, 1, "left")
+await robot.assemble(1, 2, "right")
