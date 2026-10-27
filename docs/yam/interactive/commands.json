@@ -1,0 +1,264 @@
+[
+  {
+    "file": "command-000.json",
+    "command": {
+      "kind": "bind",
+      "target": 1,
+      "source": 134
+    }
+  },
+  {
+    "file": "command-001.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.grip(\"right\", 0.026)\nawait robot.move(\"right\", 0.3575, 0.0186, 0.1442, -0.00226, -0.31287, 0.94975, 0.00929, 0.04)"
+    }
+  },
+  {
+    "file": "command-002.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"right\", 0.3576, 0.0186, 0.165, 0.0, -0.326, 0.94537, 0.0, 0.025)"
+    }
+  },
+  {
+    "file": "command-003.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"right\", 0.2598, 0.1601, 0.175, 0, 0, 1, 0, 0.04)"
+    }
+  },
+  {
+    "file": "command-004.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.grip(\"left\", 0.026)\nawait robot.move(\"left\", 0.3587, 0.0187, 0.145, -0.00985, 0.93437, 0.35615, -0.00285, 0.04)"
+    }
+  },
+  {
+    "file": "command-005.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"left\", 0.3331, -0.0272, 0.105, -0.00672, 0.96344, 0.26779, -0.00442, 0.025)"
+    }
+  },
+  {
+    "file": "command-006.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"left\", 0.3587, 0.0192, 0.105, -0.00968, 0.92612, 0.37709, -0.00397, 0.025)"
+    }
+  },
+  {
+    "file": "command-007.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"left\", 0.3587, 0.0192, 0.0441, -0.0096, 0.92531, 0.37906, -0.00383, 0.015)"
+    }
+  },
+  {
+    "file": "command-008.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.grip(\"left\", 0.0)"
+    }
+  },
+  {
+    "file": "command-009.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"left\", 0.3575, 0.0175, 0.095, -0.00905, 0.92530, 0.37909, -0.00601, 0.025)"
+    }
+  },
+  {
+    "file": "command-010.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"left\", 0.260, -0.015, 0.130, -0.00839, 0.92527, 0.37911, -0.00870, 0.035)"
+    }
+  },
+  {
+    "file": "command-011.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"left\", 0.15384, 0.00023, 0.11873, 0.00420, 0.999989, -0.000129, -0.002061, 0.03)"
+    }
+  },
+  {
+    "file": "command-012.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"left\", 0.153861, 0.000231, 0.008232, 0.004211, 0.999989, -0.000060, -0.002263, 0.015)"
+    }
+  },
+  {
+    "file": "command-013.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.grip(\"left\", 0.026)\nawait robot.move(\"left\", 0.15386, 0.00023, 0.11873, 0.004211, 0.999989, -0.000060, -0.002263, 0.035)\nawait robot.move(\"left\", 0.2598, -0.1601, 0.175, 0, 1, 0, 0, 0.04)"
+    }
+  },
+  {
+    "file": "command-014.json",
+    "command": {
+      "kind": "bind",
+      "target": 2,
+      "source": 144
+    }
+  },
+  {
+    "file": "command-015.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"right\", 0.27609, 0.08168, 0.13268, 0.000143, -0.67623, 0.73669, -0.000325, 0.035)"
+    }
+  },
+  {
+    "file": "command-016.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"right\", 0.276145, 0.081640, 0.032695, -0.000004, -0.675229, 0.737608, -0.000215, 0.015)"
+    }
+  },
+  {
+    "file": "command-017.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.grip(\"right\", 0.0)\nawait robot.move(\"right\", 0.276145, 0.081640, 0.132695, -0.000004, -0.675229, 0.737608, -0.000215, 0.035)"
+    }
+  },
+  {
+    "file": "command-018.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"right\", 0.156186, 0.000447, 0.119578, -0.000168, -0.000034, 0.999999, 0.001222, 0.035)"
+    }
+  },
+  {
+    "file": "command-019.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"right\", 0.156256, 0.000450, 0.019087, -0.000155, 0.000451, 0.999999, 0.001413, 0.015)"
+    }
+  },
+  {
+    "file": "command-020.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.grip(\"right\", 0.026)\nawait robot.move(\"right\", 0.156256, 0.000450, 0.119087, -0.000155, 0.000451, 0.999999, 0.001413, 0.035)\nawait robot.move(\"right\", 0.2598, 0.1601, 0.175, 0, 0, 1, 0, 0.04)"
+    }
+  },
+  {
+    "file": "command-021.json",
+    "command": {
+      "kind": "bind",
+      "target": 3,
+      "source": 128
+    }
+  },
+  {
+    "file": "command-022.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"right\", 0.35171, 0.02376, 0.1029, -0.00492, -0.05913, 0.99821, 0.00691, 0.035)"
+    }
+  },
+  {
+    "file": "command-023.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"right\", 0.35162, 0.02376, 0.03298, -0.00501, -0.05824, 0.99825, 0.00888, 0.015)"
+    }
+  },
+  {
+    "file": "command-024.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.grip(\"right\", 0.0)\nawait robot.move(\"right\", 0.3505, 0.025, 0.105, -0.00501, -0.05824, 0.99825, 0.00888, 0.03)"
+    }
+  },
+  {
+    "file": "command-025.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"right\", 0.156165, 0.000461, 0.128617, -0.000505, 0.000130, 0.999978, 0.006682, 0.035)"
+    }
+  },
+  {
+    "file": "command-026.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"right\", 0.156241, 0.000461, 0.028117, 0.000087, 0.000069, 0.999979, 0.006551, 0.015)"
+    }
+  },
+  {
+    "file": "command-027.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.grip(\"right\", 0.026)\nawait robot.move(\"right\", 0.156241, 0.000461, 0.128117, 0.000087, 0.000069, 0.999979, 0.006551, 0.035)\nawait robot.move(\"right\", 0.2598, 0.1601, 0.175, 0, 0, 1, 0, 0.04)"
+    }
+  },
+  {
+    "file": "command-028.json",
+    "command": {
+      "kind": "bind",
+      "target": 4,
+      "source": 137
+    }
+  },
+  {
+    "file": "command-029.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"left\", 0.306291, -0.003932, 0.121436, -0.013624, 0.947743, -0.318734, 0.002614, 0.035)"
+    }
+  },
+  {
+    "file": "command-030.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"left\", 0.306244, -0.003915, 0.021423, -0.012916, 0.947519, -0.319436, 0.001157, 0.015)"
+    }
+  },
+  {
+    "file": "command-031.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.grip(\"left\", 0.0)\nawait robot.move(\"left\", 0.306244, -0.003915, 0.121423, -0.012916, 0.947519, -0.319436, 0.001157, 0.035)"
+    }
+  },
+  {
+    "file": "command-032.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"left\", 0.153753, -0.000617, 0.137897, -0.023673, 0.999720, 0.000069, -0.000097, 0.035)"
+    }
+  },
+  {
+    "file": "command-033.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.move(\"left\", 0.153813, -0.000615, 0.037397, -0.023685, 0.999719, -0.000174, 0.000074, 0.015)"
+    }
+  },
+  {
+    "file": "command-034.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.grip(\"left\", 0.026)\nawait robot.move(\"left\", 0.153813, -0.000615, 0.137397, -0.023685, 0.999719, -0.000174, 0.000074, 0.035)\nawait robot.move(\"left\", 0.2598, -0.1601, 0.175, 0, 1, 0, 0.04)"
+    }
+  },
+  {
+    "file": "command-035.json",
+    "command": {
+      "kind": "motion",
+      "program": "await robot.grip(\"left\", 0.026)\nawait robot.move(\"left\", 0.153813, -0.000615, 0.137397, -0.023685, 0.999719, -0.000174, 0.000074, 0.035)\nawait robot.move(\"left\", 0.2598, -0.1601, 0.175, 0, 1, 0, 0, 0.04)"
+    }
+  },
+  {
+    "file": "command-036.json",
+    "command": {
+      "kind": "finish"
+    }
+  }
+]

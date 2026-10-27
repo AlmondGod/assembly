@@ -156,3 +156,7 @@ The [inventory](clutter/inventory.json), [settled counts](clutter/settled-summar
 ## Direct end-effector policies
 
 The [Cartesian experiment](CARTESIAN.md) exposes tool pose and gripper commands to Qwen with numerical inverse kinematics, starting with one loose brick. This mode bypasses the complete assembly primitive. The documented grasp-only example includes a real Qwen-generated program and physical lift.
+
+## Interactive clutter trial
+
+The [interactive compact-basket experiment](INTERACTIVE.md) records assistant-selected direct motions and simulator observations for a four-brick tower.

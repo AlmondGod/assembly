@@ -1,0 +1,92 @@
+{
+  "planner": "assistant in this chat",
+  "observation": "simulator poses",
+  "grasp_control": "assistant-directed TCP moves and gripper commands with numerical IK",
+  "seed": 7,
+  "source_count": 50,
+  "connected_bricks": 4,
+  "remaining_bricks": 46,
+  "picks": [
+    {
+      "source_id": 134,
+      "arm": "left",
+      "lift_m": 0.050643,
+      "observed_finger_gap_m": 0.017189747653901577
+    },
+    {
+      "source_id": 144,
+      "arm": "right",
+      "lift_m": 0.099888,
+      "observed_finger_gap_m": 0.017192846164107323
+    },
+    {
+      "source_id": 128,
+      "arm": "right",
+      "lift_m": 0.071852,
+      "observed_finger_gap_m": 0.017196204513311386
+    },
+    {
+      "source_id": 137,
+      "arm": "left",
+      "lift_m": 0.100301,
+      "observed_finger_gap_m": 0.01719855424016714
+    }
+  ],
+  "outside_remaining_centers": [],
+  "final_connections": {
+    "1": {
+      "bound": true,
+      "source_id": 134,
+      "connected": true,
+      "position_error_m": 8.63443537238862e-09,
+      "angle_error_rad": 2.2125899651561142e-07,
+      "valid": true
+    },
+    "2": {
+      "bound": true,
+      "source_id": 144,
+      "connected": true,
+      "position_error_m": 1.6263332628814772e-08,
+      "angle_error_rad": 1.4407935637919166e-07,
+      "valid": true
+    },
+    "3": {
+      "bound": true,
+      "source_id": 128,
+      "connected": true,
+      "position_error_m": 4.5395311784847064e-08,
+      "angle_error_rad": 1.2150787912817844e-07,
+      "valid": true
+    },
+    "4": {
+      "bound": true,
+      "source_id": 137,
+      "connected": true,
+      "position_error_m": 1.652133961237683e-08,
+      "angle_error_rad": 8.723027566170931e-12,
+      "valid": true
+    }
+  },
+  "command_errors": [
+    {
+      "index": 1,
+      "error": "YAM target unreachable: residual=[-8.001285189251917e-05, 4.9150722854190976e-05, -0.00011373104735928896, 0.00016995387174277408, -9.184278998697009e-05, 2.3906336102743285e-14]"
+    },
+    {
+      "index": 2,
+      "error": "YAM target unreachable: residual=[-6.086708220481851e-05, 3.735526402814937e-05, -8.650731268305956e-05, 0.00012951180331442134, -7.017405573666432e-05, 1.0534412787484704e-14]"
+    },
+    {
+      "index": 4,
+      "error": "YAM target unreachable: residual=[-6.090275365538966e-05, -3.881046986342618e-05, -8.744413255507011e-05, 4.8837784696495916e-06, 0.0001470897435266651, 1.6567041692190444e-15]"
+    },
+    {
+      "index": 6,
+      "error": "YAM target unreachable: residual=[-7.886190483502586e-05, -5.6054495432888984e-05, -7.140325159077365e-05, -1.684672774431901e-05, 0.00012453825734252838, 1.9860207830217622e-15]"
+    },
+    {
+      "index": 34,
+      "error": "Expected positional robot.move or robot.grip"
+    }
+  ]
+}
