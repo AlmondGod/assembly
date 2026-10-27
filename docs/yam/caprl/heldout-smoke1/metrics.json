@@ -1,0 +1,9 @@
+{
+  "torch_peak_allocated_bytes": 1817746432,
+  "torch_peak_reserved_bytes": 1881145344,
+  "rollouts": 1,
+  "format_valid_rate": 1.0,
+  "completion_rate": 0.0,
+  "mean_verified_fraction": 0.0,
+  "evaluation_is_held_out": true
+}

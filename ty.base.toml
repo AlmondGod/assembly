@@ -2,6 +2,9 @@
 respect-ignore-files = true
 include = ["**/*.py"]
 exclude = [
+    # Checked against the isolated, locked training environment.
+    "experiments/caprl/train.py",
+    "experiments/caprl/tests/test_trainers.py",
     "demos/demo_assembly.py",
     "demos/demo_inhand.py",
     "demos/demo_keyboard_teleop.py",

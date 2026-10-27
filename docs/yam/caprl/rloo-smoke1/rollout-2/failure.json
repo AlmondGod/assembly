@@ -1,0 +1,5 @@
+{
+  "exception_type": "RuntimeError",
+  "message": "YAM target unreachable: residual=[-0.00016287421880428754, -0.00011589694662228478, -0.0001750122901627571, 0.0001688413088574649, 0.0002499952489788722, -8.959127534141007e-15]",
+  "expected_controller_failure": true
+}

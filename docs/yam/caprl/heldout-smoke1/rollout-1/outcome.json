@@ -1,0 +1,9 @@
+{
+  "directory": "/opt/BrickSim/outputs/caprl/heldout-smoke1/rollouts/seed-1000-ab8408faa13a46b4b6bad0041cd28280",
+  "seed": 1000,
+  "valid": true,
+  "completed": 0,
+  "success": false,
+  "status": "failed",
+  "reward": 0.0
+}

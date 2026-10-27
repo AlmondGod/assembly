@@ -1,0 +1,15 @@
+{
+  "train_runtime": 73.0166,
+  "train_samples_per_second": 0.027,
+  "train_steps_per_second": 0.014,
+  "total_flos": 0.0,
+  "train_loss": 0.0,
+  "epoch": 0.03125,
+  "torch_peak_allocated_bytes": 1889468928,
+  "torch_peak_reserved_bytes": 1962934272,
+  "rollouts": 2,
+  "format_valid_rate": 1.0,
+  "completion_rate": 0.0,
+  "mean_verified_fraction": 0.0,
+  "evaluation_is_held_out": false
+}

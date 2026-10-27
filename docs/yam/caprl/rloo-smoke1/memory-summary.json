@@ -1,0 +1,7 @@
+{
+  "sampling_interval_seconds": 1,
+  "samples": 334,
+  "combined_gpu_peak_mib": 4106,
+  "gpu_total_mib": 20475,
+  "raw_csv": "/opt/BrickSim/outputs/caprl/rloo-smoke1-memory.csv"
+}
