@@ -156,6 +156,7 @@ class YamArm:
         basket: Basket | None = None,
         loose_paths: dict[int, str] | None = None,
         source_id: int | None = None,
+        press_depths: tuple[float, ...] | None = None,
     ) -> dict[str, object]:
         """Grasp and place one brick, then require an actual connection.
 
@@ -167,6 +168,8 @@ class YamArm:
             basket: Optional shallow basket for live approach clearance checks.
             loose_paths: All unplaced brick paths; required with a basket.
             source_id: Physical supply ID when distinct from the target hole ID.
+            press_depths: Optional successive downward offsets in metres; stop
+                once a physical connection forms. Defaults to the scene behavior.
 
         Returns:
             Pick evidence including observed source pose, attempts and lift height.
@@ -235,7 +238,9 @@ class YamArm:
         approach[2, 3] += 0.10
         print(f"YAM_PLACE {hole} onto {stud}", flush=True)
         await self.move(approach)
-        for depth in [0.0005, 0.0015, 0.0025] if basket is not None else [0.0005]:
+        if press_depths is None:
+            press_depths = (0.0005, 0.0015, 0.0025) if basket is not None else (0.0005,)
+        for depth in press_depths:
             press = goal.copy()
             press[2, 3] -= depth
             await self.move(press, speed=0.015, tolerance=0.003)

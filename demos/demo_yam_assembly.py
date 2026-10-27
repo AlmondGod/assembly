@@ -77,6 +77,8 @@ class Demo:
                 raise ValueError("Basket mode requires four 2x4x3 bricks with IDs 1..4")
         self.paths: dict[int, str] = {}
         self.events: list[dict[str, object]] = []
+        self.source_poses: dict[int, np.ndarray] = {}
+        self.press_depths: tuple[float, ...] | None = None
 
     async def capture(self, name: str):
         """Save a rendered frame after the viewport settles.
@@ -174,6 +176,7 @@ class Demo:
         thresholds.position_tolerance = 0.002
         set_assembly_thresholds(thresholds)
         scattered = {} if self.basket is None else self.basket.scatter(self.seed)
+        scattered.update(self.source_poses)
         if self.basket is not None:
             basket = self.basket
             center = (basket.minimum + basket.maximum) / 2
@@ -384,6 +387,7 @@ class Demo:
                 basket=self.basket,
                 loose_paths=loose_paths,
                 source_id=source_id,
+                press_depths=self.press_depths,
             )
             del loose_paths[source_id]
             if isinstance(self.basket, BulkBasket):
@@ -437,7 +441,7 @@ class Demo:
         (self.output / "result.json").write_text(json.dumps(result, indent=2))
         print("YAM_RESULT " + json.dumps(result), flush=True)
         await self.capture("yam-result.png")
-        tower_x = 0.155 if self.basket is not None else 0.32
+        tower_x = float(YamArm.pose(self.paths[0])[0, 3])
         set_camera_view(
             np.array([tower_x + 0.23, -0.35, 0.28]), np.array([tower_x, 0, 0.025])
         )
@@ -445,9 +449,14 @@ class Demo:
         await world.stop_async()
 
 
-async def main():
-    """Run the demo, save failure evidence and request application exit."""
-    demo = Demo()
+async def main(demo: Demo | None = None):
+    """Run a scene, save failure evidence and request application exit.
+
+    Args:
+        demo: Configured scene, or the default tower when omitted.
+    """
+    if demo is None:
+        demo = Demo()
     try:
         (demo.output / "result.json").write_text('{"status": "running"}\n')
         await demo.run()
