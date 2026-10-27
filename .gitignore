@@ -10,3 +10,5 @@ build/
 logs/
 outputs/
 ty.toml
+
+.venv-qwen/

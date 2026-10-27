@@ -1,0 +1,8 @@
+{
+  "model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "prompt": "Write Python code for two YAM robot arms to assemble a brick tower. Return ONLY code, no markdown and no explanation. The ONLY allowed statement is await robot.assemble(stud, hole, arm). stud and hole must be integer literals; arm must be \"left\" or \"right\". Baseplate 0 is already placed. Every other brick must be placed once. Place a supporting brick before placing a brick on it. Alternate left and right arms, starting with left. The simulator handles the target offsets and physical grasping. Desired connections: [{\"stud\": 0, \"hole\": 1}, {\"stud\": 1, \"hole\": 2}, {\"stud\": 2, \"hole\": 3}, {\"stud\": 3, \"hole\": 4}]",
+  "target_sha256": "4942b11d440a378204a31a5b4cdf4987eb044043a23bb6dda00b8388d8e80ae5",
+  "do_sample": false,
+  "max_new_tokens": 512
+}

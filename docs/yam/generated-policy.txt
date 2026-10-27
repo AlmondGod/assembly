@@ -1,0 +1,4 @@
+await robot.assemble(stud=0, hole=1, arm="left")
+await robot.assemble(stud=1, hole=2, arm="right")
+await robot.assemble(stud=2, hole=3, arm="left")
+await robot.assemble(stud=3, hole=4, arm="right")
