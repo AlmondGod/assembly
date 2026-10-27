@@ -27,6 +27,7 @@ class HeartDemo(demo_yam_assembly.Demo):
         self.source_poses = HeartLayout.poses()
         self.press_depths = (0.0005, 0.0015, 0.0025)
         self.grasp_width = 0.026
+        self.top_press = True
         if not self.scene_only:
             actions = self.target.parse_policy(self.policy.read_text())
             expected = [

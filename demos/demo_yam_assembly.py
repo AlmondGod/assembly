@@ -79,6 +79,7 @@ class Demo:
         self.events: list[dict[str, object]] = []
         self.source_poses: dict[int, np.ndarray] = {}
         self.press_depths: tuple[float, ...] | None = None
+        self.top_press = False
         self.grasp_width: float | None = None
 
     async def capture(self, name: str):
@@ -397,6 +398,7 @@ class Demo:
                 source_id=source_id,
                 press_depths=self.press_depths,
                 grasp_width=self.grasp_width,
+                top_press=self.top_press,
             )
             del loose_paths[source_id]
             if isinstance(self.basket, BulkBasket):
