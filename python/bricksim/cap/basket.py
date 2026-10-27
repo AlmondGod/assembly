@@ -107,9 +107,12 @@ class BulkBasket(Basket):
     maximum = np.array([0.56, 0.30])
     grasp_width = 0.026
     grasp_half_size = np.array([0.027, 0.023])
+    spawn_layers = 1
+    spawn_padding = 0.005
+    spawn_yaw = 30
 
     def scatter(self, seed: int) -> dict[int, np.ndarray]:
-        """Return fifty separated, randomized initial poses above the bin floor.
+        """Return fifty nonintersecting poses in randomized initial layers.
 
         Args:
             seed: Nonnegative NumPy random seed.
@@ -117,22 +120,30 @@ class BulkBasket(Basket):
         Returns:
             Physical supply IDs 101..150 mapped to metre world transforms.
             XY and yaw vary independently; no brick is reserved for a target.
+            Multi-layer modes fall and settle under physics after initialization.
         """
         generator = np.random.default_rng(seed)
         poses = {}
         rectangles = []
+        per_layer = 50 // self.spawn_layers
         for index in range(50):
+            if index % per_layer == 0:
+                rectangles = []
             for _ in range(1000):
                 pose = np.eye(4)
                 pose[:3, :3] = Rotation.from_euler(
-                    "z", generator.uniform(-30, 30), degrees=True
+                    "z",
+                    generator.uniform(-self.spawn_yaw, self.spawn_yaw),
+                    degrees=True,
                 ).as_matrix()
                 pose[:2, 3] = generator.uniform(
                     self.minimum + [0.03, 0.03],
                     self.maximum - [0.03, 0.03],
                 )
-                pose[2, 3] = self.floor + 0.001
-                rectangle = self.corners(pose, self.brick_half_size + 0.005)
+                pose[2, 3] = self.floor + 0.001 + (index // per_layer) * 0.025
+                rectangle = self.corners(
+                    pose, self.brick_half_size + self.spawn_padding
+                )
                 if all(
                     any(
                         (rectangle @ axis).max() < (other @ axis).min()
@@ -179,7 +190,10 @@ class BulkBasket(Basket):
             )
             if top < pose[2, 3] + 0.003:
                 continue
-            rectangle = self.corners(neighbor, self.brick_half_size)
+            bottom = self.corners(neighbor, self.brick_half_size)
+            rectangle = np.concatenate(
+                [bottom, bottom + neighbor[:2, 2] * 0.0114]
+            )
             axes = np.concatenate([pose[:2, :2].T, neighbor[:2, :2].T])
             if not any(
                 (footprint @ axis).max() < (rectangle @ axis).min()
@@ -215,3 +229,19 @@ class BulkBasket(Basket):
             else:
                 accepted.append(part)
         return accepted, rejected
+
+
+class CompactBasket(BulkBasket):
+    """Fifty identical bricks dropped into a smaller bin to produce clutter.
+
+    Five separated spawn layers prevent initial interpenetration. Settling may
+    leave tilted, covered or rim-obstructed bricks; inherited clearance checks
+    reject these rather than relocating bricks to manufacture a supported pick.
+    """
+
+    minimum = np.array([0.245, -0.12])
+    maximum = np.array([0.425, 0.12])
+    rim = 0.075
+    spawn_layers = 5
+    spawn_padding = 0.001
+    spawn_yaw = 180
