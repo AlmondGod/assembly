@@ -77,6 +77,22 @@ Bulk candidate selection keeps an extra 2 mm of clearance and reobserves the bin
 
 This is a simulation prototype with known object poses. It supports exposed, nearly upright picks from a shallow supply; it does not yet reorient arbitrary sideways bricks, use camera estimates, untangle connected clusters or plan collision-free paths for every arm link. The existing four-brick basket and tabletop modes are unchanged.
 
+## Compact cluttered supply
+
+Set `YAM_BASKET_LAYOUT=compact` with `YAM_BASKET=1 YAM_SUPPLY_COUNT=50` to shrink the inner bin from 315×600 mm to 180×240 mm (23% of its previous floor area). The 75 mm walls contain fifty identical red 2×4 bricks. They start in five collision-free randomized layers and fall under gravity into a cluttered pile. Yaw covers a full turn; no physical source ID is reserved for a tower step.
+
+```sh
+YAM_BASKET=1 YAM_SUPPLY_COUNT=50 YAM_BASKET_LAYOUT=compact YAM_SEED=7 \
+  YAM_POLICY=outputs/yam/policy.py YAM_OUTPUT=outputs/yam-clutter \
+  uv run --no-sync bricksim \
+  --/app/window/enabled=false --/isaac/startup/ros_bridge_extension= \
+  demos/demo_yam_assembly.py
+```
+
+Add `YAM_SCENE_ONLY=1` for a settled scene preview. `inventory.json` records the bin dimensions and actual settled poses; `yam-basket.png` provides a close-up of the settled clutter. The existing shallow mode remains the default when this setting is omitted.
+
+Compact clutter is a harder scene, not a claim of arbitrary bin picking. The controller still requires a nearly upright source, clear fingers and reachable poses. It conservatively projects all eight corners of tilted neighboring bricks when checking obstruction. It fails explicitly when no supported source remains; it does not spread, teleport or reserve easy bricks. The controller cannot yet reorient sideways pieces or separate connected clusters. The first physical compact run is documented below.
+
 ## Bulk validation evidence
 
 The final seed-11 GPU run against commit `2bfd4f4` completed all four connections using supply IDs 123, 139, 117 and 143, with first-attempt lifts of 99.7–99.9 mm and 46 unused sources remaining in the bin. The optional top press was not needed in that successful run. All 36 focused tests, repository-wide lint and type checks passed. Results, source manifests, validation logs and before/after images are saved under [bulk/](bulk/). The pose-read comparison reproduced ten incorrect temporary-view readings across 400 stationary-scene queries; direct Fabric primitive reads remained consistent to floating-point precision. The controller now uses the direct reader for both supply and robot poses.
@@ -128,3 +144,11 @@ The [seed-7 result](basket/result-seed7.json), [seed-11 result](basket/result-se
 ## Assemble an eleven-brick heart
 
 The [separate heart demonstration](HEART.md) uses exactly two YAM arms, six 2×4 bricks and five 2×2 bricks from organized tabletop sources, with a fresh Qwen3.5-0.8B policy and a support baseplate.
+
+## Verified compact scene and blocked attempt
+
+On 2026-10-27 UTC, compact seed 7 settled all 50 source centers inside the 180×240 mm bin. The actual pile had 24 bricks tilted more than 5°; brick-bottom heights ranged from 2.99 to 37.14 mm. Neither arm had a supported clear candidate: across the full inventory, 24 were rejected for tilt, 19 for neighboring bricks and 7 for the rim. The policy stopped before its first grasp with `No reachable clear bulk brick`; no tower was assembled from this pile. These counts describe the captured settled inventory, not a success-rate estimate.
+
+The [inventory](clutter/inventory.json), [settled counts](clutter/settled-summary.json), [blocked result](clutter/result.json), [source hashes](clutter/source-hashes.json) and [validation log](clutter/validation.log) preserve the evidence. All 41 pure tests and repository-wide ruff/ty passed. The earlier shallow supply remains the demonstrated assembly baseline. General pile picking needs additional grasp/reorientation capabilities beyond this conservative top-down controller.
+
+![Actual fifty-brick clutter in the 180×240 mm compact basket](clutter/yam-basket.png)

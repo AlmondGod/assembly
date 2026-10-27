@@ -1,0 +1,57 @@
+YAM_KINEMATICS_OK yam_left error=1.13304e-06
+YAM_KINEMATICS_OK yam_right error=1.02459e-06
+YAM_GRASP /World/managed/Parts/Part_1 attempt=1 source=[ 2.00000510e-01 -1.39999732e-01  1.53668225e-08]
+YAM_PLACE /World/managed/Parts/Part_1 onto /World/managed/Parts/Part_0
+YAM_PRESS 1 depth=0.0005 connected=True offset=[-2.50413516e-05  2.25518908e-05 -3.79897822e-04] angle=0.00918719
+YAM_CONNECTED 0 1 position_error=3.09054e-08 angle_error=1.88423e-06
+YAM_GRASP /World/managed/Parts/Part_2 attempt=1 source=[2.00000763e-01 1.40000150e-01 7.82310963e-08]
+YAM_PLACE /World/managed/Parts/Part_2 onto /World/managed/Parts/Part_1
+YAM_PRESS 2 depth=0.0005 connected=True offset=[-1.73236824e-05 -1.60363480e-05 -1.92827291e-04] angle=0.00466589
+YAM_CONNECTED 1 2 position_error=1.19351e-07 angle_error=3.6679e-07
+YAM_GRASP /World/managed/Parts/Part_3 attempt=1 source=[ 2.90000737e-01 -1.39999852e-01  7.77654350e-08]
+YAM_PLACE /World/managed/Parts/Part_3 onto /World/managed/Parts/Part_2
+YAM_PRESS 3 depth=0.0005 connected=True offset=[-3.54259545e-05 -9.43943922e-05 -3.07253458e-04] angle=0.0121678
+YAM_CONNECTED 2 3 position_error=9.07026e-08 angle_error=5.96019e-08
+YAM_GRASP /World/managed/Parts/Part_4 attempt=1 source=[2.90000618e-01 1.40000075e-01 5.44823706e-08]
+YAM_PLACE /World/managed/Parts/Part_4 onto /World/managed/Parts/Part_2
+YAM_PRESS 4 depth=0.0005 connected=True offset=[-3.43885274e-06 -2.06214873e-07 -8.61094588e-05] angle=0.00394118
+YAM_CONNECTED 2 4 position_error=4.74381e-08 angle_error=1.88724e-07
+YAM_GRASP /World/managed/Parts/Part_5 attempt=1 source=[ 3.79999220e-01 -1.40000165e-01 -2.22120434e-07]
+YAM_PLACE /World/managed/Parts/Part_5 onto /World/managed/Parts/Part_3
+YAM_PRESS 5 depth=0.0005 connected=True offset=[-1.77366483e-05  1.69952651e-05 -1.81731062e-04] angle=0.00325005
+YAM_CONNECTED 3 5 position_error=9.41556e-08 angle_error=3.82051e-10
+YAM_GRASP /World/managed/Parts/Part_6 attempt=1 source=[ 3.79998893e-01  1.39999792e-01 -2.66358256e-07]
+YAM_PLACE /World/managed/Parts/Part_6 onto /World/managed/Parts/Part_4
+YAM_PRESS 6 depth=0.0005 connected=True offset=[-7.12513149e-06 -2.63498490e-05 -1.82089739e-04] angle=0.0018385
+YAM_CONNECTED 4 6 position_error=3.14313e-08 angle_error=1.995e-07
+YAM_GRASP /World/managed/Parts/Part_7 attempt=1 source=[ 1.99999884e-01 -2.40000919e-01 -2.60304660e-07]
+YAM_PLACE /World/managed/Parts/Part_7 onto /World/managed/Parts/Part_5
+YAM_PRESS 7 depth=0.0005 connected=True offset=[-7.02725703e-05 -2.33721472e-05 -2.77666716e-04] angle=0.0129783
+YAM_CONNECTED 5 7 position_error=7.17442e-08 angle_error=3.73718e-07
+YAM_GRASP /World/managed/Parts/Part_8 attempt=1 source=[2.00000301e-01 2.40000233e-01 6.98491931e-09]
+YAM_PLACE /World/managed/Parts/Part_8 onto /World/managed/Parts/Part_6
+YAM_PRESS 8 depth=0.0005 connected=True offset=[-1.45857289e-05  8.50986022e-05 -3.07282634e-04] angle=0.00376085
+YAM_CONNECTED 6 8 position_error=1.36733e-07 angle_error=4.05494e-06
+YAM_GRASP /World/managed/Parts/Part_9 attempt=1 source=[ 2.89998889e-01 -2.40000203e-01 -2.64495611e-07]
+YAM_PLACE /World/managed/Parts/Part_9 onto /World/managed/Parts/Part_5
+YAM_PRESS 9 depth=0.0005 connected=False offset=[-0.00028473 -0.00199827  0.00649939] angle=0.309357
+YAM_PRESS 9 depth=0.0015 connected=False offset=[-0.00028866 -0.00201704  0.00646515] angle=0.308301
+YAM_PRESS 9 depth=0.0025 connected=False offset=[-0.00035196 -0.00205905  0.00641869] angle=0.306998
+YAM_TOP_PRESS 9 depth=0.0005 connected=True
+YAM_CONNECTED 5 9 position_error=1.81663e-07 angle_error=1.63162e-07
+YAM_GRASP /World/managed/Parts/Part_10 attempt=1 source=[ 2.89999932e-01  2.39999071e-01 -2.63098627e-07]
+YAM_PLACE /World/managed/Parts/Part_10 onto /World/managed/Parts/Part_7
+YAM_PRESS 10 depth=0.0005 connected=False offset=[-0.00034291  0.00038804  0.00172572] angle=0.0103782
+YAM_PRESS 10 depth=0.0015 connected=False offset=[-0.00035018  0.00033837  0.00171356] angle=0.0116404
+YAM_PRESS 10 depth=0.0025 connected=False offset=[-0.0002984   0.00034081  0.00169093] angle=0.0104443
+YAM_TOP_PRESS 10 depth=0.0005 connected=True
+YAM_CONNECTED 7 10 position_error=1.53968e-08 angle_error=7.97227e-07
+YAM_GRASP /World/managed/Parts/Part_11 attempt=1 source=[ 3.79999936e-01 -2.40000919e-01 -2.59838998e-07]
+YAM_PLACE /World/managed/Parts/Part_11 onto /World/managed/Parts/Part_9
+YAM_PRESS 11 depth=0.0005 connected=False offset=[-0.0003526  -0.00038537  0.00173121] angle=0.0108017
+YAM_PRESS 11 depth=0.0015 connected=False offset=[-0.00034969 -0.00031559  0.00171724] angle=0.00626644
+YAM_PRESS 11 depth=0.0025 connected=False offset=[-0.00035056 -0.0003344   0.00177335] angle=0.0070767
+YAM_TOP_PRESS 11 depth=0.0005 connected=True
+YAM_CONNECTED 9 11 position_error=6.04298e-09 angle_error=3.20634e-07
+YAM_RESULT {"status": "success", "connections": {"1": true, "2": true, "3": true, "4": true, "5": true, "6": true, "7": true, "8": true, "9": true, "10": true, "11": true}, "actions": [{"stud": 0, "hole": 1, "arm": "left", "connected": true, "pick": {"attempts": 1, "source_pose": [[0.9999999998159109, 8.187966728581881e-08, 1.9187792627383248e-05, 0.20000050961971283], [-8.207866813845193e-08, 0.9999999999462155, 1.037122121297041e-05, -0.13999973237514496], [-1.91877917771591e-05, -1.0371222785969644e-05, 0.9999999997621332, 1.5366822481155396e-08], [0.0, 0.0, 0.0, 1.0]], "lift_m": 0.09995955182239413, "press_depth_m": 0.0005}}, {"stud": 1, "hole": 2, "arm": "right", "connected": true, "pick": {"attempts": 1, "source_pose": [[0.9999999995851683, 4.231932702549051e-06, 2.8491299377395106e-05, 0.20000076293945312], [-4.231926177061441e-06, 0.9999999999910192, -2.2909468099374996e-07, 0.1400001496076584], [-2.8491300346652502e-05, 2.2897410782306055e-07, 0.9999999995940967, 7.82310962677002e-08], [0.0, 0.0, 0.0, 1.0]], "lift_m": 0.09996819868683815, "press_depth_m": 0.0005}}, {"stud": 2, "hole": 3, "arm": "left", "connected": true, "pick": {"attempts": 1, "source_pose": [[0.9999999995834034, 4.2319348066541055e-06, 2.855317713133357e-05, 0.2900007367134094], [-4.231926092922697e-06, 0.9999999999909989, -3.0523595611144216e-07, -0.1399998515844345], [-2.855317842281522e-05, 3.0511512104894395e-07, 0.9999999995923115, 7.776543498039246e-08], [0.0, 0.0, 0.0, 1.0]], "lift_m": 0.09991094889119267, "press_depth_m": 0.0005}}, {"stud": 2, "hole": 4, "arm": "right", "connected": true, "pick": {"attempts": 1, "source_pose": [[0.9999999997976752, 3.2782523958869704e-06, 1.9846984657753485e-05, 0.2900006175041199], [-3.2782602405363288e-06, 0.9999999999945484, 3.9522396435322374e-07, 0.14000007510185242], [-1.984698336200138e-05, -3.952890278539582e-07, 0.9999999998029705, 5.448237061500549e-08], [0.0, 0.0, 0.0, 1.0]], "lift_m": 0.09990276908501983, "press_depth_m": 0.0005}}, {"stud": 3, "hole": 5, "arm": "left", "connected": true, "pick": {"attempts": 1, "source_pose": [[0.9999999995235431, -5.4240531038719765e-06, -3.0389033437808376e-05, 0.37999922037124634], [5.4239921173234965e-06, 0.9999999999832763, -2.0069424778633972e-06, -0.14000016450881958], [3.038904432306273e-05, 2.006777647029356e-06, 0.9999999995362394, -2.2212043404579163e-07], [0.0, 0.0, 0.0, 1.0]], "lift_m": 0.09974256018176675, "press_depth_m": 0.0005}}, {"stud": 4, "hole": 6, "arm": "right", "connected": true, "pick": {"attempts": 1, "source_pose": [[0.9999999988341493, -7.56986269921166e-06, -4.7690657037365594e-05, 0.3799988925457001], [7.56971725856582e-06, 0.9999999999666989, -3.0498472436994107e-06, 0.13999979197978973], [4.769068012270234e-05, 3.0494862353540957e-06, 0.9999999988581498, -2.6635825634002686e-07], [0.0, 0.0, 0.0, 1.0]], "lift_m": 0.0997880082577467, "press_depth_m": 0.0005}}, {"stud": 5, "hole": 7, "arm": "left", "connected": true, "pick": {"attempts": 1, "source_pose": [[0.9999999997442156, 8.070907878985226e-06, 2.112887438877873e-05, 0.1999998837709427], [-8.069326089109969e-06, 0.9999999971652151, -7.486291180834781e-05, -0.240000918507576], [-2.1129478540547673e-05, 7.486274129342171e-05, 0.9999999969745575, -2.6030465960502625e-07], [0.0, 0.0, 0.0, 1.0]], "lift_m": 0.09997156215831637, "press_depth_m": 0.0005}}, {"stud": 6, "hole": 8, "arm": "right", "connected": true, "pick": {"attempts": 1, "source_pose": [[0.999999999946634, -1.1902725621813568e-06, 1.0262322444505039e-05, 0.20000030100345612], [1.1901929985293012e-06, 0.9999999999692373, 7.752989577700038e-06, 0.24000023305416107], [-1.0262331672360111e-05, -7.752977363141968e-06, 0.9999999999172879, 6.984919309616089e-09], [0.0, 0.0, 0.0, 1.0]], "lift_m": 0.09997106390073895, "press_depth_m": 0.0005}}, {"stud": 5, "hole": 9, "arm": "left", "connected": true, "pick": {"attempts": 1, "source_pose": [[0.9999999988300544, -7.5698627604011876e-06, -4.777644227374419e-05, 0.2899988889694214], [7.569721091705846e-06, 0.9999999999669528, -2.965421755955998e-06, -0.24000020325183868], [4.7776464720001025e-05, 2.96506009814385e-06, 0.9999999988543089, -2.644956111907959e-07], [0.0, 0.0, 0.0, 1.0]], "lift_m": 0.09993598237633705, "press_depth_m": 0.0025, "top_press_depth_m": 0.0005}}, {"stud": 7, "hole": 10, "arm": "right", "connected": true, "pick": {"attempts": 1, "source_pose": [[0.9999999997344188, 8.637754621519134e-06, 2.136706928584717e-05, 0.28999993205070496], [-8.636154697022936e-06, 0.9999999971594251, -7.487700967346523e-05, 0.23999907076358795], [-2.136771599438876e-05, 7.487682512426352e-05, 0.9999999969684409, -2.630986273288727e-07], [0.0, 0.0, 0.0, 1.0]], "lift_m": 0.09992525959387422, "press_depth_m": 0.0025, "top_press_depth_m": 0.0005}}, {"stud": 9, "hole": 11, "arm": "left", "connected": true, "pick": {"attempts": 1, "source_pose": [[0.9999999997382168, 8.481968867718425e-06, 2.1251409455904756e-05, 0.37999993562698364], [-8.480378508330305e-06, 0.999999997163944, -7.4834450679649e-05, -0.240000918507576], [-2.1252044139115468e-05, 7.483427044006259e-05, 0.9999999969740913, -2.598389983177185e-07], [0.0, 0.0, 0.0, 1.0]], "lift_m": 0.09979057218879461, "press_depth_m": 0.0025, "top_press_depth_m": 0.0005}}], "source": "table", "seed": null}
+VIDEO_COMPLETE frames=8429 duration=351.2s

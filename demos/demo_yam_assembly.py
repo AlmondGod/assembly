@@ -26,7 +26,7 @@ from pxr import PhysxSchema, Usd, UsdPhysics
 from scipy.spatial.transform import Rotation, Slerp
 
 from bricksim.assets.stages import DEFAULT_STAGE_PATH
-from bricksim.cap.basket import Basket, BulkBasket
+from bricksim.cap.basket import Basket, BulkBasket, CompactBasket
 from bricksim.cap.kinematics import YamKinematics
 from bricksim.cap.policy import Assembly
 from bricksim.cap.yam import YamArm
@@ -62,10 +62,15 @@ class Demo:
         supply_count = int(os.environ.get("YAM_SUPPLY_COUNT", "4"))
         if supply_count not in (4, 50):
             raise ValueError("YAM_SUPPLY_COUNT must be 4 or 50")
+        layout = os.environ.get("YAM_BASKET_LAYOUT", "shallow")
+        if layout not in ("shallow", "compact"):
+            raise ValueError("YAM_BASKET_LAYOUT must be shallow or compact")
+        if layout == "compact" and (self.basket is None or supply_count != 50):
+            raise ValueError("Compact layout requires YAM_BASKET=1 YAM_SUPPLY_COUNT=50")
         if supply_count == 50:
             if self.basket is None:
                 raise ValueError("Fifty-brick supply requires YAM_BASKET=1")
-            self.basket = BulkBasket()
+            self.basket = CompactBasket() if layout == "compact" else BulkBasket()
         self.supply_paths: dict[int, str] = {}
         if self.basket is not None:
             parts = self.target.topology["parts"]
@@ -309,6 +314,17 @@ class Demo:
             "paths": self.paths,
             "arms": {name: robot.dof_names for name, robot in robots.items()},
             "source": "basket" if self.basket is not None else "table",
+            "basket": (
+                {
+                    "layout": type(self.basket).__name__,
+                    "minimum": self.basket.minimum.tolist(),
+                    "maximum": self.basket.maximum.tolist(),
+                    "floor": self.basket.floor,
+                    "rim": self.basket.rim,
+                }
+                if self.basket is not None
+                else None
+            ),
             "perception": "simulator world poses",
             "seed": self.seed if self.basket is not None else None,
             "initial_poses": {
@@ -319,6 +335,14 @@ class Demo:
         (self.output / "inventory.json").write_text(json.dumps(inventory, indent=2))
         set_camera_view(np.array([1.1, -1.05, 0.85]), np.array([0.25, 0, 0.13]))
         await self.capture("yam-scene.png")
+        if isinstance(self.basket, CompactBasket):
+            center = (self.basket.minimum + self.basket.maximum) / 2
+            set_camera_view(
+                np.array([center[0] + 0.12, center[1] - 0.20, 0.37]),
+                np.array([*center, 0.025]),
+            )
+            await self.capture("yam-basket.png")
+            set_camera_view(np.array([1.1, -1.05, 0.85]), np.array([0.25, 0, 0.13]))
         loose_paths = (
             dict(self.supply_paths)
             if self.supply_paths

@@ -1,0 +1,8 @@
+{
+  "model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "prompt": "Write Python code for two YAM robot arms to build the given assembly. Return ONLY code, no markdown and no explanation. The ONLY allowed statement is await robot.assemble(stud, hole, arm). stud and hole must be integer literals; arm must be \"left\" or \"right\". Baseplate 0 is already placed. Every other brick must be placed once. Place a supporting brick before placing a brick on it. Among available bricks, place the smallest hole ID first. Alternate left and right arms, starting with left. Use exactly the arm specified for each desired connection. The simulator handles the target offsets and physical grasping. Desired connections: [{\"stud\": 0, \"hole\": 1, \"arm\": \"left\"}, {\"stud\": 1, \"hole\": 2, \"arm\": \"right\"}, {\"stud\": 2, \"hole\": 3, \"arm\": \"left\"}, {\"stud\": 2, \"hole\": 4, \"arm\": \"right\"}, {\"stud\": 3, \"hole\": 5, \"arm\": \"left\"}, {\"stud\": 4, \"hole\": 6, \"arm\": \"right\"}, {\"stud\": 5, \"hole\": 7, \"arm\": \"left\"}, {\"stud\": 6, \"hole\": 8, \"arm\": \"right\"}, {\"stud\": 5, \"hole\": 9, \"arm\": \"left\"}, {\"stud\": 7, \"hole\": 10, \"arm\": \"right\"}, {\"stud\": 9, \"hole\": 11, \"arm\": \"left\"}]",
+  "target_sha256": "65a87e87147f75419cbbc728e5f14c80b103600a124b01ec208bfd0279949d07",
+  "do_sample": false,
+  "max_new_tokens": 512
+}
