@@ -27,12 +27,14 @@ from scipy.spatial.transform import Rotation, Slerp
 
 from bricksim.assets.stages import DEFAULT_STAGE_PATH
 from bricksim.cap.basket import Basket, BulkBasket, CompactBasket
+from bricksim.cap.cartesian import CartesianPolicy
 from bricksim.cap.kinematics import YamKinematics
 from bricksim.cap.policy import Assembly
 from bricksim.cap.yam import YamArm
 from bricksim.core import (
     AssemblyThresholds,
     are_parts_connected,
+    compute_connection_transform,
     import_lego,
     set_assembly_thresholds,
 )
@@ -56,6 +58,9 @@ class Demo:
         self.output = Path(os.environ.get("YAM_OUTPUT", str(ROOT / "outputs/yam")))
         self.output.mkdir(parents=True, exist_ok=True)
         self.policy = Path(os.environ.get("YAM_POLICY", str(self.output / "policy.py")))
+        self.control = os.environ.get("YAM_CONTROL", "assembly")
+        if self.control not in ("assembly", "cartesian"):
+            raise ValueError("YAM_CONTROL must be assembly or cartesian")
         self.scene_only = os.environ.get("YAM_SCENE_ONLY") == "1"
         self.basket = Basket() if os.environ.get("YAM_BASKET") == "1" else None
         self.seed = int(os.environ.get("YAM_SEED", "7"))
@@ -80,6 +85,18 @@ class Demo:
                 if p["id"] != 0
             ):
                 raise ValueError("Basket mode requires four 2x4x3 bricks with IDs 1..4")
+        if self.control == "cartesian" and (
+            self.basket is not None
+            or self.target.ids != {0, 1}
+            or any(
+                [p["payload"][key] for key in ("L", "W", "H")] != [2, 4, 3]
+                for p in self.target.topology["parts"]
+                if p["id"] != 0
+            )
+        ):
+            raise ValueError(
+                "Cartesian experiment requires one loose tabletop 2x4x3 brick (ID 1)"
+            )
         self.paths: dict[int, str] = {}
         self.events: list[dict[str, object]] = []
         self.source_poses: dict[int, np.ndarray] = {}
@@ -109,7 +126,14 @@ class Demo:
     async def run(self):
         """Import both arms, populate the table and execute physical actions."""
         actions = (
-            [] if self.scene_only else self.target.parse_policy(self.policy.read_text())
+            []
+            if self.scene_only or self.control == "cartesian"
+            else self.target.parse_policy(self.policy.read_text())
+        )
+        cartesian_actions = (
+            CartesianPolicy.parse(self.policy.read_text())
+            if self.control == "cartesian" and not self.scene_only
+            else []
         )
         enable_extension("isaacsim.asset.importer.urdf")
         await open_stage_async(str(DEFAULT_STAGE_PATH))
@@ -343,6 +367,132 @@ class Demo:
             )
             await self.capture("yam-basket.png")
             set_camera_view(np.array([1.1, -1.05, 0.85]), np.array([0.25, 0, 0.13]))
+        if self.control == "cartesian":
+            connection = next(iter(self.target.connections.values()))
+            quaternion, position = compute_connection_transform(
+                stud_path=self.paths[connection.stud],
+                stud_if=1,
+                hole_path=self.paths[connection.hole],
+                hole_if=0,
+                offset=connection.offset,
+                yaw=connection.yaw,
+            )
+            relative = np.eye(4)
+            relative[:3, :3] = Rotation.from_quat(
+                quaternion, scalar_first=True
+            ).as_matrix()
+            relative[:3, 3] = position
+            goal = YamArm.pose(self.paths[connection.stud]) @ relative
+            initial = YamArm.pose(self.paths[connection.hole])
+            observation = {
+                "schema": "yam-cartesian-observation-v1",
+                "target": self.target.topology,
+                "initial_brick_pose": {
+                    "position": initial[:3, 3].round(6).tolist(),
+                    "quaternion_wxyz": Rotation.from_matrix(initial[:3, :3])
+                    .as_quat(scalar_first=True)
+                    .round(6)
+                    .tolist(),
+                },
+                "desired_brick_pose": {
+                    "position": goal[:3, 3].round(6).tolist(),
+                    "quaternion_wxyz": Rotation.from_matrix(goal[:3, :3])
+                    .as_quat(scalar_first=True)
+                    .round(6)
+                    .tolist(),
+                },
+                "brick_height_m": next(
+                    p["payload"]["H"] for p in scene_parts if p["id"] == connection.hole
+                )
+                * 0.0032,
+                "brick_width_m": 0.016,
+                "baseplate_pose": YamArm.pose(self.paths[0]).tolist(),
+                "tool_poses": {
+                    name: (arm.pose(arm.flange_path) @ arm.tool).tolist()
+                    for name, arm in arms.items()
+                },
+                "perception": "simulator world poses",
+            }
+            (self.output / "observation.json").write_text(
+                json.dumps(observation, indent=2)
+            )
+            peak_lift = 0.0
+            for index, command in enumerate(cartesian_actions):
+                arm = arms[command.arm]
+                event = {
+                    "index": index,
+                    "kind": command.kind,
+                    "arm": command.arm,
+                    "values": command.values,
+                    "status": "running",
+                }
+                self.events.append(event)
+                print("YAM_CARTESIAN " + json.dumps(event), flush=True)
+                if command.kind == "grip":
+                    await arm.grip(command.values[0])
+                else:
+                    transform = np.eye(4)
+                    transform[:3, 3] = command.values[:3]
+                    transform[:3, :3] = Rotation.from_quat(
+                        command.values[3:7], scalar_first=True
+                    ).as_matrix()
+                    await arm.move(transform, speed=command.values[7], tolerance=0.003)
+                actual = YamArm.pose(self.paths[connection.hole])
+                peak_lift = max(peak_lift, float(actual[2, 3] - initial[2, 3]))
+                event.update(
+                    status="completed",
+                    brick_pose=actual.tolist(),
+                    tool_pose=(arm.pose(arm.flange_path) @ arm.tool).tolist(),
+                    peak_lift_m=peak_lift,
+                )
+                (self.output / "commands.json").write_text(
+                    json.dumps(self.events, indent=2)
+                )
+                await self.capture(f"command-{index:02d}.png")
+            actual_relative = np.linalg.inv(YamArm.pose(self.paths[0])) @ YamArm.pose(
+                self.paths[connection.hole]
+            )
+            position_error = float(
+                np.linalg.norm(actual_relative[:3, 3] - relative[:3, 3])
+            )
+            angle_error = float(
+                Rotation.from_matrix(
+                    relative[:3, :3].T @ actual_relative[:3, :3]
+                ).magnitude()
+            )
+            connected = are_parts_connected(self.paths[0], self.paths[connection.hole])
+            released = all(-arm.grip_target * 2 >= 0.02 for arm in arms.values())
+            retreated = all(
+                float((arm.pose(arm.flange_path) @ arm.tool)[2, 3])
+                >= float(YamArm.pose(self.paths[connection.hole])[2, 3]) + 0.035
+                for arm in arms.values()
+            )
+            success = bool(
+                connected
+                and released
+                and retreated
+                and position_error <= 0.002
+                and angle_error <= np.deg2rad(5)
+                and peak_lift >= 0.065
+            )
+            result = {
+                "status": "scene_only"
+                if self.scene_only
+                else ("success" if success else "failed"),
+                "control": "Cartesian commands + numerical IK",
+                "connected": connected,
+                "released": released,
+                "retreated": retreated,
+                "position_error_m": position_error,
+                "angle_error_rad": angle_error,
+                "peak_lift_m": peak_lift,
+                "actions": self.events,
+            }
+            (self.output / "result.json").write_text(json.dumps(result, indent=2))
+            print("YAM_RESULT " + json.dumps(result), flush=True)
+            await self.capture("yam-result.png")
+            await world.stop_async()
+            return
         loose_paths = (
             dict(self.supply_paths)
             if self.supply_paths
