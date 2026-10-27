@@ -331,7 +331,9 @@ class Demo:
                 observations = {
                     key: YamArm.pose(path) for key, path in loose_paths.items()
                 }
-                candidates, rejected = self.basket.candidates(observations)
+                candidates, rejected = self.basket.candidates(
+                    observations, side=-1 if name == "left" else 1
+                )
                 arm = arms[name]
                 for candidate in candidates:
                     target = observations[candidate].copy()

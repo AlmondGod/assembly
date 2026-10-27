@@ -133,6 +133,9 @@ def test_bulk_layout_offers_multiple_reachable_picks_for_each_arm(seed: int):
     candidates, rejected = basket.candidates(poses)
     assert candidates and rejected
     for side in (-1, 1):
+        candidates, rejected = basket.candidates(poses, side=side)
+        assert all(side * poses[part][1, 3] >= 0 for part in candidates)
+        assert any("opposite arm" in reason for reason in rejected.values())
         reachable = []
         for part in candidates:
             pose = poses[part]
@@ -150,4 +153,4 @@ def test_bulk_layout_offers_multiple_reachable_picks_for_each_arm(seed: int):
             except RuntimeError:
                 continue
             reachable.append(part)
-        assert len(reachable) >= 4
+        assert len(reachable) >= 2

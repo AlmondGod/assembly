@@ -188,19 +188,25 @@ class BulkBasket(Basket):
                 raise ValueError(f"Brick {other} blocks the grasp of brick {part}")
 
     def candidates(
-        self, poses: dict[int, np.ndarray]
+        self, poses: dict[int, np.ndarray], side: int | None = None
     ) -> tuple[list[int], dict[int, str]]:
         """Rank clear topmost candidates and retain explanations for rejections.
 
         Args:
             poses: Live world transforms of all remaining physical supply bricks.
+            side: -1 for left/negative Y, +1 for right/positive Y, or all if None.
 
         Returns:
             Highest-first candidate IDs and rejected-ID reason mapping.
         """
+        if side not in (None, -1, 1):
+            raise ValueError("Arm side must be -1 or +1")
         accepted = []
         rejected = {}
         for part in sorted(poses, key=lambda key: (-poses[key][2, 3], key)):
+            if side is not None and side * poses[part][1, 3] < 0:
+                rejected[part] = "Brick is in the opposite arm's workspace"
+                continue
             try:
                 self.check_grasp(part, poses)
             except ValueError as error:
