@@ -64,18 +64,24 @@ This uses simulator state, not camera perception. This four-brick mode does not 
 Add `YAM_SUPPLY_COUNT=50` to basket mode. The container holds fifty red 2×4 bricks, initialized at varied XY positions and yaw (±30°) in one loose layer and then settled by gravity. The target keeps its four logical placement IDs; each is bound to a distinct physical supply brick selected immediately before grasping. Geometry is interchangeable in this mode; the tower uses the supply's red color.
 
 ```sh
-YAM_BASKET=1 YAM_SUPPLY_COUNT=50 YAM_SEED=7 \
+YAM_BASKET=1 YAM_SUPPLY_COUNT=50 YAM_SEED=11 \
   YAM_POLICY=outputs/yam/policy.py YAM_OUTPUT=outputs/yam-bulk-basket \
   uv run --no-sync bricksim \
   --/app/window/enabled=false --/isaac/startup/ros_bridge_extension= \
   demos/demo_yam_assembly.py
 ```
 
-The bulk bin uses a 26 mm finger opening matched to the 16 mm brick width. The selector re-observes all remaining bricks, rejects tilted or covered objects and blocked finger approaches, restricts each arm to its own half of the bin, ranks exposed candidates by height, and screens arm reach before choosing. It aligns the grasp with the selected brick's live pose. Successful actions record `supply_id`, rejection explanations, actual source transform and remaining supply count. A completed tower leaves 46 unconsumed supply IDs. If no supported grasp is available, the run fails explicitly; it does not relocate bricks to clear a path.
+The bulk bin uses a 26 mm finger opening matched to the 16 mm brick width. The selector re-observes all remaining bricks, rejects tilted or covered objects and blocked finger approaches, restricts each arm to its own half of the bin, ranks exposed candidates by height, and screens arm reach before choosing. It aligns the grasp with the selected brick's live pose. If the side grip slips during seating, it releases the brick and applies a bounded downward press with closed fingertips, then requires the same native connection and alignment checks. Successful actions record `supply_id`, rejection explanations, actual source transform and remaining supply count. A completed tower leaves 46 unconsumed supply IDs. If no supported grasp is available, the run fails explicitly; it does not relocate bricks to clear a path.
 
 Bulk candidate selection keeps an extra 2 mm of clearance and reobserves the bin after checking reachability. Initial bricks have at least 10 mm of separating-axis spacing; individual XY positions and yaw still vary. If every reachable candidate is blocked, the demo reports failure before moving.
 
 This is a simulation prototype with known object poses. It supports exposed, nearly upright picks from a shallow supply; it does not yet reorient arbitrary sideways bricks, use camera estimates, untangle connected clusters or plan collision-free paths for every arm link. The existing four-brick basket and tabletop modes are unchanged.
+
+## Bulk validation evidence
+
+The final seed-11 GPU run against commit `2bfd4f4` completed all four connections using supply IDs 123, 139, 117 and 143, with first-attempt lifts of 99.7–99.9 mm and 46 unused sources remaining in the bin. The optional top press was not needed in that successful run. All 36 focused tests, repository-wide lint and type checks passed. Results, source manifests, validation logs and before/after images are saved under [bulk/](bulk/). The pose-read comparison reproduced ten incorrect temporary-view readings across 400 stationary-scene queries; direct Fabric primitive reads remained consistent to floating-point precision. The controller now uses the direct reader for both supply and robot poses.
+
+The seed-7 evidence was captured before that reader correction and is retained as an earlier successful physical run, rather than a final-source reliability claim. A previous seed-11 trial failed during side pressing, so contact outcomes can vary even with the same nominal scene. These examples do not establish production reliability.
 
 ## Inspect the result
 
