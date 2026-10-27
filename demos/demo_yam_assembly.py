@@ -112,7 +112,9 @@ class Demo:
         self.paths: dict[int, str] = {}
         self.events: list[dict[str, object]] = []
         self.source_poses: dict[int, np.ndarray] = {}
+        self.source_supports: dict[int, np.ndarray] = {}
         self.press_depths: tuple[float, ...] | None = None
+        self.press_tolerance = 0.003
         self.top_press = isinstance(self.basket, BulkBasket)
         self.park_inset = 0.10
         self.grasp_width: float | None = None
@@ -257,6 +259,15 @@ class Demo:
                     size=1.0,
                     color=np.array([0.22, 0.32, 0.38]),
                 )
+        for part, position in self.source_supports.items():
+            FixedCuboid(
+                f"/World/SourceSupport_{part}",
+                name=f"source_support_{part}",
+                position=position,
+                scale=np.array([0.004, 0.004, 0.012]),
+                size=1.0,
+                color=np.array([0.35, 0.35, 0.35]),
+            )
         # Spawn disconnected bricks before physics; never teleport during actions.
         scene_parts = self.target.topology["parts"]
         if isinstance(self.basket, BulkBasket):
@@ -625,6 +636,7 @@ class Demo:
                 press_depths=self.press_depths,
                 grasp_width=self.grasp_width,
                 top_press=self.top_press,
+                press_tolerance=self.press_tolerance,
             )
             del loose_paths[source_id]
             if isinstance(self.basket, BulkBasket):

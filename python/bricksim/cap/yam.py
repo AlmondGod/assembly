@@ -158,6 +158,7 @@ class YamArm:
         press_depths: tuple[float, ...] | None = None,
         grasp_width: float | None = None,
         top_press: bool = False,
+        press_tolerance: float = 0.003,
     ) -> dict[str, object]:
         """Grasp and place one brick, then require an actual connection.
 
@@ -173,6 +174,7 @@ class YamArm:
                 once a physical connection forms. Defaults to the scene behavior.
             grasp_width: Optional open-finger gap in metres for known stock width.
             top_press: If side pressing fails, release and press with closed fingertips.
+            press_tolerance: Maximum TCP position error during contact, in metres.
 
         Returns:
             Pick evidence including observed source pose, attempts and lift height.
@@ -248,7 +250,7 @@ class YamArm:
         for depth in press_depths:
             press = goal.copy()
             press[2, 3] -= depth
-            await self.move(press, speed=0.015, tolerance=0.003)
+            await self.move(press, speed=0.015, tolerance=press_tolerance)
             for _ in range(120):
                 await self.tick()
             error = np.linalg.inv(self.pose(stud) @ relative) @ self.pose(hole)
@@ -279,7 +281,7 @@ class YamArm:
             for depth in press_depths:
                 press = tamp.copy()
                 press[2, 3] -= depth
-                await self.move(press, speed=0.01, tolerance=0.003)
+                await self.move(press, speed=0.01, tolerance=press_tolerance)
                 for _ in range(120):
                     await self.tick()
                 connected = are_parts_connected(stud, hole)
