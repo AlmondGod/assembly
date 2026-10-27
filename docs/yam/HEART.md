@@ -31,3 +31,14 @@ uv run --no-sync ty check
 ```
 
 The geometry tests reconstruct all six layers from the declared stud offsets, check six 2×4 plus five 2×2 bricks without overlap, and require actual supporting stud intersections. Reachability tests cover each assigned arm's source, lifted source, placement, raised placement, direct top-press and outward park poses.
+
+## Verified physical run
+
+The complete loose-stock run on source commit `c999cd398547ed2265629d2e9c92e7d075c0b1e6` placed all eleven bricks with exactly two arms. Every pick succeeded on its first attempt with a measured 99.74–99.97 mm lift. All eleven required native connections remained attached and passed the existing 2 mm / 5 degree relative-pose checks. The middle bridge and two top bricks used the first 0.5 mm direct top press after side pressing.
+
+![Initial two-arm scene](heart/initial.png)
+![Completed eleven-brick heart](heart/heart.png)
+
+The [result](heart/result.json), [execution events](heart/execution.log), [Qwen provenance](heart/generation.json), [actual generated program](heart/generated-policy.txt), [source manifest](heart/source-hashes.json) and [validation scope](heart/validation.txt) accompany the images. The continuous viewport recording contains 8,429 frames: 351.21 seconds at 2× wall-clock speed. An uncut 8× preview is supplied separately with the demo outputs. The recording metadata is in [video.json](heart/video.json).
+
+The run passed 27 pure tests, repository lint, and branch type checking. Only the unrelated concurrent `experiments/caprl` directory, absent from this branch and requiring its separate training environment, was excluded from the shared-runtime type check. No native code changed. Earlier fixture diagnostics and failed attempts are separate from this complete-run evidence.

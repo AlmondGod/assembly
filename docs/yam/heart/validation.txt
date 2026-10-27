@@ -1,0 +1,10 @@
+Source: c999cd398547ed2265629d2e9c92e7d075c0b1e6; deployed hashes match source-hashes.json.
+Runtime: Isaac Sim 5.1, NVIDIA RTX 4000 Ada, /opt/BrickSim.
+27 passed: uv run --no-sync pytest --noconftest -q python/tests/test_yam_heart.py python/tests/test_yam_policy.py python/tests/test_yam_kinematics.py python/tests/test_yam_basket.py
+Repository lint: uv run --no-sync ruff check — all checks passed.
+Branch type check: uv run --no-sync ty check --exclude experiments/caprl — all checks passed.
+The excluded directory belongs to a separate concurrent agent, is absent from this branch, and has its own training environment. Unscoped type checking found missing training dependencies there; those diagnostics remain in the private full log. No RL files were changed.
+Full loose-stock physical run: 11/11 requested native connections; 11 first-attempt picks, measured lifts 99.74–99.97 mm. All existing 2 mm / 5 degree relative-placement checks passed. Actions 9–11 required the optional 0.5 mm direct top press. No tolerances relaxed.
+Recording: 8429 real viewport frames, capture 12 fps, playback 24 fps, 351.208333 s at 2x wall-clock speed. Eight-times preview derived from the continuous recording without cuts.
+All simulation processes stopped and fresh shared-source backup restored after encoding.
+Both MP4 files passed complete ffmpeg decode with no errors. Preview:1280x720,2110 frames,87.916667 s,with visible 8x wall-clock label.
