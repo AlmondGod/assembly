@@ -1,0 +1,10 @@
+.........................................                                [100%]
+=============================== warnings summary ===============================
+python/tests/test_yam_basket.py:9
+  /opt/BrickSim/python/tests/test_yam_basket.py:9: UserWarning: BrickSim is loaded outside Omniverse, some features may not work properly.
+    from bricksim.cap.basket import Basket, BulkBasket, CompactBasket
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+41 passed, 1 warning in 5.59s
+All checks passed!
+All checks passed!

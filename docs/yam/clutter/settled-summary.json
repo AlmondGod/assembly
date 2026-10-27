@@ -1,0 +1,35 @@
+{
+  "seed": 7,
+  "source_count": 50,
+  "centers_inside_bin": 50,
+  "tilted_over_5_degrees": 24,
+  "bottom_height_range_m": [
+    0.0029909485019743443,
+    0.037142492830753326
+  ],
+  "initial_candidate_counts": {
+    "all": 0,
+    "left": 0,
+    "right": 0
+  },
+  "initial_rejection_counts": {
+    "all": {
+      "neighbor": 19,
+      "tilted": 24,
+      "wall": 7
+    },
+    "left": {
+      "opposite_arm": 29,
+      "tilted": 12,
+      "neighbor": 7,
+      "wall": 2
+    },
+    "right": {
+      "neighbor": 12,
+      "tilted": 12,
+      "wall": 5,
+      "opposite_arm": 21
+    }
+  },
+  "note": "Counts are from inventory captured after settling, before subsequent screenshots and motion. Runtime first action also found no clear source and stopped before any grasp."
+}
