@@ -66,3 +66,11 @@ uv run --no-sync ty check python/bricksim/cap demos/*yam*.py
 ```
 
 The NVIDIA 595 RunPod used for validation required an external Vulkan Profiles driver workaround already configured in its `.runtime/environment.sh`; source that file there before launching. That machine-specific workaround is not part of this feature.
+
+## Verified run
+
+On 2026-10-27 UTC, Qwen3.5-0.8B generated the four-call policy in [generated-policy.txt](generated-policy.txt). Both YAM arms physically assembled the requested tower on an RTX 4000 Ada RunPod running Isaac Sim 5.1 and Ubuntu 24.04. All four connections passed both connectivity and relative-pose checks. The [result](result.json) and [validation log](validation.log) record the outcome. All 15 tests and repository-wide ruff/ty checks passed; local Vulkan build artifacts were excluded from source checks.
+
+![Dual YAM arms after assembly](yam-result.png)
+
+![Completed four-brick tower](yam-tower.png)

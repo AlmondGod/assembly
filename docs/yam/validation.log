@@ -1,0 +1,19 @@
+YAM_KINEMATICS_OK yam_left error=1.21208e-06
+YAM_KINEMATICS_OK yam_right error=1.46532e-06
+YAM_GRASP /World/managed/Parts/Part_1
+YAM_PLACE /World/managed/Parts/Part_1 onto /World/managed/Parts/Part_0
+YAM_CONNECTED 0 1 position_error=1.44148e-08 angle_error=2.4748e-06
+YAM_GRASP /World/managed/Parts/Part_2
+YAM_PLACE /World/managed/Parts/Part_2 onto /World/managed/Parts/Part_1
+YAM_CONNECTED 1 2 position_error=3.00057e-08 angle_error=1.18884e-08
+YAM_GRASP /World/managed/Parts/Part_3
+YAM_PLACE /World/managed/Parts/Part_3 onto /World/managed/Parts/Part_2
+YAM_CONNECTED 2 3 position_error=5.98502e-08 angle_error=6.67569e-12
+YAM_GRASP /World/managed/Parts/Part_4
+YAM_PLACE /World/managed/Parts/Part_4 onto /World/managed/Parts/Part_3
+YAM_CONNECTED 3 4 position_error=1.44679e-08 angle_error=6.01203e-08
+YAM_RESULT {"status": "success", "connections": {"1": true, "2": true, "3": true, "4": true}, "actions": [{"stud": 0, "hole": 1, "arm": "left", "connected": true}, {"stud": 1, "hole": 2, "arm": "right", "connected": true}, {"stud": 2, "hole": 3, "arm": "left", "connected": true}, {"stud": 3, "hole": 4, "arm": "right", "connected": true}]}
+
+RUFF: All checks passed!
+TY: All checks passed!
+15 passed in 0.58s
