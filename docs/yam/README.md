@@ -43,6 +43,22 @@ For a scene preview without executing a policy, prefix the command with `YAM_SCE
 
 The official URDF and meshes are vendored with their MIT license and source revision in `resources/robots/yam`. The Isaac URDF importer converts them once into `.cache/yam`. Remove that generated cache after changing the source model or import options.
 
+## Pick from a basket
+
+Set `YAM_BASKET=1` to put the four loose bricks in a shallow basket with a physical floor and four collision walls. `YAM_SEED` chooses a reproducible scatter (default `7`): each brick has a small position variation and a yaw between -20 and +20 degrees. The basket holds one layer of upright, separated 2×4 bricks with IDs 1–4. The baseplate moves beside the basket.
+
+```sh
+YAM_BASKET=1 YAM_SEED=7 \
+  YAM_POLICY=outputs/yam/policy.py YAM_OUTPUT=outputs/yam-basket \
+  uv run --no-sync bricksim \
+  --/app/window/enabled=false --/isaac/startup/ros_bridge_extension= \
+  demos/demo_yam_assembly.py
+```
+
+Use the Qwen-generated policy from the earlier generation step: the target assembly and action interface are unchanged. Before each pick, the controller reads the current simulator poses of all remaining bricks and checks the open-finger footprint against the rim and neighboring bricks. It aligns with the selected brick's observed orientation, grasps with physical contact and lifts vertically before crossing the rim. A failed lift allows one retry after releasing and observing again. Blocked, tilted or stacked picks fail explicitly; they are not skipped. The brick-to-tool transform measured after lifting determines its placement pose. It checks for a connection while pressing, with at most three downward targets (0.5, 1.5 and 2.5 mm). Successful placements still require actual connections and relative alignment.
+
+This uses simulator state, not camera perception. It does not handle overlapping piles, arbitrary inventories or general robot collision planning. The footprint check covers the fingertip approach; the scene and arm paths remain a simulation prototype. `inventory.json` records the seed and actual initial transforms; each successful action in `result.json` records its observed source transform, attempt count, lift distance and press depth. Omitting `YAM_BASKET` retains the tabletop layout.
+
 ## Inspect the result
 
 - `inventory.json`: embodiment, joints, part IDs, dimensions, colors and prim paths.
@@ -59,7 +75,7 @@ The arms use SI units, WXYZ quaternions at simulator boundaries and column-vecto
 ## Checks
 
 ```sh
-uv run --no-sync pytest -q python/tests/test_yam_policy.py python/tests/test_yam_kinematics.py
+uv run --no-sync pytest --noconftest -q python/tests/test_yam_policy.py python/tests/test_yam_kinematics.py python/tests/test_yam_basket.py
 uv run --no-sync ruff check python/bricksim/cap demos/*yam*.py python/tests/test_yam*
 uv run --no-sync bricksim-type-configs -y
 uv run --no-sync ty check python/bricksim/cap demos/*yam*.py
@@ -74,3 +90,13 @@ On 2026-10-27 UTC, Qwen3.5-0.8B generated the four-call policy in [generated-pol
 ![Dual YAM arms after assembly](yam-result.png)
 
 ![Completed four-brick tower](yam-tower.png)
+
+## Verified basket runs
+
+On 2026-10-27 UTC, both scattered layouts (seeds **7** and **11**) completed the four-brick tower using the same Qwen3.5-0.8B program. All eight picks succeeded on their first attempt and lifted their bricks approximately 100 mm. Every requested physical connection and relative-pose check passed. Each placement connected at the initial 0.5 mm press target; the deeper press fallback and failed-lift retry were not exercised in these successful runs. These two runs demonstrate the supported scene, not a measured production reliability rate.
+
+The [seed-7 result](basket/result-seed7.json), [seed-11 result](basket/result-seed11.json), [validation log](basket/validation.log), and [tested source hashes](basket/source-hashes.json) preserve evidence. All 23 policy, kinematics and basket tests passed, including 100 geometric layouts and explicit blocked/tilted/stacked cases. Repository-wide ruff and ty passed. The actual seed-7 viewport was recorded at 1280×720; the 2× playback video was delivered with the task.
+
+![Four scattered bricks in the physical basket](basket/initial.png)
+
+![Verified completed tower beside the empty basket](basket/tower.png)

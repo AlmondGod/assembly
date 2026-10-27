@@ -1,0 +1,53 @@
+Physical simulation: seed 7, Isaac Sim 5.1, RTX 4000 Ada
+YAM_KINEMATICS_OK yam_left error=1.21208e-06
+YAM_KINEMATICS_OK yam_right error=1.46532e-06
+YAM_GRASP /World/managed/Parts/Part_1 attempt=1 source=[ 0.30817634 -0.0977947   0.00299987]
+YAM_PLACE /World/managed/Parts/Part_1 onto /World/managed/Parts/Part_0
+YAM_PRESS 1 depth=0.0005 connected=True offset=[ 9.09302986e-06  1.34348452e-05 -1.97716831e-04] angle=0.00156257
+YAM_CONNECTED 0 1 position_error=4.64091e-08 angle_error=4.01833e-07
+YAM_GRASP /World/managed/Parts/Part_2 attempt=1 source=[0.30340031 0.10298772 0.00300003]
+YAM_PLACE /World/managed/Parts/Part_2 onto /World/managed/Parts/Part_1
+YAM_PRESS 2 depth=0.0005 connected=True offset=[-4.08384429e-07  6.30476086e-06 -1.76389658e-04] angle=0.00318665
+YAM_CONNECTED 1 2 position_error=4.46126e-08 angle_error=1.40032e-08
+YAM_GRASP /World/managed/Parts/Part_3 attempt=1 source=[ 0.37256998 -0.04262423  0.00300003]
+YAM_PLACE /World/managed/Parts/Part_3 onto /World/managed/Parts/Part_2
+YAM_PRESS 3 depth=0.0005 connected=True offset=[ 4.13662580e-05  2.43143294e-05 -1.92600734e-04] angle=0.00627334
+YAM_CONNECTED 2 3 position_error=4.49594e-08 angle_error=3.74913e-11
+YAM_GRASP /World/managed/Parts/Part_4 attempt=1 source=[0.36842251 0.04322698 0.00299989]
+YAM_PLACE /World/managed/Parts/Part_4 onto /World/managed/Parts/Part_3
+YAM_PRESS 4 depth=0.0005 connected=True offset=[ 1.44750804e-05 -8.53476637e-06 -1.63881362e-04] angle=0.00118871
+YAM_CONNECTED 3 4 position_error=2.98919e-08 angle_error=5.9515e-08
+VIDEO_COMPLETE frames=2714 duration=113.1s
+
+.......................                                                  [100%]
+=============================== warnings summary ===============================
+python/tests/test_yam_basket.py:9
+  /opt/BrickSim/python/tests/test_yam_basket.py:9: UserWarning: BrickSim is loaded outside Omniverse, some features may not work properly.
+    from bricksim.cap.basket import Basket
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+23 passed, 1 warning in 1.29s
+
+All checks passed!
+
+All checks passed!
+
+Physical simulation: seed 11
+YAM_KINEMATICS_OK yam_left error=1.21208e-06
+YAM_KINEMATICS_OK yam_right error=1.46532e-06
+YAM_GRASP /World/managed/Parts/Part_1 attempt=1 source=[ 0.30499387 -0.09918882  0.00300008]
+YAM_PLACE /World/managed/Parts/Part_1 onto /World/managed/Parts/Part_0
+YAM_PRESS 1 depth=0.0005 connected=True offset=[ 9.08636778e-06 -3.67914450e-06 -2.09357089e-04] angle=0.000708021
+YAM_CONNECTED 0 1 position_error=7.58514e-08 angle_error=2.18026e-07
+YAM_GRASP /World/managed/Parts/Part_2 attempt=1 source=[0.30218348 0.10342488 0.00300004]
+YAM_PLACE /World/managed/Parts/Part_2 onto /World/managed/Parts/Part_1
+YAM_PRESS 2 depth=0.0005 connected=True offset=[ 1.01739408e-05 -2.15665040e-05 -1.58924077e-04] angle=0.0023403
+YAM_CONNECTED 1 2 position_error=2.9906e-08 angle_error=9.72529e-09
+YAM_GRASP /World/managed/Parts/Part_3 attempt=1 source=[ 0.3670381  -0.04141415  0.00300006]
+YAM_PLACE /World/managed/Parts/Part_3 onto /World/managed/Parts/Part_2
+YAM_PRESS 3 depth=0.0005 connected=True offset=[ 6.39474915e-06  3.85079093e-05 -1.87403170e-04] angle=0.00265814
+YAM_CONNECTED 2 3 position_error=1.55153e-08 angle_error=1.69705e-10
+YAM_GRASP /World/managed/Parts/Part_4 attempt=1 source=[0.36894956 0.04509083 0.00299985]
+YAM_PLACE /World/managed/Parts/Part_4 onto /World/managed/Parts/Part_3
+YAM_PRESS 4 depth=0.0005 connected=True offset=[ 3.58440051e-05  9.86434323e-07 -1.89624451e-04] angle=0.00672909
+YAM_CONNECTED 3 4 position_error=5.20599e-09 angle_error=1.19203e-07

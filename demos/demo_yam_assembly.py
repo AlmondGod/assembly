@@ -8,6 +8,7 @@ from pathlib import Path
 
 import numpy as np
 from isaacsim.core.api.materials import PhysicsMaterial
+from isaacsim.core.api.objects.cuboid import FixedCuboid
 from isaacsim.core.api.world import World
 from isaacsim.core.prims import SingleArticulation, SingleGeometryPrim, SingleXFormPrim
 from isaacsim.core.utils.extensions import enable_extension
@@ -22,8 +23,10 @@ from omni.kit.app import get_app
 from omni.kit.commands import execute
 from omni.kit.viewport.utility import capture_viewport_to_file, get_active_viewport
 from pxr import PhysxSchema, Usd, UsdPhysics
+from scipy.spatial.transform import Rotation
 
 from bricksim.assets.stages import DEFAULT_STAGE_PATH
+from bricksim.cap.basket import Basket
 from bricksim.cap.kinematics import YamKinematics
 from bricksim.cap.policy import Assembly
 from bricksim.cap.yam import YamArm
@@ -54,6 +57,16 @@ class Demo:
         self.output.mkdir(parents=True, exist_ok=True)
         self.policy = Path(os.environ.get("YAM_POLICY", str(self.output / "policy.py")))
         self.scene_only = os.environ.get("YAM_SCENE_ONLY") == "1"
+        self.basket = Basket() if os.environ.get("YAM_BASKET") == "1" else None
+        self.seed = int(os.environ.get("YAM_SEED", "7"))
+        if self.basket is not None:
+            parts = self.target.topology["parts"]
+            if {p["id"] for p in parts} != {0, 1, 2, 3, 4} or any(
+                [p["payload"][key] for key in ("L", "W", "H")] != [2, 4, 3]
+                for p in parts
+                if p["id"] != 0
+            ):
+                raise ValueError("Basket mode requires four 2x4x3 bricks with IDs 1..4")
         self.paths: dict[int, str] = {}
         self.events: list[dict[str, object]] = []
 
@@ -152,6 +165,43 @@ class Demo:
         thresholds.yaw_tolerance = np.deg2rad(5)
         thresholds.position_tolerance = 0.002
         set_assembly_thresholds(thresholds)
+        scattered = {} if self.basket is None else self.basket.scatter(self.seed)
+        if self.basket is not None:
+            basket = self.basket
+            center = (basket.minimum + basket.maximum) / 2
+            size = basket.maximum - basket.minimum
+            walls = [
+                ("floor", [*center, basket.floor / 2], [*size, basket.floor]),
+                (
+                    "left",
+                    [center[0], basket.minimum[1] - basket.wall / 2, basket.rim / 2],
+                    [size[0] + 2 * basket.wall, basket.wall, basket.rim],
+                ),
+                (
+                    "right",
+                    [center[0], basket.maximum[1] + basket.wall / 2, basket.rim / 2],
+                    [size[0] + 2 * basket.wall, basket.wall, basket.rim],
+                ),
+                (
+                    "front",
+                    [basket.minimum[0] - basket.wall / 2, center[1], basket.rim / 2],
+                    [basket.wall, size[1], basket.rim],
+                ),
+                (
+                    "back",
+                    [basket.maximum[0] + basket.wall / 2, center[1], basket.rim / 2],
+                    [basket.wall, size[1], basket.rim],
+                ),
+            ]
+            for name, position, scale in walls:
+                FixedCuboid(
+                    f"/World/Basket/{name}",
+                    name=f"basket_{name}",
+                    position=np.array(position),
+                    scale=np.array(scale),
+                    size=1.0,
+                    color=np.array([0.22, 0.32, 0.38]),
+                )
         # Spawn disconnected bricks before physics; never teleport during actions.
         for index, part in enumerate(self.target.topology["parts"]):
             topology = dict(
@@ -163,7 +213,7 @@ class Demo:
                 ],
             )
             position = (
-                [0.32, 0, 0]
+                [0.155 if self.basket is not None else 0.32, 0, 0]
                 if part["id"] == 0
                 else [
                     0.24 + 0.15 * ((index - 1) // 2),
@@ -171,11 +221,24 @@ class Demo:
                     0.001,
                 ]
             )
+            rotation = (1.0, 0.0, 0.0, 0.0)
+            if part["id"] in scattered:
+                pose = scattered[part["id"]]
+                position = pose[:3, 3].tolist()
+                quaternion = Rotation.from_matrix(pose[:3, :3]).as_quat(
+                    scalar_first=True
+                )
+                rotation = (
+                    float(quaternion[0]),
+                    float(quaternion[1]),
+                    float(quaternion[2]),
+                    float(quaternion[3]),
+                )
             paths, _ = import_lego(
                 json=topology,
                 env_id=-1,
                 ref_pos=(position[0], position[1], position[2]),
-                ref_rot=(1, 0, 0, 0),
+                ref_rot=rotation,
             )
             self.paths.update(paths)
         for path in [
@@ -221,26 +284,37 @@ class Demo:
             "parts": self.target.topology["parts"],
             "paths": self.paths,
             "arms": {name: robot.dof_names for name, robot in robots.items()},
+            "source": "basket" if self.basket is not None else "table",
+            "perception": "simulator world poses",
+            "seed": self.seed if self.basket is not None else None,
+            "initial_poses": {
+                part: YamArm.pose(path).tolist() for part, path in self.paths.items()
+            },
         }
         (self.output / "inventory.json").write_text(json.dumps(inventory, indent=2))
         set_camera_view(np.array([1.1, -1.05, 0.85]), np.array([0.25, 0, 0.13]))
         await self.capture("yam-scene.png")
+        loose_paths = {part: path for part, path in self.paths.items() if part != 0}
         for connection, name in actions:
             part = next(
                 p for p in self.target.topology["parts"] if p["id"] == connection.hole
             )
-            await arms[name].assemble(
+            pick = await arms[name].assemble(
                 connection,
                 self.paths,
                 part["payload"]["H"] * 0.0032,
                 reverse=name == "right",
+                basket=self.basket,
+                loose_paths=loose_paths,
             )
+            del loose_paths[connection.hole]
             self.events.append(
                 {
                     "stud": connection.stud,
                     "hole": connection.hole,
                     "arm": name,
                     "connected": True,
+                    "pick": pick,
                 }
             )
             await self.capture(f"step-{connection.hole}.png")
@@ -252,13 +326,18 @@ class Demo:
             "status": "scene_only" if self.scene_only else "success",
             "connections": connected,
             "actions": self.events,
+            "source": "basket" if self.basket is not None else "table",
+            "seed": self.seed if self.basket is not None else None,
         }
         if not self.scene_only and not all(connected.values()):
             raise RuntimeError(f"Assembly validation failed: {connected}")
         (self.output / "result.json").write_text(json.dumps(result, indent=2))
         print("YAM_RESULT " + json.dumps(result), flush=True)
         await self.capture("yam-result.png")
-        set_camera_view(np.array([0.55, -0.35, 0.28]), np.array([0.32, 0, 0.025]))
+        tower_x = 0.155 if self.basket is not None else 0.32
+        set_camera_view(
+            np.array([tower_x + 0.23, -0.35, 0.28]), np.array([tower_x, 0, 0.025])
+        )
         await self.capture("yam-tower.png")
         await world.stop_async()
 

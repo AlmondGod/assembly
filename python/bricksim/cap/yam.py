@@ -13,6 +13,7 @@ from isaacsim.core.utils.stage import get_current_stage
 from isaacsim.core.utils.types import ArticulationAction
 from scipy.spatial.transform import Rotation, Slerp
 
+from bricksim.cap.basket import Basket
 from bricksim.cap.kinematics import YamKinematics
 from bricksim.cap.policy import Connection
 from bricksim.core import are_parts_connected, compute_connection_transform
@@ -152,7 +153,9 @@ class YamArm:
         paths: dict[int, str],
         height: float,
         reverse: bool,
-    ):
+        basket: Basket | None = None,
+        loose_paths: dict[int, str] | None = None,
+    ) -> dict[str, object]:
         """Grasp and place one brick, then require an actual connection.
 
         Args:
@@ -160,25 +163,57 @@ class YamArm:
             paths: Mapping from target part IDs to actual scene prims.
             height: Hole brick height in metres.
             reverse: Rotate the grasp 180 degrees about the brick's vertical axis.
+            basket: Optional shallow basket for live approach clearance checks.
+            loose_paths: All unplaced brick paths; required with a basket.
+
+        Returns:
+            Pick evidence including observed source pose, attempts and lift height.
         """
         stud, hole = paths[connection.stud], paths[connection.hole]
-        before = self.pose(hole)
-        grasp = before.copy()
-        grasp[:3, :3] = before[:3, :3] @ np.diag(
-            [-1, 1, -1] if reverse else [1, -1, -1]
-        )
-        grasp[:3, 3] += before[:3, 2] * (height - 0.0025)
-        above = grasp.copy()
-        above[2, 3] += 0.10
-        print(f"YAM_GRASP {hole}", flush=True)
-        await self.grip(0.06)
-        await self.move(above)
-        await self.move(grasp, speed=0.025)
-        await self.grip(0)
-        await self.move(above, speed=0.035)
-        lifted = self.pose(hole)
-        if lifted[2, 3] - before[2, 3] < 0.065:
-            raise RuntimeError(f"Grasp failed: {hole} did not lift with the fingers")
+        attempts = 2 if basket is not None else 1
+        pick: dict[str, object] = {}
+        for attempt in range(1, attempts + 1):
+            before = self.pose(hole)
+            if basket is not None:
+                if loose_paths is None:
+                    raise ValueError("Basket picks require every unplaced brick path")
+                observations = {
+                    part: self.pose(path) for part, path in loose_paths.items()
+                }
+                before = observations[connection.hole]
+                basket.check_grasp(connection.hole, observations)
+            grasp = before.copy()
+            grasp[:3, :3] = before[:3, :3] @ np.diag(
+                [-1, 1, -1] if reverse else [1, -1, -1]
+            )
+            grasp[:3, 3] += before[:3, 2] * (height - 0.0025)
+            above = grasp.copy()
+            above[2, 3] += 0.10
+            print(
+                f"YAM_GRASP {hole} attempt={attempt} source={before[:3, 3]}", flush=True
+            )
+            await self.grip(0.06)
+            await self.move(above)
+            await self.move(grasp, speed=0.025)
+            await self.grip(0)
+            await self.move(above, speed=0.035)
+            lifted = self.pose(hole)
+            lift = float(lifted[2, 3] - before[2, 3])
+            if lift >= 0.065:
+                pick = {
+                    "attempts": attempt,
+                    "source_pose": before.tolist(),
+                    "lift_m": lift,
+                }
+                break
+            await self.grip(0.06)
+            for _ in range(120):
+                await self.tick()
+            if attempt == attempts:
+                raise RuntimeError(
+                    f"Grasp failed: {hole} did not lift with the fingers"
+                )
+            print(f"YAM_RETRY {hole}: reobserving after failed lift", flush=True)
         relative_grasp = np.linalg.inv(lifted) @ self.pose(self.flange_path) @ self.tool
         quaternion, position = compute_connection_transform(
             stud_path=stud,
@@ -196,11 +231,23 @@ class YamArm:
         approach[2, 3] += 0.10
         print(f"YAM_PLACE {hole} onto {stud}", flush=True)
         await self.move(approach)
-        press = goal.copy()
-        press[2, 3] -= 0.0005
-        await self.move(press, speed=0.015, tolerance=0.003)
-        for _ in range(120):
-            await self.tick()
+        for depth in [0.0005, 0.0015, 0.0025] if basket is not None else [0.0005]:
+            press = goal.copy()
+            press[2, 3] -= depth
+            await self.move(press, speed=0.015, tolerance=0.003)
+            for _ in range(120):
+                await self.tick()
+            error = np.linalg.inv(self.pose(stud) @ relative) @ self.pose(hole)
+            connected = are_parts_connected(stud, hole)
+            print(
+                f"YAM_PRESS {connection.hole} depth={depth:.4f} connected={connected} "
+                f"offset={error[:3, 3]} "
+                f"angle={Rotation.from_matrix(error[:3, :3]).magnitude():.6g}",
+                flush=True,
+            )
+            pick["press_depth_m"] = depth
+            if connected:
+                break
         await self.grip(0.06)
         await self.move(approach, speed=0.035)
         if not are_parts_connected(stud, hole):
@@ -218,3 +265,4 @@ class YamArm:
             flush=True,
         )
         await self.move(self.park_pose)
+        return pick

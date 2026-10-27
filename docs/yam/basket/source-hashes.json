@@ -1,0 +1,6 @@
+{
+  "python/bricksim/cap/basket.py": "0447b1a09a188c7a3100fe235a6e0f9e7a3ca7f1d2a17216c68e41e08f8160b5",
+  "python/bricksim/cap/yam.py": "b5c518234b3ea2ef31061823c8c4559f352f68ef085fc9853bc63c740c2efa2d",
+  "demos/demo_yam_assembly.py": "cd671b5b2e7c1a1087cfa7fecb607fd486c65eed17c0e603f41c9d61b47d9cf9",
+  "python/tests/test_yam_basket.py": "61c5eaa3a446849fa0eedd42768102dd5ee9374ce6fce5dcfecdef2917f8110b"
+}
