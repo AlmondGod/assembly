@@ -90,3 +90,13 @@ On 2026-10-27 UTC, Qwen3.5-0.8B generated the four-call policy in [generated-pol
 ![Dual YAM arms after assembly](yam-result.png)
 
 ![Completed four-brick tower](yam-tower.png)
+
+## Verified basket runs
+
+On 2026-10-27 UTC, both scattered layouts (seeds **7** and **11**) completed the four-brick tower using the same Qwen3.5-0.8B program. All eight picks succeeded on their first attempt and lifted their bricks approximately 100 mm. Every requested physical connection and relative-pose check passed. Each placement connected at the initial 0.5 mm press target; the deeper press fallback and failed-lift retry were not exercised in these successful runs. These two runs demonstrate the supported scene, not a measured production reliability rate.
+
+The [seed-7 result](basket/result-seed7.json), [seed-11 result](basket/result-seed11.json), [validation log](basket/validation.log), and [tested source hashes](basket/source-hashes.json) preserve evidence. All 23 policy, kinematics and basket tests passed, including 100 geometric layouts and explicit blocked/tilted/stacked cases. Repository-wide ruff and ty passed. The actual seed-7 viewport was recorded at 1280×720; the 2× playback video was delivered with the task.
+
+![Four scattered bricks in the physical basket](basket/initial.png)
+
+![Verified completed tower beside the empty basket](basket/tower.png)
