@@ -231,15 +231,6 @@ class YamArm:
         approach[2, 3] += 0.10
         print(f"YAM_PLACE {hole} onto {stud}", flush=True)
         await self.move(approach)
-        if basket is not None:
-            # Account for contact slip while rotating the brick out of the basket.
-            relative_grasp = (
-                np.linalg.inv(self.pose(hole)) @ self.pose(self.flange_path) @ self.tool
-            )
-            goal = self.pose(stud) @ relative @ relative_grasp
-            approach = goal.copy()
-            approach[2, 3] += 0.10
-            await self.move(approach, speed=0.035)
         for depth in [0.0005, 0.0015, 0.0025] if basket is not None else [0.0005]:
             press = goal.copy()
             press[2, 3] -= depth
