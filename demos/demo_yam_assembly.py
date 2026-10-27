@@ -334,6 +334,14 @@ class Demo:
         (self.output / "inventory.json").write_text(json.dumps(inventory, indent=2))
         set_camera_view(np.array([1.1, -1.05, 0.85]), np.array([0.25, 0, 0.13]))
         await self.capture("yam-scene.png")
+        if isinstance(self.basket, CompactBasket):
+            center = (self.basket.minimum + self.basket.maximum) / 2
+            set_camera_view(
+                np.array([center[0] + 0.12, center[1] - 0.20, 0.37]),
+                np.array([*center, 0.025]),
+            )
+            await self.capture("yam-basket.png")
+            set_camera_view(np.array([1.1, -1.05, 0.85]), np.array([0.25, 0, 0.13]))
         loose_paths = (
             dict(self.supply_paths)
             if self.supply_paths

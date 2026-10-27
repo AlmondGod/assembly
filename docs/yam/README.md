@@ -89,7 +89,7 @@ YAM_BASKET=1 YAM_SUPPLY_COUNT=50 YAM_BASKET_LAYOUT=compact YAM_SEED=7 \
   demos/demo_yam_assembly.py
 ```
 
-Add `YAM_SCENE_ONLY=1` for a settled scene preview. `inventory.json` records the bin dimensions and actual settled poses. The existing shallow mode remains the default when this setting is omitted.
+Add `YAM_SCENE_ONLY=1` for a settled scene preview. `inventory.json` records the bin dimensions and actual settled poses; `yam-basket.png` provides a close-up of the settled clutter. The existing shallow mode remains the default when this setting is omitted.
 
 Compact clutter is a harder scene, not a claim of arbitrary bin picking. The controller still requires a nearly upright source, clear fingers and reachable poses. It conservatively projects all eight corners of tilted neighboring bricks when checking obstruction. It fails explicitly when no supported source remains; it does not spread, teleport or reserve easy bricks. The controller cannot yet reorient sideways pieces or separate connected clusters. Physical compact-mode validation is pending.
 
