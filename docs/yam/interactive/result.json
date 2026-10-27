@@ -1,0 +1,45 @@
+{
+  "status": "success",
+  "planner": "interactive assistant",
+  "bindings": {
+    "1": 134,
+    "2": 144,
+    "3": 128,
+    "4": 137
+  },
+  "connections": {
+    "1": {
+      "bound": true,
+      "source_id": 134,
+      "connected": true,
+      "position_error_m": 8.63443537238862e-09,
+      "angle_error_rad": 2.2125899651561142e-07,
+      "valid": true
+    },
+    "2": {
+      "bound": true,
+      "source_id": 144,
+      "connected": true,
+      "position_error_m": 1.6263332628814772e-08,
+      "angle_error_rad": 1.4407935637919166e-07,
+      "valid": true
+    },
+    "3": {
+      "bound": true,
+      "source_id": 128,
+      "connected": true,
+      "position_error_m": 4.5395311784847064e-08,
+      "angle_error_rad": 1.2150787912817844e-07,
+      "valid": true
+    },
+    "4": {
+      "bound": true,
+      "source_id": 137,
+      "connected": true,
+      "position_error_m": 1.652133961237683e-08,
+      "angle_error_rad": 8.723027566170931e-12,
+      "valid": true
+    }
+  },
+  "event_count": 36
+}

@@ -64,8 +64,13 @@ class Demo:
             self.task == "grasp" and self.control != "cartesian"
         ):
             raise ValueError("YAM_TASK=grasp requires Cartesian control")
-        if self.control not in ("assembly", "cartesian"):
-            raise ValueError("YAM_CONTROL must be assembly or cartesian")
+        if self.control not in ("assembly", "cartesian", "interactive"):
+            raise ValueError("YAM_CONTROL must be assembly, cartesian or interactive")
+        if self.control == "interactive" and any(
+            (self.output / name).exists()
+            for name in ("state-000.json", "command-000.json")
+        ):
+            raise ValueError("Interactive control requires a fresh output directory")
         self.scene_only = os.environ.get("YAM_SCENE_ONLY") == "1"
         self.basket = Basket() if os.environ.get("YAM_BASKET") == "1" else None
         self.seed = int(os.environ.get("YAM_SEED", "7"))
@@ -102,6 +107,8 @@ class Demo:
             raise ValueError(
                 "Cartesian experiment requires one loose tabletop 2x4x3 brick (ID 1)"
             )
+        if self.control == "interactive" and not isinstance(self.basket, CompactBasket):
+            raise ValueError("Interactive control requires the compact 50-brick basket")
         self.paths: dict[int, str] = {}
         self.events: list[dict[str, object]] = []
         self.source_poses: dict[int, np.ndarray] = {}
@@ -132,7 +139,7 @@ class Demo:
         """Import both arms, populate the table and execute physical actions."""
         actions = (
             []
-            if self.scene_only or self.control == "cartesian"
+            if self.scene_only or self.control in ("cartesian", "interactive")
             else self.target.parse_policy(self.policy.read_text())
         )
         cartesian_actions = (
@@ -526,6 +533,16 @@ class Demo:
             print("YAM_RESULT " + json.dumps(result), flush=True)
             await self.capture("yam-result.png")
             await world.stop_async()
+            return
+        if self.control == "interactive":
+            from bricksim.cap.interactive import InteractiveSession
+
+            session = InteractiveSession(
+                self.output, world, arms, self.paths, self.supply_paths, self.target
+            )
+            await session.run()
+            set_camera_view(np.array([0.36, -0.32, 0.25]), np.array([0.155, 0, 0.025]))
+            await self.capture("interactive-result.png")
             return
         loose_paths = (
             dict(self.supply_paths)
