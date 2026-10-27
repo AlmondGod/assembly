@@ -8,9 +8,10 @@ from pathlib import Path
 
 import numpy as np
 from isaacsim.core.api.world import World
-from isaacsim.core.prims import SingleArticulation, XFormPrim
+from isaacsim.core.prims import SingleArticulation
 from isaacsim.core.utils.stage import get_current_stage
 from isaacsim.core.utils.types import ArticulationAction
+from isaacsim.core.utils.xforms import get_world_pose
 from scipy.spatial.transform import Rotation, Slerp
 
 from bricksim.cap.basket import Basket
@@ -75,10 +76,8 @@ class YamArm:
         """
         if not get_current_stage().GetPrimAtPath(path).IsValid():
             raise ValueError(f"Missing pose prim: {path}")
-        positions, quaternions = XFormPrim(
-            path, reset_xform_properties=False
-        ).get_world_poses(usd=False)
-        position, quaternion = positions[0], quaternions[0]
+        # Direct Fabric lookup avoids temporary view IDs persisting on other prims.
+        position, quaternion = get_world_pose(path, fabric=True)
         transform = np.eye(4)
         transform[:3, :3] = Rotation.from_quat(
             quaternion, scalar_first=True
@@ -155,6 +154,9 @@ class YamArm:
         reverse: bool,
         basket: Basket | None = None,
         loose_paths: dict[int, str] | None = None,
+        press_depths: tuple[float, ...] | None = None,
+        grasp_width: float | None = None,
+        top_press: bool = False,
     ) -> dict[str, object]:
         """Grasp and place one brick, then require an actual connection.
 
@@ -165,11 +167,16 @@ class YamArm:
             reverse: Rotate the grasp 180 degrees about the brick's vertical axis.
             basket: Optional shallow basket for live approach clearance checks.
             loose_paths: All unplaced brick paths; required with a basket.
+            press_depths: Optional successive downward offsets in metres; stop
+                once a physical connection forms. Defaults to the scene behavior.
+            grasp_width: Optional open-finger gap in metres for known stock width.
+            top_press: If side pressing fails, release and press with closed fingertips.
 
         Returns:
             Pick evidence including observed source pose, attempts and lift height.
         """
         stud, hole = paths[connection.stud], paths[connection.hole]
+        opening = 0.06 if grasp_width is None else grasp_width
         attempts = 2 if basket is not None else 1
         pick: dict[str, object] = {}
         for attempt in range(1, attempts + 1):
@@ -192,7 +199,7 @@ class YamArm:
             print(
                 f"YAM_GRASP {hole} attempt={attempt} source={before[:3, 3]}", flush=True
             )
-            await self.grip(0.06)
+            await self.grip(opening)
             await self.move(above)
             await self.move(grasp, speed=0.025)
             await self.grip(0)
@@ -206,7 +213,7 @@ class YamArm:
                     "lift_m": lift,
                 }
                 break
-            await self.grip(0.06)
+            await self.grip(opening)
             for _ in range(120):
                 await self.tick()
             if attempt == attempts:
@@ -231,7 +238,9 @@ class YamArm:
         approach[2, 3] += 0.10
         print(f"YAM_PLACE {hole} onto {stud}", flush=True)
         await self.move(approach)
-        for depth in [0.0005, 0.0015, 0.0025] if basket is not None else [0.0005]:
+        if press_depths is None:
+            press_depths = (0.0005, 0.0015, 0.0025) if basket is not None else (0.0005,)
+        for depth in press_depths:
             press = goal.copy()
             press[2, 3] -= depth
             await self.move(press, speed=0.015, tolerance=0.003)
@@ -248,8 +257,37 @@ class YamArm:
             pick["press_depth_m"] = depth
             if connected:
                 break
-        await self.grip(0.06)
+        await self.grip(opening)
         await self.move(approach, speed=0.035)
+        if top_press and not are_parts_connected(stud, hole):
+            # Apply downward contact directly when a side grip slides during seating.
+            tamp = self.pose(stud) @ relative
+            tamp[:3, :3] = tamp[:3, :3] @ np.diag(
+                [-1, 1, -1] if reverse else [1, -1, -1]
+            )
+            # Stud height plus distal pad extent below the TCP, both in metres.
+            tamp[2, 3] += height + 0.0017 + 0.0022
+            hover = tamp.copy()
+            hover[2, 3] += 0.025
+            await self.grip(0)
+            await self.move(hover)
+            for depth in press_depths:
+                press = tamp.copy()
+                press[2, 3] -= depth
+                await self.move(press, speed=0.01, tolerance=0.003)
+                for _ in range(120):
+                    await self.tick()
+                connected = are_parts_connected(stud, hole)
+                print(
+                    f"YAM_TOP_PRESS {connection.hole} depth={depth:.4f} "
+                    f"connected={connected}", flush=True,
+                )
+                pick["top_press_depth_m"] = depth
+                if connected:
+                    break
+            await self.move(hover, speed=0.035)
+            await self.grip(opening)
+            await self.move(approach)
         if not are_parts_connected(stud, hole):
             raise RuntimeError(f"No physical connection formed: {stud} -> {hole}")
         actual_relative = np.linalg.inv(self.pose(stud)) @ self.pose(hole)

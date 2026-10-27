@@ -134,15 +134,24 @@ class Assembly:
 
     def prompt(self) -> str:
         """Return the grounded task and the complete supported policy contract."""
-        edges = [{"stud": c.stud, "hole": c.hole} for c in self.connections.values()]
+        edges = [
+            {
+                "stud": c.stud,
+                "hole": c.hole,
+                "arm": "left" if index % 2 == 0 else "right",
+            }
+            for index, c in enumerate(self.connections.values())
+        ]
         return (
-            "Write Python code for two YAM robot arms to assemble a brick tower. "
+            "Write Python code for two YAM robot arms to build the given assembly. "
             "Return ONLY code, no markdown and no explanation. "
             "The ONLY allowed statement is await robot.assemble(stud, hole, arm). "
             'stud and hole must be integer literals; arm must be "left" or "right". '
             "Baseplate 0 is already placed. Every other brick must be placed once. "
             "Place a supporting brick before placing a brick on it. "
+            "Among available bricks, place the smallest hole ID first. "
             "Alternate left and right arms, starting with left. "
+            "Use exactly the arm specified for each desired connection. "
             "The simulator handles the target offsets and physical grasping. "
             f"Desired connections: {json.dumps(edges)}"
         )
