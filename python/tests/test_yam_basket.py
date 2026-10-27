@@ -167,3 +167,22 @@ def test_bulk_selection_leaves_clearance_for_observation_drift():
     basket.check_grasp(101, poses)
     candidates, rejected = basket.candidates(poses, side=1)
     assert 101 not in candidates and "blocks" in rejected[101]
+
+
+@pytest.mark.parametrize("level", [1, 2, 3, 4])
+def test_bulk_tower_top_press_is_reachable(level: int):
+    """Assigned arms reach the hover and bounded pressing poses at every level."""
+    urdf = Path(__file__).resolve().parents[2] / "resources/robots/yam/yam.urdf"
+    model = YamKinematics(urdf)
+    side = -1 if level % 2 else 1
+    target = np.eye(4)
+    target[:3, :3] = np.diag([1, -1, -1] if side == -1 else [-1, 1, -1])
+    target[:3, 3] = [0.155, 0, 0.0032 + level * 0.0096 + 0.0017 + 0.0022]
+    target[:3, 3] -= target[:3, 2] * 0.14465
+    target[:3, 3] -= [-0.02, side * 0.26, 0]
+    joints = np.array([0, 1.5, 1.5, 0, 0, 0.0])
+    for offset in (0.025, -0.0005, -0.0015, -0.0025):
+        probe = target.copy()
+        probe[2, 3] += offset
+        joints = model.inverse(probe, joints)
+        np.testing.assert_allclose(model.forward(joints), probe, atol=1e-4)
