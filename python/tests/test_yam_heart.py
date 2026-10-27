@@ -22,6 +22,8 @@ def test_heart_inventory_and_layer_footprints():
         (2, 4, 3): 6,
         (2, 2, 3): 5,
     }
+    # Place both small outer bricks before the middle bridge to clear the fingers.
+    assert [parts[i]["W"] for i in (7, 8, 9)] == [2, 2, 4]
     origins = {0: np.array([0, 0, 0])}
     occupied: dict[int, set[tuple[int, int]]] = {}
     for connection in target.connections.values():

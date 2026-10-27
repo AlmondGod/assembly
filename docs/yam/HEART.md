@@ -1,6 +1,6 @@
 # Eleven-brick heart with two YAM arms
 
-The heart uses six red 2×4 bricks and five red 2×2 bricks, plus a 20×20 support baseplate. Its six-layer arrangement follows the [published eleven-brick heart](https://www.steamsational.com/lego-valentines/). The eight-stud width follows world Y; the two-stud depth follows world X. Exactly two YAM arms pick from organized tabletop positions and alternate physical placements, bottom-up.
+The heart uses six red 2×4 bricks and five red 2×2 bricks, plus a 20×20 support baseplate. Its six-layer arrangement follows the [published eleven-brick heart](https://www.steamsational.com/lego-valentines/). The eight-stud width follows world Y; the two-stud depth follows world X. The fifth layer places both small outer bricks before the middle bridge, leaving room for the fingers. Exactly two YAM arms pick from organized tabletop positions and alternate physical placements, bottom-up.
 
 Generate a fresh policy with the separate Qwen environment described in [the YAM setup](README.md):
 
