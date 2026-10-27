@@ -77,6 +77,22 @@ Bulk candidate selection keeps an extra 2 mm of clearance and reobserves the bin
 
 This is a simulation prototype with known object poses. It supports exposed, nearly upright picks from a shallow supply; it does not yet reorient arbitrary sideways bricks, use camera estimates, untangle connected clusters or plan collision-free paths for every arm link. The existing four-brick basket and tabletop modes are unchanged.
 
+## Compact cluttered supply
+
+Set `YAM_BASKET_LAYOUT=compact` with `YAM_BASKET=1 YAM_SUPPLY_COUNT=50` to shrink the inner bin from 315×600 mm to 180×240 mm (23% of its previous floor area). The 75 mm walls contain fifty identical red 2×4 bricks. They start in five collision-free randomized layers and fall under gravity into a cluttered pile. Yaw covers a full turn; no physical source ID is reserved for a tower step.
+
+```sh
+YAM_BASKET=1 YAM_SUPPLY_COUNT=50 YAM_BASKET_LAYOUT=compact YAM_SEED=7 \
+  YAM_POLICY=outputs/yam/policy.py YAM_OUTPUT=outputs/yam-clutter \
+  uv run --no-sync bricksim \
+  --/app/window/enabled=false --/isaac/startup/ros_bridge_extension= \
+  demos/demo_yam_assembly.py
+```
+
+Add `YAM_SCENE_ONLY=1` for a settled scene preview. `inventory.json` records the bin dimensions and actual settled poses. The existing shallow mode remains the default when this setting is omitted.
+
+Compact clutter is a harder scene, not a claim of arbitrary bin picking. The controller still requires a nearly upright source, clear fingers and reachable poses. It conservatively projects all eight corners of tilted neighboring bricks when checking obstruction. It fails explicitly when no supported source remains; it does not spread, teleport or reserve easy bricks. The controller cannot yet reorient sideways pieces or separate connected clusters. Physical compact-mode validation is pending.
+
 ## Inspect the result
 
 - `inventory.json`: embodiment, joints, part IDs, dimensions, colors and prim paths.

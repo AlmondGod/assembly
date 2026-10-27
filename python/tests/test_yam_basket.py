@@ -6,7 +6,7 @@ import numpy as np
 import pytest
 from scipy.spatial.transform import Rotation
 
-from bricksim.cap.basket import Basket, BulkBasket
+from bricksim.cap.basket import Basket, BulkBasket, CompactBasket
 from bricksim.cap.kinematics import YamKinematics
 
 
@@ -186,3 +186,65 @@ def test_bulk_tower_top_press_is_reachable(level: int):
         probe[2, 3] += offset
         joints = model.inverse(probe, joints)
         np.testing.assert_allclose(model.forward(joints), probe, atol=1e-4)
+
+
+@pytest.mark.parametrize("seed", [7, 11, 19])
+def test_compact_spawn_is_small_varied_and_initially_collision_free(seed: int):
+    """Fifty sources fit smaller walls without starting inside another brick."""
+    basket = CompactBasket()
+    poses = basket.scatter(seed)
+    repeated = basket.scatter(seed)
+    assert set(poses) == set(range(101, 151))
+    assert np.prod(basket.maximum - basket.minimum) < 0.25 * np.prod(
+        BulkBasket.maximum - BulkBasket.minimum
+    )
+    assert len({pose[2, 3] for pose in poses.values()}) == 5
+    assert not np.array_equal(poses[101], basket.scatter(seed + 1)[101])
+    for part, pose in poses.items():
+        np.testing.assert_array_equal(pose, repeated[part])
+        rectangle = basket.corners(pose, basket.brick_half_size)
+        assert np.all(rectangle > basket.minimum)
+        assert np.all(rectangle < basket.maximum)
+        for other, neighbor in poses.items():
+            if other <= part:
+                continue
+            if abs(neighbor[2, 3] - pose[2, 3]) > 0.0114:
+                continue
+            other_rectangle = basket.corners(neighbor, basket.brick_half_size)
+            assert any(
+                (rectangle @ axis).max() < (other_rectangle @ axis).min()
+                or (other_rectangle @ axis).max() < (rectangle @ axis).min()
+                for axis in np.concatenate([pose[:2, :2].T, neighbor[:2, :2].T])
+            )
+
+
+def test_tilted_neighbor_top_blocks_compact_grasp():
+    """Projected upper corners cannot be ignored for a brick leaning inward."""
+    basket = CompactBasket()
+    pose = np.eye(4)
+    pose[:3, 3] = [0.335, 0.04, basket.floor]
+    neighbor = pose.copy()
+    neighbor[:3, :3] = Rotation.from_euler("y", -45, degrees=True).as_matrix()
+    neighbor[0, 3] += 0.037
+    # Its bottom projection clears the open gripper, but the tilted top does not.
+    assert basket.corners(neighbor, basket.brick_half_size)[:, 0].min() > (
+        pose[0, 3] + basket.grasp_half_size[0]
+    )
+    with pytest.raises(ValueError, match="102 blocks"):
+        basket.check_grasp(101, {101: pose, 102: neighbor})
+
+
+def test_compact_does_not_accept_covered_or_tilted_sources():
+    """Smaller geometry never relaxes the supported upright grasp constraints."""
+    basket = CompactBasket()
+    pose = np.eye(4)
+    pose[:3, 3] = [0.335, 0.04, basket.floor]
+    upper = pose.copy()
+    upper[2, 3] += 0.0096
+    candidates, rejected = basket.candidates({101: pose, 102: upper})
+    assert candidates == [102]
+    assert "102 blocks" in rejected[101]
+    upper[:3, :3] = Rotation.from_euler("x", 12, degrees=True).as_matrix()
+    candidates, rejected = basket.candidates({101: pose, 102: upper})
+    assert not candidates
+    assert "tilted" in rejected[102]
