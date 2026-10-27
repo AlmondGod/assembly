@@ -132,7 +132,7 @@ class BulkBasket(Basket):
                     self.maximum - [0.03, 0.03],
                 )
                 pose[2, 3] = self.floor + 0.001
-                rectangle = self.corners(pose, self.brick_half_size + 0.003)
+                rectangle = self.corners(pose, self.brick_half_size + 0.005)
                 if all(
                     any(
                         (rectangle @ axis).max() < (other @ axis).min()
@@ -148,12 +148,13 @@ class BulkBasket(Basket):
             poses[101 + index] = pose
         return poses
 
-    def check_grasp(self, part: int, poses: dict[int, np.ndarray]):
+    def check_grasp(self, part: int, poses: dict[int, np.ndarray], margin: float = 0.0):
         """Reject tilted, rim-obstructed or covered candidates from live poses.
 
         Args:
             part: Physical supply ID of the selected 2x4 brick.
             poses: Actual world transforms of all remaining supply bricks.
+            margin: Additional XY planning clearance in metres.
 
         Raises:
             ValueError: The top-down open fingers cannot approach the candidate.
@@ -163,7 +164,7 @@ class BulkBasket(Basket):
             raise ValueError(f"Basket brick {part} is tilted; upright picks only")
         if pose[2, 3] < self.floor - 0.002:
             raise ValueError(f"Basket brick {part} is below the floor")
-        footprint = self.corners(pose, self.grasp_half_size)
+        footprint = self.corners(pose, self.grasp_half_size + margin)
         if np.any(footprint < self.minimum) or np.any(footprint > self.maximum):
             raise ValueError(f"Basket wall blocks the grasp of brick {part}")
         for other, neighbor in poses.items():
@@ -208,7 +209,7 @@ class BulkBasket(Basket):
                 rejected[part] = "Brick is in the opposite arm's workspace"
                 continue
             try:
-                self.check_grasp(part, poses)
+                self.check_grasp(part, poses, margin=0.002)
             except ValueError as error:
                 rejected[part] = str(error)
             else:

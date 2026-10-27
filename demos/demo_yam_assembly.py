@@ -369,7 +369,12 @@ class Demo:
                                 )
                                 joints = arm.kinematics.inverse(flange, joints)
                             start = waypoint
-                    except RuntimeError as error:
+                        # Physics poses can drift while reachability is evaluated.
+                        latest = {
+                            key: YamArm.pose(path) for key, path in loose_paths.items()
+                        }
+                        self.basket.check_grasp(candidate, latest, margin=0.001)
+                    except (RuntimeError, ValueError) as error:
                         rejected[candidate] = str(error)
                         continue
                     source_id = candidate

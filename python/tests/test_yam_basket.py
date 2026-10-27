@@ -154,3 +154,16 @@ def test_bulk_layout_offers_multiple_reachable_picks_for_each_arm(seed: int):
                 continue
             reachable.append(part)
         assert len(reachable) >= 2
+
+
+def test_bulk_selection_leaves_clearance_for_observation_drift():
+    """A borderline executable grasp is not selected without planning clearance."""
+    basket = BulkBasket()
+    pose = np.eye(4)
+    pose[:3, 3] = [0.335, 0.05, basket.floor]
+    neighbor = pose.copy()
+    neighbor[0, 3] += 0.038
+    poses = {101: pose, 102: neighbor}
+    basket.check_grasp(101, poses)
+    candidates, rejected = basket.candidates(poses, side=1)
+    assert 101 not in candidates and "blocks" in rejected[101]
