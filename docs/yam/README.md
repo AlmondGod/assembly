@@ -73,6 +73,8 @@ YAM_BASKET=1 YAM_SUPPLY_COUNT=50 YAM_SEED=7 \
 
 The bulk bin uses a 26 mm finger opening matched to the 16 mm brick width. The selector re-observes all remaining bricks, rejects tilted or covered objects and blocked finger approaches, restricts each arm to its own half of the bin, ranks exposed candidates by height, and screens arm reach before choosing. It aligns the grasp with the selected brick's live pose. Successful actions record `supply_id`, rejection explanations, actual source transform and remaining supply count. A completed tower leaves 46 unconsumed supply IDs. If no supported grasp is available, the run fails explicitly; it does not relocate bricks to clear a path.
 
+Bulk candidate selection keeps an extra 2 mm of clearance and reobserves the bin after checking reachability. Initial bricks have at least 10 mm of separating-axis spacing; individual XY positions and yaw still vary. If every reachable candidate is blocked, the demo reports failure before moving.
+
 This is a simulation prototype with known object poses. It supports exposed, nearly upright picks from a shallow supply; it does not yet reorient arbitrary sideways bricks, use camera estimates, untangle connected clusters or plan collision-free paths for every arm link. The existing four-brick basket and tabletop modes are unchanged.
 
 ## Inspect the result
@@ -116,8 +118,6 @@ The [seed-7 result](basket/result-seed7.json), [seed-11 result](basket/result-se
 ![Four scattered bricks in the physical basket](basket/initial.png)
 
 ![Verified completed tower beside the empty basket](basket/tower.png)
-
-Bulk candidate selection keeps an extra 2 mm of clearance and reobserves the bin after checking reachability. Initial bricks have at least 10 mm of separating-axis spacing; individual XY positions and yaw still vary. If every reachable candidate is blocked, the demo reports failure before moving.
 
 ## Assemble an eleven-brick heart
 
