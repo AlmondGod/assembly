@@ -79,7 +79,7 @@ class Demo:
         self.events: list[dict[str, object]] = []
         self.source_poses: dict[int, np.ndarray] = {}
         self.press_depths: tuple[float, ...] | None = None
-        self.top_press = False
+        self.top_press = isinstance(self.basket, BulkBasket)
         self.grasp_width: float | None = None
 
     async def capture(self, name: str):
