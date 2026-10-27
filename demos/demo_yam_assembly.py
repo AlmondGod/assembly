@@ -70,6 +70,7 @@ class Demo:
         self.paths: dict[int, str] = {}
         self.events: list[dict[str, object]] = []
         self.source_poses: dict[int, np.ndarray] = {}
+        self.press_depths: tuple[float, ...] | None = None
 
     async def capture(self, name: str):
         """Save a rendered frame after the viewport settles.
@@ -308,6 +309,7 @@ class Demo:
                 reverse=name == "right",
                 basket=self.basket,
                 loose_paths=loose_paths,
+                press_depths=self.press_depths,
             )
             del loose_paths[connection.hole]
             self.events.append(

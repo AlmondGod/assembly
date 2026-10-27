@@ -16,6 +16,7 @@ TARGET = ROOT / "demos/assemblies/eleven_brick_heart.json"
 def test_heart_inventory_and_layer_footprints():
     """Reconstruct the published heart, with no overlaps and real stud support."""
     target = Assembly(TARGET)
+    assert set(HeartLayout.poses()) == target.ids
     parts = {part["id"]: part["payload"] for part in target.topology["parts"]}
     assert Counter((p["L"], p["W"], p["H"]) for i, p in parts.items() if i) == {
         (2, 4, 3): 6,

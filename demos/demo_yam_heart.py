@@ -25,6 +25,7 @@ class HeartDemo(demo_yam_assembly.Demo):
         os.environ.setdefault("YAM_OUTPUT", str(ROOT / "outputs/yam-heart"))
         super().__init__()
         self.source_poses = HeartLayout.poses()
+        self.press_depths = (0.0005, 0.0015, 0.0025)
         if not self.scene_only:
             actions = self.target.parse_policy(self.policy.read_text())
             expected = [
