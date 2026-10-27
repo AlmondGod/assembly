@@ -1,0 +1,7 @@
+{
+  "sampling_interval_seconds": 1,
+  "samples": 138,
+  "combined_gpu_peak_mib": 3956,
+  "gpu_total_mib": 20475,
+  "raw_csv": "/opt/BrickSim/outputs/caprl/heldout-smoke1-memory.csv"
+}

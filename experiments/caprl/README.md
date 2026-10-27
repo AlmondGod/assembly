@@ -27,11 +27,11 @@ These commands run one optimizer step with two sampled programs. Every valid pro
 
 ```sh
 uv run --project experiments/caprl --locked python -m experiments.caprl.train train \
-  --algorithm grpo --max-steps 1 --group-size 2 --timeout 900 \
+  --algorithm grpo --seed 42 --max-steps 1 --group-size 2 --timeout 900 \
   --output outputs/caprl/grpo-smoke
 
 uv run --project experiments/caprl --locked python -m experiments.caprl.train train \
-  --algorithm rloo --max-steps 1 --group-size 2 --timeout 900 \
+  --algorithm rloo --seed 43 --max-steps 1 --group-size 2 --timeout 900 \
   --output outputs/caprl/rloo-smoke
 ```
 

@@ -1,0 +1,9 @@
+{
+  "README.md": "27d1dfb5a24552dd88ae26810715a2fda989a96793aa69e5d6011efac4900198",
+  "adapter_model.safetensors": "b4e7609aafdf2f03b0069b6ee9e118c0a5add492bc792faf4ca11c1a5d67f511",
+  "adapter_config.json": "f1030c299636855c3a799c45b77ebcd8e1c057dc14a329c5856ee27c778b5928",
+  "chat_template.jinja": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80",
+  "tokenizer_config.json": "f6fdf337c2c5f4ed8190168a772c83f5c9364d225abae63223fde372e3cfb71f",
+  "tokenizer.json": "a5cd9732badce41de57e6efce8302930ded1c1188c5f81feb2bd6c24c4a1941f",
+  "training_args.bin": "0cca5e6ba2a23c75a43f1be1b8dd90d1d39b063b7d9c61ebcf0317a8d0d87126"
+}

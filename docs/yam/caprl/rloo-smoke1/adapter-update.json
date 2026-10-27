@@ -1,0 +1,126 @@
+{
+  "initialization": "PEFT default init_lora_weights=true initializes all LoRA B weights to zero",
+  "lora_b_tensors": {
+    "base_model.model.model.language_model.layers.11.self_attn.k_proj.lora_B.weight": {
+      "nonzero_elements": 4092,
+      "total_elements": 4096,
+      "max_absolute": 4.99999669045792e-06
+    },
+    "base_model.model.model.language_model.layers.11.self_attn.o_proj.lora_B.weight": {
+      "nonzero_elements": 8189,
+      "total_elements": 8192,
+      "max_absolute": 4.999997599952621e-06
+    },
+    "base_model.model.model.language_model.layers.11.self_attn.q_proj.lora_B.weight": {
+      "nonzero_elements": 32754,
+      "total_elements": 32768,
+      "max_absolute": 4.999998964194674e-06
+    },
+    "base_model.model.model.language_model.layers.11.self_attn.v_proj.lora_B.weight": {
+      "nonzero_elements": 4096,
+      "total_elements": 4096,
+      "max_absolute": 4.999998054699972e-06
+    },
+    "base_model.model.model.language_model.layers.15.self_attn.k_proj.lora_B.weight": {
+      "nonzero_elements": 4096,
+      "total_elements": 4096,
+      "max_absolute": 4.999998509447323e-06
+    },
+    "base_model.model.model.language_model.layers.15.self_attn.o_proj.lora_B.weight": {
+      "nonzero_elements": 8185,
+      "total_elements": 8192,
+      "max_absolute": 4.999995326215867e-06
+    },
+    "base_model.model.model.language_model.layers.15.self_attn.q_proj.lora_B.weight": {
+      "nonzero_elements": 32747,
+      "total_elements": 32768,
+      "max_absolute": 4.99999669045792e-06
+    },
+    "base_model.model.model.language_model.layers.15.self_attn.v_proj.lora_B.weight": {
+      "nonzero_elements": 4090,
+      "total_elements": 4096,
+      "max_absolute": 4.9999971452052705e-06
+    },
+    "base_model.model.model.language_model.layers.19.self_attn.k_proj.lora_B.weight": {
+      "nonzero_elements": 4095,
+      "total_elements": 4096,
+      "max_absolute": 4.999997599952621e-06
+    },
+    "base_model.model.model.language_model.layers.19.self_attn.o_proj.lora_B.weight": {
+      "nonzero_elements": 8188,
+      "total_elements": 8192,
+      "max_absolute": 4.999994871468516e-06
+    },
+    "base_model.model.model.language_model.layers.19.self_attn.q_proj.lora_B.weight": {
+      "nonzero_elements": 32734,
+      "total_elements": 32768,
+      "max_absolute": 4.999997599952621e-06
+    },
+    "base_model.model.model.language_model.layers.19.self_attn.v_proj.lora_B.weight": {
+      "nonzero_elements": 4091,
+      "total_elements": 4096,
+      "max_absolute": 4.999998054699972e-06
+    },
+    "base_model.model.model.language_model.layers.23.self_attn.k_proj.lora_B.weight": {
+      "nonzero_elements": 4094,
+      "total_elements": 4096,
+      "max_absolute": 4.999993507226463e-06
+    },
+    "base_model.model.model.language_model.layers.23.self_attn.o_proj.lora_B.weight": {
+      "nonzero_elements": 8186,
+      "total_elements": 8192,
+      "max_absolute": 4.999997599952621e-06
+    },
+    "base_model.model.model.language_model.layers.23.self_attn.q_proj.lora_B.weight": {
+      "nonzero_elements": 32725,
+      "total_elements": 32768,
+      "max_absolute": 4.999997599952621e-06
+    },
+    "base_model.model.model.language_model.layers.23.self_attn.v_proj.lora_B.weight": {
+      "nonzero_elements": 4096,
+      "total_elements": 4096,
+      "max_absolute": 4.999998054699972e-06
+    },
+    "base_model.model.model.language_model.layers.3.self_attn.k_proj.lora_B.weight": {
+      "nonzero_elements": 4095,
+      "total_elements": 4096,
+      "max_absolute": 4.9999971452052705e-06
+    },
+    "base_model.model.model.language_model.layers.3.self_attn.o_proj.lora_B.weight": {
+      "nonzero_elements": 8183,
+      "total_elements": 8192,
+      "max_absolute": 4.9999971452052705e-06
+    },
+    "base_model.model.model.language_model.layers.3.self_attn.q_proj.lora_B.weight": {
+      "nonzero_elements": 32749,
+      "total_elements": 32768,
+      "max_absolute": 4.999995326215867e-06
+    },
+    "base_model.model.model.language_model.layers.3.self_attn.v_proj.lora_B.weight": {
+      "nonzero_elements": 4094,
+      "total_elements": 4096,
+      "max_absolute": 4.999998054699972e-06
+    },
+    "base_model.model.model.language_model.layers.7.self_attn.k_proj.lora_B.weight": {
+      "nonzero_elements": 4092,
+      "total_elements": 4096,
+      "max_absolute": 4.999997599952621e-06
+    },
+    "base_model.model.model.language_model.layers.7.self_attn.o_proj.lora_B.weight": {
+      "nonzero_elements": 8187,
+      "total_elements": 8192,
+      "max_absolute": 4.999998054699972e-06
+    },
+    "base_model.model.model.language_model.layers.7.self_attn.q_proj.lora_B.weight": {
+      "nonzero_elements": 32751,
+      "total_elements": 32768,
+      "max_absolute": 4.999994871468516e-06
+    },
+    "base_model.model.model.language_model.layers.7.self_attn.v_proj.lora_B.weight": {
+      "nonzero_elements": 4095,
+      "total_elements": 4096,
+      "max_absolute": 4.999997599952621e-06
+    }
+  },
+  "nonzero_b_tensors": 24
+}

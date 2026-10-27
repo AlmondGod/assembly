@@ -1,0 +1,9 @@
+{
+  "directory": "/opt/BrickSim/outputs/caprl/rloo-smoke1/rollouts/seed-4-729ad68b38024f1ea96b9827205b0044",
+  "seed": 4,
+  "valid": true,
+  "completed": 1,
+  "success": false,
+  "status": "failed",
+  "reward": 0.25
+}

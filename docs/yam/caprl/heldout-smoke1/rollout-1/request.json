@@ -1,0 +1,6 @@
+{
+  "seed": 1000,
+  "prompt": "Build a four-brick tower using two YAM arms. Return only Python code, without markdown or explanation. Only literal statements of the form await robot.assemble(stud=0, hole=1, arm=\"left\") are permitted. Choose arm=\"left\" or arm=\"right\" for each action. Place every target brick exactly once, after its supporting brick. The left arm is based at world Y=-0.26 m and the right at Y=+0.26 m. Choose an arm that can approach each source on its own side. The controller handles grasping, placement offsets and verification. Baseplate 0 is already placed. Source positions are initial simulator observations [x,y,z] in metres, before settling: {\"1\": [0.37244, 0.04299, 0.004], \"2\": [0.30523, 0.09753, 0.004], \"3\": [0.37203, -0.04459, 0.004], \"4\": [0.30583, -0.10023, 0.004]}. Desired connections: [{\"stud\": 0, \"hole\": 1}, {\"stud\": 1, \"hole\": 2}, {\"stud\": 2, \"hole\": 3}, {\"stud\": 3, \"hole\": 4}].",
+  "policy_sha256": "31f1aee514a5d255d4bb6b368a48ec5de1541d624ff87094aef627026c03a3e7",
+  "target_sha256": "4942b11d440a378204a31a5b4cdf4987eb044043a23bb6dda00b8388d8e80ae5"
+}
