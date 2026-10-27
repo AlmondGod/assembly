@@ -156,6 +156,7 @@ class YamArm:
         basket: Basket | None = None,
         loose_paths: dict[int, str] | None = None,
         press_depths: tuple[float, ...] | None = None,
+        grasp_width: float | None = None,
     ) -> dict[str, object]:
         """Grasp and place one brick, then require an actual connection.
 
@@ -168,11 +169,13 @@ class YamArm:
             loose_paths: All unplaced brick paths; required with a basket.
             press_depths: Optional successive downward offsets in metres; stop
                 once a physical connection forms. Defaults to the scene behavior.
+            grasp_width: Optional open-finger gap in metres for known stock width.
 
         Returns:
             Pick evidence including observed source pose, attempts and lift height.
         """
         stud, hole = paths[connection.stud], paths[connection.hole]
+        opening = 0.06 if grasp_width is None else grasp_width
         attempts = 2 if basket is not None else 1
         pick: dict[str, object] = {}
         for attempt in range(1, attempts + 1):
@@ -195,7 +198,7 @@ class YamArm:
             print(
                 f"YAM_GRASP {hole} attempt={attempt} source={before[:3, 3]}", flush=True
             )
-            await self.grip(0.06)
+            await self.grip(opening)
             await self.move(above)
             await self.move(grasp, speed=0.025)
             await self.grip(0)
@@ -209,7 +212,7 @@ class YamArm:
                     "lift_m": lift,
                 }
                 break
-            await self.grip(0.06)
+            await self.grip(opening)
             for _ in range(120):
                 await self.tick()
             if attempt == attempts:
@@ -253,7 +256,7 @@ class YamArm:
             pick["press_depth_m"] = depth
             if connected:
                 break
-        await self.grip(0.06)
+        await self.grip(opening)
         await self.move(approach, speed=0.035)
         if not are_parts_connected(stud, hole):
             raise RuntimeError(f"No physical connection formed: {stud} -> {hole}")
