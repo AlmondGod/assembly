@@ -59,6 +59,11 @@ class Demo:
         self.output.mkdir(parents=True, exist_ok=True)
         self.policy = Path(os.environ.get("YAM_POLICY", str(self.output / "policy.py")))
         self.control = os.environ.get("YAM_CONTROL", "assembly")
+        self.task = os.environ.get("YAM_TASK", "assembly")
+        if self.task not in ("assembly", "grasp") or (
+            self.task == "grasp" and self.control != "cartesian"
+        ):
+            raise ValueError("YAM_TASK=grasp requires Cartesian control")
         if self.control not in ("assembly", "cartesian"):
             raise ValueError("YAM_CONTROL must be assembly or cartesian")
         self.scene_only = os.environ.get("YAM_SCENE_ONLY") == "1"
@@ -475,10 +480,39 @@ class Demo:
                 and angle_error <= np.deg2rad(5)
                 and peak_lift >= 0.065
             )
+            grasp_evidence = {}
+            if self.task == "grasp":
+                brick_pose = YamArm.pose(self.paths[connection.hole])
+                final_lift = float(brick_pose[2, 3] - initial[2, 3])
+                for name, arm in arms.items():
+                    tool_pose = arm.pose(arm.flange_path) @ arm.tool
+                    finger_positions = arm.robot.get_joint_positions()[arm.fingers]
+                    gap = float(-sum(finger_positions))
+                    delta = tool_pose[:3, 3] - brick_pose[:3, 3]
+                    grasp_evidence[name] = {
+                        "finger_gap_m": gap,
+                        "closed_command": bool(arm.grip_target == 0),
+                        "tool_minus_brick_m": delta.tolist(),
+                    }
+                success = bool(
+                    final_lift >= 0.065
+                    and any(
+                        item["closed_command"]
+                        and 0.008 <= item["finger_gap_m"] <= 0.025
+                        and np.linalg.norm(item["tool_minus_brick_m"][:2]) <= 0.015
+                        and 0.002 <= item["tool_minus_brick_m"][2] <= 0.015
+                        for item in grasp_evidence.values()
+                    )
+                )
             result = {
                 "status": "scene_only"
                 if self.scene_only
                 else ("success" if success else "failed"),
+                "task": self.task,
+                "grasp_evidence": grasp_evidence,
+                "final_lift_m": float(
+                    YamArm.pose(self.paths[connection.hole])[2, 3] - initial[2, 3]
+                ),
                 "control": "Cartesian commands + numerical IK",
                 "connected": connected,
                 "released": released,

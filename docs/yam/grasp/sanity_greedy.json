@@ -1,0 +1,13 @@
+{
+  "name": "sanity_greedy",
+  "model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "prompt": "Write one Python statement that prints the number four. Output only that statement.",
+  "generation": {
+    "max_new_tokens": 64,
+    "do_sample": false
+  },
+  "seed": 0,
+  "response": "4\n",
+  "seconds": 0.7306818619836122
+}
