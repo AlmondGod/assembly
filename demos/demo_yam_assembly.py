@@ -71,6 +71,7 @@ class Demo:
         self.events: list[dict[str, object]] = []
         self.source_poses: dict[int, np.ndarray] = {}
         self.press_depths: tuple[float, ...] | None = None
+        self.top_press = False
         self.grasp_width: float | None = None
 
     async def capture(self, name: str):
@@ -312,6 +313,7 @@ class Demo:
                 loose_paths=loose_paths,
                 press_depths=self.press_depths,
                 grasp_width=self.grasp_width,
+                top_press=self.top_press,
             )
             del loose_paths[connection.hole]
             self.events.append(

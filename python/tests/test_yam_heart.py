@@ -69,7 +69,7 @@ def test_heart_policy_uses_two_arms_and_every_target_once():
 
 
 def test_heart_pick_and_place_poses_are_reachable():
-    """Each assigned arm reaches source, lift, target and raised target poses."""
+    """Each arm reaches source, transfer and direct top-press poses."""
     target = Assembly(TARGET)
     model = YamKinematics(ROOT / "resources/robots/yam/yam.urdf")
     parts = {part["id"]: part["payload"] for part in target.topology["parts"]}
@@ -98,3 +98,11 @@ def test_heart_pick_and_place_poses_are_reachable():
             flange[2, 3] += 0.10
             joints = model.inverse(flange, joints)
             np.testing.assert_allclose(model.forward(joints), flange, atol=1e-4)
+            if pose is placement:
+                for extra_height in (0.0064, 0.0314):
+                    press_flange = flange.copy()
+                    press_flange[2, 3] += extra_height - 0.10
+                    joints = model.inverse(press_flange, joints)
+                    np.testing.assert_allclose(
+                        model.forward(joints), press_flange, atol=1e-4
+                    )
