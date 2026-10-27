@@ -99,16 +99,50 @@ class CartesianPolicy:
         return actions
 
     @staticmethod
-    def prompt(observation: dict[str, object]) -> str:
+    def prompt(observation: dict[str, object], task: str = "assembly") -> str:
         """Describe the task and primitive API without supplying a motion program.
 
         Args:
             observation: Recorded scene poses, dimensions and desired brick poses.
+            task: Either assembly or grasp; grasp includes a worked example.
 
         Returns:
             Text for the model, explicitly distinguishing goals from tool poses.
         """
-        task = {
+        if task == "grasp":
+            match observation:
+                case {"initial_brick_pose": {"position": [x, y, z]}} if all(
+                    isinstance(value, (int, float)) and not isinstance(value, bool)
+                    for value in (x, y, z)
+                ):
+                    pass
+                case _:
+                    raise ValueError(
+                        "Grasp observation requires three numeric coordinates"
+                    )
+            return (
+                "Output exactly five Python lines that grasp and lift a brick. "
+                "Use only these two calls:\n"
+                'await robot.grip("left", width)\n'
+                'await robot.move("left", x, y, z, speed)\n'
+                "All values must be numeric literals. The robot uses "
+                "inverse kinematics. "
+                "Units are metres. "
+                "For a brick at x=0.20, y=-0.18 with bottom z=0.0000, "
+                "here is a complete example:\n"
+                'await robot.grip("left", 0.026)\n'
+                'await robot.move("left", 0.20, -0.18, 0.1071, 0.04)\n'
+                'await robot.move("left", 0.20, -0.18, 0.0071, 0.015)\n'
+                'await robot.grip("left", 0.0)\n'
+                'await robot.move("left", 0.20, -0.18, 0.1071, 0.04)\n\n'
+                f"Now grasp a DIFFERENT brick at x={x:.3f}, y={y:.3f}, "
+                f"bottom z={z:.3f}. "
+                "It has the same height. Output only the five Python lines "
+                "for the new brick."
+            )
+        if task != "assembly":
+            raise ValueError("Task must be assembly or grasp")
+        task_geometry = {
             key: observation[key]
             for key in (
                 "initial_brick_pose",
@@ -135,5 +169,5 @@ class CartesianPolicy:
             "Use speed 0.04 for travel and 0.015 near contact. "
             "You must calculate the coordinates; no pick/place function exists. "
             "This is a single observed scene, without automatic retries. "
-            f"Task: {json.dumps(task)}"
+            f"Task: {json.dumps(task_geometry)}"
         )

@@ -51,3 +51,13 @@ def test_position_only_move_uses_documented_orientation():
     )
     assert actions[0].values == (0.24, -0.14, 0.1, 0, 1, 0, 0, 0.04)
     assert actions[1].values == (0.24, 0.14, 0.1, 0, 0, 1, 0, 0.04)
+
+
+def test_grasp_prompt_changes_position_and_keeps_example_distinct():
+    """The example and the target must not share source coordinates."""
+    prompt = CartesianPolicy.prompt(
+        {"initial_brick_pose": {"position": [0.24, -0.14, 0.0]}}, task="grasp"
+    )
+    assert "x=0.20, y=-0.18" in prompt
+    assert "x=0.240, y=-0.140, bottom z=0.000" in prompt
+    assert 'await robot.move("left", 0.20, -0.18, 0.0071, 0.015)' in prompt

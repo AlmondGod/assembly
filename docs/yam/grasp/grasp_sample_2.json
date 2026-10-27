@@ -1,0 +1,17 @@
+{
+  "name": "grasp_sample_2",
+  "model": "Qwen/Qwen3.5-0.8B",
+  "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "prompt": "Output exactly five Python lines that grasp and lift a brick. Use only these two calls:\nawait robot.grip(\"left\", width)\nawait robot.move(\"left\", x, y, z, speed)\nAll values must be numeric literals. The robot uses inverse kinematics. Units are metres. For a brick at x=0.20, y=-0.18 with bottom z=0.0000, here is a complete example:\nawait robot.grip(\"left\", 0.026)\nawait robot.move(\"left\", 0.20, -0.18, 0.1071, 0.04)\nawait robot.move(\"left\", 0.20, -0.18, 0.0071, 0.015)\nawait robot.grip(\"left\", 0.0)\nawait robot.move(\"left\", 0.20, -0.18, 0.1071, 0.04)\n\nNow grasp a DIFFERENT brick at x=0.240, y=-0.140, bottom z=-0.000. It has the same height. Output only the five Python lines for the new brick.",
+  "generation": {
+    "max_new_tokens": 256,
+    "do_sample": true,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "repetition_penalty": 1.05
+  },
+  "seed": 43,
+  "response": "await robot.grip(\"left\", 0.038)\nawait robot.move(\"left\", 0.240, -0.140, 0.1071, 0.04)\nawait robot.move(\"left\", 0.240, -0.140, 0.0071, 0.015)\nawait robot.grip(\"left\", 0.0)\nawait robot.move(\"left\", 0.240, -0.140, 0.1071, 0.04)\n",
+  "seconds": 4.428894128999673
+}

@@ -25,9 +25,12 @@ def main():
     parser.add_argument("--observation", type=Path)
     parser.add_argument("--max-new-tokens", type=int)
     parser.add_argument("--staged", action="store_true")
+    parser.add_argument("--task", choices=("assembly", "grasp"), default="assembly")
     args = parser.parse_args()
     if args.max_new_tokens is None:
-        args.max_new_tokens = 2048 if args.observation else 512
+        args.max_new_tokens = (
+            (256 if args.task == "grasp" else 2048) if args.observation else 512
+        )
     assembly = Assembly(args.target)
     args.output.mkdir(parents=True, exist_ok=True)
     # A rejected task or generation must not leave an old executable policy.
@@ -39,8 +42,10 @@ def main():
         (args.output / "input-observation.json").write_bytes(
             args.observation.read_bytes()
         )
-    if args.staged and observation is None:
-        raise ValueError("Staged generation requires Cartesian observations")
+    if (args.staged or args.task == "grasp") and observation is None:
+        raise ValueError("Staged or grasp generation requires Cartesian observations")
+    if args.staged and args.task == "grasp":
+        raise ValueError("Staged generation is only available for assembly")
     model_id = "Qwen/Qwen3.5-0.8B"
     revision = (
         args.revision
@@ -52,7 +57,7 @@ def main():
         model_id, revision=revision, dtype=torch.bfloat16, device_map="cuda"
     )
     prompt = (
-        CartesianPolicy.prompt(observation)
+        CartesianPolicy.prompt(observation, task=args.task)
         if observation is not None
         else assembly.prompt()
     )
@@ -65,6 +70,7 @@ def main():
         "max_new_tokens": args.max_new_tokens,
         "control": "cartesian" if args.observation else "assembly",
         "staged": args.staged,
+        "task": args.task,
         "observation_sha256": hashlib.sha256(args.observation.read_bytes()).hexdigest()
         if args.observation
         else None,
