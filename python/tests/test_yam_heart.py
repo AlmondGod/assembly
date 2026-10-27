@@ -106,3 +106,16 @@ def test_heart_pick_and_place_poses_are_reachable():
                     np.testing.assert_allclose(
                         model.forward(joints), press_flange, atol=1e-4
                     )
+
+
+def test_heart_outward_park_poses_are_reachable():
+    """Both parked flanges can stay directly over their own side of the table."""
+    model = YamKinematics(ROOT / "resources/robots/yam/yam.urdf")
+    for side in (-1, 1):
+        flange = np.eye(4)
+        flange[:3, :3] = np.diag([1, -1, -1] if side == -1 else [-1, 1, -1])
+        flange[:3, 3] = [0.28, 0.0, 0.32]
+        joints = model.inverse(flange, np.array([0, 1.5, 1.5, 0, 0, 0]))
+        np.testing.assert_allclose(model.forward(joints), flange, atol=1e-4)
+        assert np.all(joints >= model.limits[0])
+        assert np.all(joints <= model.limits[1])

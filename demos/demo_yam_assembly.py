@@ -72,6 +72,7 @@ class Demo:
         self.source_poses: dict[int, np.ndarray] = {}
         self.press_depths: tuple[float, ...] | None = None
         self.top_press = False
+        self.park_inset = 0.10
         self.grasp_width: float | None = None
 
     async def capture(self, name: str):
@@ -259,7 +260,7 @@ class Demo:
             robot = robots[name]
             home = np.eye(4)
             home[:3, :3] = np.diag([1, -1, -1] if name == "left" else [-1, 1, -1])
-            home[:3, 3] = [0.28, -side * 0.10, 0.32]
+            home[:3, 3] = [0.28, -side * self.park_inset, 0.32]
             joints = kinematics.inverse(home, np.array([0, 1.5, 1.5, 0, 0, 0]))
             positions = np.zeros(8)
             for i, value in enumerate(np.r_[joints, -0.04, -0.04], 1):
