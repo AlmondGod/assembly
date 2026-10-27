@@ -1,0 +1,15 @@
+{
+  "commit": "c999cd398547ed2265629d2e9c92e7d075c0b1e6",
+  "sha256": {
+    "demos/demo_yam_assembly.py": "1af079fbf7900d0ad7c7528c78160feda492ea4875cb5f36cb39845ffd3c8b71",
+    "demos/demo_yam_heart.py": "c492b171e599858cad5179ae05ba1a48228dbaabe180404eb49e2767f098d71c",
+    "demos/assemblies/eleven_brick_heart.json": "65a87e87147f75419cbbc728e5f14c80b103600a124b01ec208bfd0279949d07",
+    "python/bricksim/cap/policy.py": "9b6e800f44080be08076c4b811728e4f3e329e32b5c4fb1680953731dfcb4c12",
+    "python/bricksim/cap/heart.py": "bf0262bddc63d73511d2edb43989a20c4e055e47ab30d1d8e1feb793d4fa89ca",
+    "python/bricksim/cap/yam.py": "4b4af0289259ed9ca71bd0e513619085e9a7915c50aa1c9b2f22b9875a143f4f",
+    "python/bricksim/cap/basket.py": "0447b1a09a188c7a3100fe235a6e0f9e7a3ca7f1d2a17216c68e41e08f8160b5",
+    "python/tests/test_yam_heart.py": "97ee1bf43083f2a9ca735383a889c00727b31e6fa974f609fc5faa3fe75cbb78",
+    "python/tests/test_yam_basket.py": "61c5eaa3a446849fa0eedd42768102dd5ee9374ce6fce5dcfecdef2917f8110b",
+    ".runtime/record_heart.py": "be00dd43267e64e7e3964e21ee469ab7f0e0dca983699f2ee1544b725e174cb4"
+  }
+}
