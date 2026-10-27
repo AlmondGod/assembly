@@ -152,3 +152,7 @@ On 2026-10-27 UTC, compact seed 7 settled all 50 source centers inside the 180×
 The [inventory](clutter/inventory.json), [settled counts](clutter/settled-summary.json), [blocked result](clutter/result.json), [source hashes](clutter/source-hashes.json) and [validation log](clutter/validation.log) preserve the evidence. All 41 pure tests and repository-wide ruff/ty passed. The earlier shallow supply remains the demonstrated assembly baseline. General pile picking needs additional grasp/reorientation capabilities beyond this conservative top-down controller.
 
 ![Actual fifty-brick clutter in the 180×240 mm compact basket](clutter/yam-basket.png)
+
+## Direct end-effector policies
+
+The [Cartesian experiment](CARTESIAN.md) exposes tool pose and gripper commands to Qwen with numerical inverse kinematics, starting with one loose brick. This mode bypasses the complete assembly primitive.

@@ -1,0 +1,151 @@
+/opt/BrickSim/demos/generate_yam_policy.py:11: UserWarning: BrickSim is loaded outside Omniverse, some features may not work properly.
+  from bricksim.cap.cartesian import CartesianPolicy
+Loading weights:   0%|          | 0/473 [00:00<?, ?it/s]Loading weights:   0%|          | 1/473 [00:01<13:26,  1.71s/it]Loading weights:   1%|▏         | 6/473 [00:01<01:53,  4.12it/s]Loading weights:   4%|▍         | 21/473 [00:02<00:32, 13.86it/s]Loading weights:   6%|▌         | 28/473 [00:02<00:24, 18.09it/s]Loading weights:   7%|▋         | 32/473 [00:02<00:21, 20.38it/s]Loading weights:   8%|▊         | 36/473 [00:02<00:23, 18.88it/s]Loading weights:   8%|▊         | 39/473 [00:03<00:25, 16.75it/s]Loading weights:   9%|▉         | 42/473 [00:03<00:24, 17.93it/s]Loading weights:  10%|▉         | 45/473 [00:03<00:22, 19.39it/s]Loading weights:  10%|█         | 48/473 [00:03<00:24, 17.26it/s]Loading weights:  12%|█▏        | 59/473 [00:03<00:19, 21.44it/s]Loading weights:  14%|█▍        | 66/473 [00:04<00:15, 26.78it/s]Loading weights:  15%|█▌        | 72/473 [00:04<00:12, 31.57it/s]Loading weights:  16%|█▌        | 76/473 [00:04<00:12, 30.89it/s]Loading weights:  17%|█▋        | 80/473 [00:04<00:12, 31.82it/s]Loading weights:  18%|█▊        | 86/473 [00:04<00:10, 35.65it/s]Loading weights:  19%|█▉        | 90/473 [00:04<00:11, 32.90it/s]Loading weights:  20%|█▉        | 94/473 [00:05<00:14, 25.41it/s]Loading weights:  21%|██        | 97/473 [00:05<00:20, 17.91it/s]Loading weights:  21%|██        | 100/473 [00:05<00:24, 15.28it/s]Loading weights:  22%|██▏       | 106/473 [00:05<00:18, 19.88it/s]Loading weights:  23%|██▎       | 109/473 [00:05<00:17, 20.29it/s]Loading weights:  24%|██▎       | 112/473 [00:06<00:22, 15.87it/s]Loading weights:  25%|██▌       | 120/473 [00:06<00:14, 24.69it/s]Loading weights:  27%|██▋       | 128/473 [00:06<00:12, 27.71it/s]Loading weights:  28%|██▊       | 133/473 [00:06<00:12, 27.38it/s]Loading weights:  31%|███▏      | 148/473 [00:07<00:07, 42.79it/s]Loading weights:  34%|███▎      | 159/473 [00:07<00:06, 52.19it/s]Loading weights:  35%|███▌      | 167/473 [00:08<00:17, 17.32it/s]Loading weights:  36%|███▋      | 172/473 [00:09<00:21, 13.71it/s]Loading weights:  37%|███▋      | 176/473 [00:09<00:19, 15.07it/s]Loading weights:  38%|███▊      | 181/473 [00:09<00:19, 15.09it/s]Loading weights:  40%|███▉      | 187/473 [00:09<00:15, 18.98it/s]Loading weights:  41%|████      | 194/473 [00:10<00:13, 20.21it/s]Loading weights:  42%|████▏     | 200/473 [00:10<00:13, 20.22it/s]Loading weights:  43%|████▎     | 205/473 [00:10<00:11, 23.09it/s]Loading weights:  45%|████▌     | 213/473 [00:10<00:08, 30.34it/s]Loading weights:  47%|████▋     | 220/473 [00:10<00:06, 36.68it/s]Loading weights:  48%|████▊     | 225/473 [00:10<00:07, 31.69it/s]Loading weights:  49%|████▉     | 231/473 [00:10<00:06, 35.94it/s]Loading weights:  50%|████▉     | 236/473 [00:11<00:16, 14.47it/s]Loading weights:  51%|█████     | 240/473 [00:12<00:13, 16.64it/s]Loading weights:  52%|█████▏    | 245/473 [00:12<00:11, 20.43it/s]Loading weights:  53%|█████▎    | 249/473 [00:12<00:12, 18.38it/s]Loading weights:  53%|█████▎    | 253/473 [00:12<00:15, 14.09it/s]Loading weights:  55%|█████▍    | 258/473 [00:13<00:13, 15.44it/s]Loading weights:  56%|█████▌    | 265/473 [00:13<00:09, 21.54it/s]Loading weights:  57%|█████▋    | 271/473 [00:13<00:08, 25.16it/s]Loading weights:  58%|█████▊    | 275/473 [00:13<00:08, 22.02it/s]Loading weights:  59%|█████▉    | 278/473 [00:13<00:08, 21.69it/s]Loading weights:  61%|██████    | 287/473 [00:14<00:06, 27.22it/s]Loading weights:  62%|██████▏   | 291/473 [00:14<00:08, 21.96it/s]Loading weights:  62%|██████▏   | 294/473 [00:14<00:09, 19.65it/s]Loading weights:  63%|██████▎   | 299/473 [00:14<00:07, 23.59it/s]Loading weights:  64%|██████▍   | 302/473 [00:14<00:09, 18.90it/s]Loading weights:  65%|██████▍   | 306/473 [00:15<00:10, 16.07it/s]Loading weights:  67%|██████▋   | 315/473 [00:15<00:06, 25.29it/s]Loading weights:  67%|██████▋   | 319/473 [00:15<00:05, 26.47it/s]Loading weights:  69%|██████▊   | 325/473 [00:15<00:04, 32.30it/s]Loading weights:  70%|██████▉   | 331/473 [00:15<00:04, 31.05it/s]Loading weights:  72%|███████▏  | 340/473 [00:16<00:03, 38.31it/s]Loading weights:  73%|███████▎  | 345/473 [00:16<00:03, 40.55it/s]Loading weights:  74%|███████▍  | 350/473 [00:16<00:02, 41.49it/s]Loading weights:  76%|███████▌  | 360/473 [00:16<00:02, 55.22it/s]Loading weights:  78%|███████▊  | 370/473 [00:16<00:01, 62.66it/s]Loading weights:  80%|████████  | 379/473 [00:16<00:01, 62.44it/s]Loading weights:  83%|████████▎ | 391/473 [00:16<00:01, 68.45it/s]Loading weights:  84%|████████▍ | 399/473 [00:16<00:01, 62.00it/s]Loading weights:  87%|████████▋ | 411/473 [00:17<00:00, 75.24it/s]Loading weights:  89%|████████▉ | 420/473 [00:17<00:00, 78.64it/s]Loading weights:  91%|█████████ | 431/473 [00:17<00:00, 82.87it/s]Loading weights:  95%|█████████▍| 448/473 [00:17<00:00, 100.41it/s]Loading weights:  97%|█████████▋| 460/473 [00:17<00:00, 87.56it/s] Loading weights:  99%|█████████▉| 470/473 [00:17<00:00, 58.88it/s]Loading weights: 100%|██████████| 473/473 [00:17<00:00, 26.29it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+import math
+import asyncio
+
+async def pick_up_brick():
+    # Calculate desired position
+    desired_x = 0.32
+    desired_y = 0.0
+    desired_z = 0.0032
+    desired_quaternion = [1, 0, 0, 0]
+
+    # Calculate brick dimensions
+    brick_width = 0.016
+    brick_height = 0.0096
+
+    # Calculate grasp offset
+    grasp_offset = desired_z + brick_height - 0.0025
+
+    # Calculate approach path
+    approach_x = desired_x - 0.026
+    approach_y = desired_y
+    approach_z = desired_z - 0.065
+
+    # Calculate travel path
+    travel_x = approach_x
+    travel_y = approach_y
+    travel_z = approach_z
+
+    # Calculate contact point
+    contact_x = approach_x + 0.026
+    contact_y = approach_y
+    contact_z = approach_z + 0.065
+
+    # Calculate final position
+    final_x = contact_x + 0.026
+    final_y = contact_y
+    final_z = contact_z + 0.0025
+
+    # Calculate final quaternion
+    final_quaternion = [1, 0, 0, 0]
+
+    # Calculate speed
+    speed = 0.04
+
+    # Calculate distance
+    distance = math.sqrt((final_x - desired_x)**2 + (final_y - desired_y)**2 + (final_z - desired_z)**2)
+
+    # Calculate time
+    time = distance / speed
+
+    # Calculate coordinates
+    x = final_x
+    y = final_y
+    z = final_z
+
+    # Calculate gripper width
+    gripper_width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+    width = 0.026
+
+    # Calculate width
+
+Traceback (most recent call last):
+  File "/opt/BrickSim/demos/generate_yam_policy.py", line 101, in <module>
+    main()
+  File "/opt/BrickSim/demos/generate_yam_policy.py", line 73, in main
+    "revision": model.config._commit_hash,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/BrickSim/experiments/caprl/.venv/lib/python3.12/site-packages/transformers/configuration_utils.py", line 655, in __getattribute__
+    return super().__getattribute__(key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/BrickSim/experiments/caprl/.venv/lib/python3.12/site-packages/transformers/integrations/heterogeneity/configuration_utils.py", line 312, in __getattribute__
+    return super().__getattribute__(key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Qwen3_5Config' object has no attribute '_commit_hash'

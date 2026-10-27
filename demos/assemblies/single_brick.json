@@ -1,0 +1,63 @@
+{
+  "schema": "bricksim/lego_topology@2",
+  "parts": [
+    {
+      "id": 0,
+      "type": "brick",
+      "payload": {
+        "L": 20,
+        "W": 20,
+        "H": 1,
+        "color": [
+          155,
+          161,
+          157
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "type": "brick",
+      "payload": {
+        "L": 2,
+        "W": 4,
+        "H": 3,
+        "color": [
+          201,
+          26,
+          9
+        ]
+      }
+    }
+  ],
+  "connections": [
+    {
+      "id": 0,
+      "stud_id": 0,
+      "hole_id": 1,
+      "stud_iface": 1,
+      "hole_iface": 0,
+      "offset": [
+        9,
+        8
+      ],
+      "yaw": 0
+    }
+  ],
+  "pose_hints": [
+    {
+      "part": 0,
+      "pos": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rot": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

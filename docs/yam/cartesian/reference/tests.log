@@ -1,0 +1,9 @@
+........................................................................ [ 97%]
+..                                                                       [100%]
+=============================== warnings summary ===============================
+python/tests/test_yam_cartesian.py:5
+  /opt/BrickSim/python/tests/test_yam_cartesian.py:5: UserWarning: BrickSim is loaded outside Omniverse, some features may not work properly.
+    from bricksim.cap.cartesian import CartesianPolicy
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+74 passed, 1 warning in 12.70s
