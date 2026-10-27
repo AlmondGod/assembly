@@ -13,7 +13,7 @@ from isaacsim.core.utils.stage import get_current_stage
 from isaacsim.core.utils.types import ArticulationAction
 from scipy.spatial.transform import Rotation, Slerp
 
-from bricksim.cap.basket import Basket
+from bricksim.cap.basket import Basket, BulkBasket
 from bricksim.cap.kinematics import YamKinematics
 from bricksim.cap.policy import Connection
 from bricksim.core import are_parts_connected, compute_connection_transform
@@ -155,6 +155,7 @@ class YamArm:
         reverse: bool,
         basket: Basket | None = None,
         loose_paths: dict[int, str] | None = None,
+        source_id: int | None = None,
     ) -> dict[str, object]:
         """Grasp and place one brick, then require an actual connection.
 
@@ -165,11 +166,13 @@ class YamArm:
             reverse: Rotate the grasp 180 degrees about the brick's vertical axis.
             basket: Optional shallow basket for live approach clearance checks.
             loose_paths: All unplaced brick paths; required with a basket.
+            source_id: Physical supply ID when distinct from the target hole ID.
 
         Returns:
             Pick evidence including observed source pose, attempts and lift height.
         """
         stud, hole = paths[connection.stud], paths[connection.hole]
+        opening = basket.grasp_width if isinstance(basket, BulkBasket) else 0.06
         attempts = 2 if basket is not None else 1
         pick: dict[str, object] = {}
         for attempt in range(1, attempts + 1):
@@ -180,8 +183,9 @@ class YamArm:
                 observations = {
                     part: self.pose(path) for part, path in loose_paths.items()
                 }
-                before = observations[connection.hole]
-                basket.check_grasp(connection.hole, observations)
+                physical_id = connection.hole if source_id is None else source_id
+                before = observations[physical_id]
+                basket.check_grasp(physical_id, observations)
             grasp = before.copy()
             grasp[:3, :3] = before[:3, :3] @ np.diag(
                 [-1, 1, -1] if reverse else [1, -1, -1]
@@ -192,7 +196,7 @@ class YamArm:
             print(
                 f"YAM_GRASP {hole} attempt={attempt} source={before[:3, 3]}", flush=True
             )
-            await self.grip(0.06)
+            await self.grip(opening)
             await self.move(above)
             await self.move(grasp, speed=0.025)
             await self.grip(0)
@@ -206,7 +210,7 @@ class YamArm:
                     "lift_m": lift,
                 }
                 break
-            await self.grip(0.06)
+            await self.grip(opening)
             for _ in range(120):
                 await self.tick()
             if attempt == attempts:
@@ -248,7 +252,7 @@ class YamArm:
             pick["press_depth_m"] = depth
             if connected:
                 break
-        await self.grip(0.06)
+        await self.grip(opening)
         await self.move(approach, speed=0.035)
         if not are_parts_connected(stud, hole):
             raise RuntimeError(f"No physical connection formed: {stud} -> {hole}")

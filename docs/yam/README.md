@@ -57,7 +57,23 @@ YAM_BASKET=1 YAM_SEED=7 \
 
 Use the Qwen-generated policy from the earlier generation step: the target assembly and action interface are unchanged. Before each pick, the controller reads the current simulator poses of all remaining bricks and checks the open-finger footprint against the rim and neighboring bricks. It aligns with the selected brick's observed orientation, grasps with physical contact and lifts vertically before crossing the rim. A failed lift allows one retry after releasing and observing again. Blocked, tilted or stacked picks fail explicitly; they are not skipped. The brick-to-tool transform measured after lifting determines its placement pose. It checks for a connection while pressing, with at most three downward targets (0.5, 1.5 and 2.5 mm). Successful placements still require actual connections and relative alignment.
 
-This uses simulator state, not camera perception. It does not handle overlapping piles, arbitrary inventories or general robot collision planning. The footprint check covers the fingertip approach; the scene and arm paths remain a simulation prototype. `inventory.json` records the seed and actual initial transforms; each successful action in `result.json` records its observed source transform, attempt count, lift distance and press depth. Omitting `YAM_BASKET` retains the tabletop layout.
+This uses simulator state, not camera perception. This four-brick mode does not handle overlapping piles, arbitrary inventories or general robot collision planning. The footprint check covers the fingertip approach; the scene and arm paths remain a simulation prototype. `inventory.json` records the seed and actual initial transforms; each successful action in `result.json` records its observed source transform, attempt count, lift distance and press depth. Omitting `YAM_BASKET` retains the tabletop layout.
+
+## Select from fifty identical bricks
+
+Add `YAM_SUPPLY_COUNT=50` to basket mode. The container holds fifty red 2×4 bricks, initialized at varied XY positions and yaw (±30°) in one loose layer and then settled by gravity. The target keeps its four logical placement IDs; each is bound to a distinct physical supply brick selected immediately before grasping. Geometry is interchangeable in this mode; the tower uses the supply's red color.
+
+```sh
+YAM_BASKET=1 YAM_SUPPLY_COUNT=50 YAM_SEED=7 \
+  YAM_POLICY=outputs/yam/policy.py YAM_OUTPUT=outputs/yam-bulk-basket \
+  uv run --no-sync bricksim \
+  --/app/window/enabled=false --/isaac/startup/ros_bridge_extension= \
+  demos/demo_yam_assembly.py
+```
+
+The bulk bin uses a 26 mm finger opening matched to the 16 mm brick width. The selector re-observes all remaining bricks, rejects tilted or covered objects and blocked finger approaches, ranks exposed candidates by height, and screens arm reach before choosing. It aligns the grasp with the selected brick's live pose. Successful actions record `supply_id`, rejection explanations, actual source transform and remaining supply count. A completed tower leaves 46 unconsumed supply IDs. If no supported grasp is available, the run fails explicitly; it does not relocate bricks to clear a path.
+
+This is a simulation prototype with known object poses. It supports exposed, nearly upright picks from a shallow supply; it does not yet reorient arbitrary sideways bricks, use camera estimates, untangle connected clusters or plan collision-free paths for every arm link. The existing four-brick basket and tabletop modes are unchanged.
 
 ## Inspect the result
 

@@ -23,10 +23,10 @@ from omni.kit.app import get_app
 from omni.kit.commands import execute
 from omni.kit.viewport.utility import capture_viewport_to_file, get_active_viewport
 from pxr import PhysxSchema, Usd, UsdPhysics
-from scipy.spatial.transform import Rotation
+from scipy.spatial.transform import Rotation, Slerp
 
 from bricksim.assets.stages import DEFAULT_STAGE_PATH
-from bricksim.cap.basket import Basket
+from bricksim.cap.basket import Basket, BulkBasket
 from bricksim.cap.kinematics import YamKinematics
 from bricksim.cap.policy import Assembly
 from bricksim.cap.yam import YamArm
@@ -59,6 +59,14 @@ class Demo:
         self.scene_only = os.environ.get("YAM_SCENE_ONLY") == "1"
         self.basket = Basket() if os.environ.get("YAM_BASKET") == "1" else None
         self.seed = int(os.environ.get("YAM_SEED", "7"))
+        supply_count = int(os.environ.get("YAM_SUPPLY_COUNT", "4"))
+        if supply_count not in (4, 50):
+            raise ValueError("YAM_SUPPLY_COUNT must be 4 or 50")
+        if supply_count == 50:
+            if self.basket is None:
+                raise ValueError("Fifty-brick supply requires YAM_BASKET=1")
+            self.basket = BulkBasket()
+        self.supply_paths: dict[int, str] = {}
         if self.basket is not None:
             parts = self.target.topology["parts"]
             if {p["id"] for p in parts} != {0, 1, 2, 3, 4} or any(
@@ -203,7 +211,13 @@ class Demo:
                     color=np.array([0.22, 0.32, 0.38]),
                 )
         # Spawn disconnected bricks before physics; never teleport during actions.
-        for index, part in enumerate(self.target.topology["parts"]):
+        scene_parts = self.target.topology["parts"]
+        if isinstance(self.basket, BulkBasket):
+            template = scene_parts[1]
+            scene_parts = [scene_parts[0]] + [
+                dict(template, id=part) for part in scattered
+            ]
+        for index, part in enumerate(scene_parts):
             topology = dict(
                 self.target.topology,
                 parts=[part],
@@ -240,7 +254,10 @@ class Demo:
                 ref_pos=(position[0], position[1], position[2]),
                 ref_rot=rotation,
             )
-            self.paths.update(paths)
+            if isinstance(self.basket, BulkBasket) and part["id"] != 0:
+                self.supply_paths.update(paths)
+            else:
+                self.paths.update(paths)
         for path in [
             "/World/Cube",
             "/World/scene/roomScene/colliders/floor",
@@ -281,24 +298,85 @@ class Demo:
         inventory = {
             "embodiment": "dual I2RT YAM v1",
             "control": "joint position drives + numerical IK",
-            "parts": self.target.topology["parts"],
+            "parts": scene_parts,
+            "supply_count": len(scene_parts) - 1,
+            "supply_paths": self.supply_paths,
             "paths": self.paths,
             "arms": {name: robot.dof_names for name, robot in robots.items()},
             "source": "basket" if self.basket is not None else "table",
             "perception": "simulator world poses",
             "seed": self.seed if self.basket is not None else None,
             "initial_poses": {
-                part: YamArm.pose(path).tolist() for part, path in self.paths.items()
+                part: YamArm.pose(path).tolist()
+                for part, path in (self.paths | self.supply_paths).items()
             },
         }
         (self.output / "inventory.json").write_text(json.dumps(inventory, indent=2))
         set_camera_view(np.array([1.1, -1.05, 0.85]), np.array([0.25, 0, 0.13]))
         await self.capture("yam-scene.png")
-        loose_paths = {part: path for part, path in self.paths.items() if part != 0}
+        loose_paths = (
+            dict(self.supply_paths)
+            if self.supply_paths
+            else {part: path for part, path in self.paths.items() if part != 0}
+        )
         for connection, name in actions:
             part = next(
                 p for p in self.target.topology["parts"] if p["id"] == connection.hole
             )
+            source_id = connection.hole
+            rejected = {}
+            if isinstance(self.basket, BulkBasket):
+                observations = {
+                    key: YamArm.pose(path) for key, path in loose_paths.items()
+                }
+                candidates, rejected = self.basket.candidates(observations)
+                arm = arms[name]
+                for candidate in candidates:
+                    target = observations[candidate].copy()
+                    target[:3, :3] = target[:3, :3] @ np.diag(
+                        [-1, 1, -1] if name == "right" else [1, -1, -1]
+                    )
+                    target[:3, 3] += observations[candidate][:3, 2] * 0.0071
+                    joints = arm.joint_target.copy()
+                    try:
+                        # Screen sampled approach poses before committing to this pick.
+                        start = arm.pose(arm.flange_path) @ arm.tool
+                        above = target.copy()
+                        above[2, 3] += 0.10
+                        for waypoint in (above, target):
+                            rotations = Slerp(
+                                [0, 1],
+                                Rotation.from_matrix(
+                                    np.stack([start[:3, :3], waypoint[:3, :3]])
+                                ),
+                            )
+                            for fraction in np.linspace(0, 1, 16):
+                                probe = waypoint.copy()
+                                probe[:3, :3] = rotations(fraction).as_matrix()
+                                probe[:3, 3] = (
+                                    start[:3, 3] * (1 - fraction)
+                                    + waypoint[:3, 3] * fraction
+                                )
+                                flange = (
+                                    np.linalg.inv(arm.base)
+                                    @ probe
+                                    @ np.linalg.inv(arm.tool)
+                                )
+                                joints = arm.kinematics.inverse(flange, joints)
+                            start = waypoint
+                    except RuntimeError as error:
+                        rejected[candidate] = str(error)
+                        continue
+                    source_id = candidate
+                    self.paths[connection.hole] = loose_paths[candidate]
+                    break
+                else:
+                    raise RuntimeError(f"No reachable clear bulk brick: {rejected}")
+                print(
+                    f"YAM_SELECT target={connection.hole} supply={source_id} "
+                    f"remaining={len(loose_paths)} rejected={len(rejected)}",
+                    flush=True,
+                )
             pick = await arms[name].assemble(
                 connection,
                 self.paths,
@@ -306,8 +384,13 @@ class Demo:
                 reverse=name == "right",
                 basket=self.basket,
                 loose_paths=loose_paths,
+                source_id=source_id,
             )
-            del loose_paths[connection.hole]
+            del loose_paths[source_id]
+            if isinstance(self.basket, BulkBasket):
+                pick.update(
+                    supply_id=source_id, remaining=len(loose_paths), rejected=rejected
+                )
             self.events.append(
                 {
                     "stud": connection.stud,
@@ -318,17 +401,26 @@ class Demo:
                 }
             )
             await self.capture(f"step-{connection.hole}.png")
-        connected = {
-            str(c.hole): are_parts_connected(self.paths[c.stud], self.paths[c.hole])
-            for c in self.target.connections.values()
-        }
+        connected = (
+            {}
+            if self.scene_only
+            else {
+                str(c.hole): are_parts_connected(self.paths[c.stud], self.paths[c.hole])
+                for c in self.target.connections.values()
+            }
+        )
         result = {
             "status": "scene_only" if self.scene_only else "success",
             "connections": connected,
             "actions": self.events,
+            "remaining_supply": len(loose_paths),
             "source": "basket" if self.basket is not None else "table",
             "seed": self.seed if self.basket is not None else None,
         }
+        if isinstance(self.basket, BulkBasket):
+            result["remaining_supply_poses"] = {
+                part: YamArm.pose(path).tolist() for part, path in loose_paths.items()
+            }
         if not self.scene_only and not all(connected.values()):
             raise RuntimeError(f"Assembly validation failed: {connected}")
         (self.output / "result.json").write_text(json.dumps(result, indent=2))

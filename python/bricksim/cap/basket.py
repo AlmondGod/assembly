@@ -98,3 +98,113 @@ class Basket:
                     break
             if not separated:
                 raise ValueError(f"Brick {other} blocks the grasp of brick {part}")
+
+
+class BulkBasket(Basket):
+    """Fifty interchangeable 2x4 bricks scattered in a wide, shallow bin."""
+
+    minimum = np.array([0.245, -0.30])
+    maximum = np.array([0.56, 0.30])
+    grasp_width = 0.026
+    grasp_half_size = np.array([0.027, 0.023])
+
+    def scatter(self, seed: int) -> dict[int, np.ndarray]:
+        """Return fifty separated, randomized initial poses above the bin floor.
+
+        Args:
+            seed: Nonnegative NumPy random seed.
+
+        Returns:
+            Physical supply IDs 101..150 mapped to metre world transforms.
+            XY and yaw vary independently; no brick is reserved for a target.
+        """
+        generator = np.random.default_rng(seed)
+        poses = {}
+        rectangles = []
+        for index in range(50):
+            for _ in range(1000):
+                pose = np.eye(4)
+                pose[:3, :3] = Rotation.from_euler(
+                    "z", generator.uniform(-30, 30), degrees=True
+                ).as_matrix()
+                pose[:2, 3] = generator.uniform(
+                    self.minimum + [0.03, 0.03],
+                    self.maximum - [0.03, 0.03],
+                )
+                pose[2, 3] = self.floor + 0.001
+                rectangle = self.corners(pose, self.brick_half_size + 0.003)
+                if all(
+                    any(
+                        (rectangle @ axis).max() < (other @ axis).min()
+                        or (other @ axis).max() < (rectangle @ axis).min()
+                        for axis in np.concatenate([pose[:2, :2].T, rotation.T])
+                    )
+                    for other, rotation in rectangles
+                ):
+                    break
+            else:
+                raise RuntimeError("Could not populate the bulk basket")
+            rectangles.append((rectangle, pose[:2, :2]))
+            poses[101 + index] = pose
+        return poses
+
+    def check_grasp(self, part: int, poses: dict[int, np.ndarray]):
+        """Reject tilted, rim-obstructed or covered candidates from live poses.
+
+        Args:
+            part: Physical supply ID of the selected 2x4 brick.
+            poses: Actual world transforms of all remaining supply bricks.
+
+        Raises:
+            ValueError: The top-down open fingers cannot approach the candidate.
+        """
+        pose = poses[part]
+        if pose[2, 2] < np.cos(np.deg2rad(5)):
+            raise ValueError(f"Basket brick {part} is tilted; upright picks only")
+        if pose[2, 3] < self.floor - 0.002:
+            raise ValueError(f"Basket brick {part} is below the floor")
+        footprint = self.corners(pose, self.grasp_half_size)
+        if np.any(footprint < self.minimum) or np.any(footprint > self.maximum):
+            raise ValueError(f"Basket wall blocks the grasp of brick {part}")
+        for other, neighbor in poses.items():
+            if other == part:
+                continue
+            # Gripper pads contact the upper sidewall; objects below that swept
+            # volume cannot block the descending fingers. Bound tilted neighbors.
+            top = (
+                neighbor[2, 3]
+                + abs(neighbor[2, 2]) * 0.0114
+                + np.abs(neighbor[2, :2]) @ self.brick_half_size
+            )
+            if top < pose[2, 3] + 0.003:
+                continue
+            rectangle = self.corners(neighbor, self.brick_half_size)
+            axes = np.concatenate([pose[:2, :2].T, neighbor[:2, :2].T])
+            if not any(
+                (footprint @ axis).max() < (rectangle @ axis).min()
+                or (rectangle @ axis).max() < (footprint @ axis).min()
+                for axis in axes
+            ):
+                raise ValueError(f"Brick {other} blocks the grasp of brick {part}")
+
+    def candidates(
+        self, poses: dict[int, np.ndarray]
+    ) -> tuple[list[int], dict[int, str]]:
+        """Rank clear topmost candidates and retain explanations for rejections.
+
+        Args:
+            poses: Live world transforms of all remaining physical supply bricks.
+
+        Returns:
+            Highest-first candidate IDs and rejected-ID reason mapping.
+        """
+        accepted = []
+        rejected = {}
+        for part in sorted(poses, key=lambda key: (-poses[key][2, 3], key)):
+            try:
+                self.check_grasp(part, poses)
+            except ValueError as error:
+                rejected[part] = str(error)
+            else:
+                accepted.append(part)
+        return accepted, rejected
