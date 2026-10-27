@@ -1,0 +1,9 @@
+{
+  "directory": "/opt/BrickSim/outputs/caprl/grpo-smoke1/rollouts/seed-6-45e04111449a49d09f5e4c732465d15d",
+  "seed": 6,
+  "valid": true,
+  "completed": 0,
+  "success": false,
+  "status": "failed",
+  "reward": 0.0
+}

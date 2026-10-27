@@ -4,6 +4,8 @@ This is a small, single-GPU adaptation of [CaP-RL's environment-reward approach]
 
 The model writes four literal `await robot.assemble(stud, hole, arm)` calls. Programs pass the existing AST validator; generated Python is never executed. The task randomizes which logical brick occupies each basket slot, including existing position/yaw variation. Prompts give initial simulator source coordinates, but do not prescribe an arm. Choosing the arm is a real physical decision. Tower dependencies determine order; grasp pose, source picking, motion, force and retries remain controller decisions. This setup does **not** learn joint control, vision, clutter extraction, or recovery programs. It initially trains on four separated bricks, not the new fifty-brick clutter task. Adding physical-source choice would require a separately validated policy API.
 
+See [measured smoke results](../../docs/yam/caprl/SMOKE.md) before interpreting this as a trained policy.
+
 ## Installation
 
 Keep training dependencies separate from the existing Isaac environment. On the GPU machine, from the repository root:

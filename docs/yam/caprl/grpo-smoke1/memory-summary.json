@@ -1,0 +1,5 @@
+{
+  "sample_interval_seconds": 1,
+  "peak_combined_gpu_memory_mib": 4000,
+  "samples": 194
+}

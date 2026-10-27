@@ -1,0 +1,15 @@
+# Qwen physical-reward training smoke
+
+This evidence tests the integration, not improved robot performance. Setup and commands are in [the training guide](../../../experiments/caprl/README.md).
+
+On 2026-10-27 UTC, pinned Qwen3.5-0.8B completed one GRPO optimizer step with two actual simulator rollouts and saved an adapter plus optimizer checkpoint. Both sampled programs passed the bounded parser. On shuffled source seed 6, both chose the left arm for a first brick at positive Y; both failed the controller's inverse-kinematics approach check before any verified placement. Each received reward 0. The group had zero reward variance and zero gradient norm. **No completion improvement or effective policy update was demonstrated.**
+
+The training RNG seed was 42, group size 2, temperature 0.8, maximum response 384 tokens, and timeout 900 seconds per rollout. Each response contained 72 tokens. The training step took 73.0 seconds, excluding model setup. Measured model CUDA peaks were 1,889,468,928 bytes allocated and 1,962,934,272 bytes reserved. A separate one-second sampler observed a combined model/simulator peak of 4,000 MiB on the 20,475 MiB GPU. This measures these short failed trials, not a maximum for all future scenes.
+
+[Raw policies and simulator results](grpo-smoke1/) retain both failures, exact requests, scene inventories, rewards, trainer state, model revision, package versions and source hashes. The adapter binaries remain on RunPod at `/opt/BrickSim/outputs/caprl/grpo-smoke1/adapter`; the resumable checkpoint is `/opt/BrickSim/outputs/caprl/grpo-smoke1/checkpoints/checkpoint-1`. [The checkpoint manifest](grpo-smoke1/checkpoint-manifest.json) records file sizes and SHA256 hashes; binaries are not committed.
+
+The scene entrypoint used for this first smoke matches commit `2bfd4f4`, with SHA256 `4c646b5131349086671b0b80a9a33b3109daed715217ffe027fbc39125aaccf1`. The branch subsequently merged the parent scene's configurable parking hook from `9140db8`, whose default preserves the four-slot behavior. Other hashed policy, controller, target and training files matched the source at the smoke. A later integration run must explicitly record its own source hashes rather than assuming this evidence validates edited files.
+
+CPU validation passed 51 combined pure reward/YAM tests, including subprocess cleanup, partial timeouts, infrastructure failures, invalid-code rejection and task splits. Three isolated training-environment tests passed: one optimizer/checkpoint step each for GRPO and RLOO using explicitly synthetic tiny-model test rewards, plus a tiny random Qwen hybrid generation/backward test. Root Ruff, root type checks with narrow training-file exclusions, and separate locked-environment training type checks passed. These software tests do not establish physical success.
+
+A real RLOO step and held-out physical evaluation are pending the next GPU slot. Larger exploratory groups or a curriculum may help find varied rewards, but neither has been run or shown to improve completion here.
