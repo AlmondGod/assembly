@@ -8,9 +8,10 @@ from pathlib import Path
 
 import numpy as np
 from isaacsim.core.api.world import World
-from isaacsim.core.prims import SingleArticulation, XFormPrim
+from isaacsim.core.prims import SingleArticulation
 from isaacsim.core.utils.stage import get_current_stage
 from isaacsim.core.utils.types import ArticulationAction
+from isaacsim.core.utils.xforms import get_world_pose
 from scipy.spatial.transform import Rotation, Slerp
 
 from bricksim.cap.basket import Basket, BulkBasket
@@ -75,10 +76,8 @@ class YamArm:
         """
         if not get_current_stage().GetPrimAtPath(path).IsValid():
             raise ValueError(f"Missing pose prim: {path}")
-        positions, quaternions = XFormPrim(
-            path, reset_xform_properties=False
-        ).get_world_poses(usd=False)
-        position, quaternion = positions[0], quaternions[0]
+        # Direct Fabric lookup avoids temporary view IDs persisting on other prims.
+        position, quaternion = get_world_pose(path, fabric=True)
         transform = np.eye(4)
         transform[:3, :3] = Rotation.from_quat(
             quaternion, scalar_first=True
