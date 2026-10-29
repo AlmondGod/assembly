@@ -1,0 +1,345 @@
+{
+  "task": "Simulated hand demonstrations in the50brickcompactBrickSimbasket",
+  "controller": "Prescribed22DOFkinematicShadowHand with compliant100N/mcontact material and contact feedback; dynamic bricks; no attachments or brick pose commands during actions",
+  "source_controller_observations": "Privileged current brick poses and fingertip contacts; object poses are labels, never visual-policy inference inputs",
+  "asset": "Official NVIDIA Isaac Sim5.1ShadowHand USD,22fingerDOFs after wrist/forearm removal",
+  "scene_changes": {
+    "spawn_layer_spacing_m": 0.013,
+    "basket_floor_top_m": 0.003,
+    "floor_collision_thickness_m": 0.05,
+    "automatic_stud_snapping": false,
+    "hand_compliant_contact_stiffness_N_per_m": 100,
+    "physics_dt_s": 0.008333333333333333
+  },
+  "verified_proof": {
+    "seed": 30000,
+    "success": true,
+    "evidence": [
+      {
+        "brick": 131,
+        "lift_m": 0.1302008517086506,
+        "hold_drift_m": 1.4901161193847656e-08,
+        "tip_contact_force_N": [
+          0.06425067782402039,
+          0.140212744474411
+        ],
+        "position": [
+          0.3466801047325134,
+          -0.06828442960977554,
+          0.15583071112632751
+        ]
+      }
+    ],
+    "wall_seconds": 43.226121173938736,
+    "video": "outputs/hand-motion/pilot024/seed30000/hand-physics.mp4"
+  },
+  "fresh_batch": {
+    "completed": 10,
+    "successes": 7,
+    "wall_seconds": 484.8043343439931,
+    "median_wall_seconds_per_scene": 46.28206236800179,
+    "labeled_windows": 80,
+    "eligible_train_windows": 48,
+    "rows": [
+      {
+        "seed": 30010,
+        "selected": "149",
+        "success": true,
+        "wall_seconds": 48.897410605917685,
+        "process_stopped": true,
+        "lift_evidence": [
+          {
+            "brick": 149,
+            "lift_m": 0.13040957413613796,
+            "hold_drift_m": 6.032785648812933e-08,
+            "tip_contact_force_N": [
+              0.07876204699277878,
+              0.11443417519330978
+            ],
+            "position": [
+              0.30706021189689636,
+              -0.0032839190680533648,
+              0.15601366758346558
+            ]
+          }
+        ],
+        "split": "source_train",
+        "scene_valid": true,
+        "labeled_windows": 8,
+        "eligible_train_windows": 8,
+        "path": "outputs/hand-motion/hand-data-v1-seed30010/seed30010"
+      },
+      {
+        "seed": 30011,
+        "selected": "125",
+        "success": false,
+        "wall_seconds": 48.496229203999974,
+        "process_stopped": true,
+        "lift_evidence": [],
+        "split": "source_train",
+        "scene_valid": true,
+        "labeled_windows": 8,
+        "eligible_train_windows": 0,
+        "path": "outputs/hand-motion/hand-data-v1-seed30011/seed30011"
+      },
+      {
+        "seed": 30012,
+        "selected": "149",
+        "success": true,
+        "wall_seconds": 46.59270216396544,
+        "process_stopped": true,
+        "lift_evidence": [
+          {
+            "brick": 149,
+            "lift_m": 0.12993870303034782,
+            "hold_drift_m": 0.0,
+            "tip_contact_force_N": [
+              0.05971473455429077,
+              0.06886924058198929
+            ],
+            "position": [
+              0.33142906427383423,
+              0.0651388168334961,
+              0.14961735904216766
+            ]
+          }
+        ],
+        "split": "source_train",
+        "scene_valid": true,
+        "labeled_windows": 8,
+        "eligible_train_windows": 8,
+        "path": "outputs/hand-motion/hand-data-v1-seed30012/seed30012"
+      },
+      {
+        "seed": 30013,
+        "selected": "145",
+        "success": false,
+        "wall_seconds": 45.132693314924836,
+        "process_stopped": true,
+        "lift_evidence": [],
+        "split": "source_train",
+        "scene_valid": true,
+        "labeled_windows": 8,
+        "eligible_train_windows": 0,
+        "path": "outputs/hand-motion/hand-data-v1-seed30013/seed30013"
+      },
+      {
+        "seed": 30014,
+        "selected": "131",
+        "success": true,
+        "wall_seconds": 45.03179422300309,
+        "process_stopped": true,
+        "lift_evidence": [
+          {
+            "brick": 131,
+            "lift_m": 0.12958415411412716,
+            "hold_drift_m": 5.972094641037984e-08,
+            "tip_contact_force_N": [
+              0.03686825931072235,
+              0.16802819073200226
+            ],
+            "position": [
+              0.2943441867828369,
+              -0.04662590101361275,
+              0.15524455904960632
+            ]
+          }
+        ],
+        "split": "source_train",
+        "scene_valid": true,
+        "labeled_windows": 8,
+        "eligible_train_windows": 8,
+        "path": "outputs/hand-motion/hand-data-v1-seed30014/seed30014"
+      },
+      {
+        "seed": 30015,
+        "selected": "144",
+        "success": true,
+        "wall_seconds": 44.5778658190975,
+        "process_stopped": true,
+        "lift_evidence": [
+          {
+            "brick": 144,
+            "lift_m": 0.12962361797690392,
+            "hold_drift_m": 3.5451474644787595e-08,
+            "tip_contact_force_N": [
+              0.04723158851265907,
+              0.09507483243942261
+            ],
+            "position": [
+              0.28988388180732727,
+              -0.005179760977625847,
+              0.15569905936717987
+            ]
+          }
+        ],
+        "split": "source_train",
+        "scene_valid": true,
+        "labeled_windows": 8,
+        "eligible_train_windows": 8,
+        "path": "outputs/hand-motion/hand-data-v1-seed30015/seed30015"
+      },
+      {
+        "seed": 30016,
+        "selected": "145",
+        "success": true,
+        "wall_seconds": 45.971422572038136,
+        "process_stopped": true,
+        "lift_evidence": [
+          {
+            "brick": 145,
+            "lift_m": 0.13015541806817055,
+            "hold_drift_m": 2.9802322387695312e-08,
+            "tip_contact_force_N": [
+              0.051989611238241196,
+              0.3533587157726288
+            ],
+            "position": [
+              0.32657545804977417,
+              0.012764821760356426,
+              0.16195257008075714
+            ]
+          }
+        ],
+        "split": "source_train",
+        "scene_valid": true,
+        "labeled_windows": 8,
+        "eligible_train_windows": 8,
+        "path": "outputs/hand-motion/hand-data-v1-seed30016/seed30016"
+      },
+      {
+        "seed": 30017,
+        "selected": "144",
+        "success": true,
+        "wall_seconds": 45.73016869300045,
+        "process_stopped": true,
+        "lift_evidence": [
+          {
+            "brick": 144,
+            "lift_m": 0.13023963570594788,
+            "hold_drift_m": 4.2311164349939645e-08,
+            "tip_contact_force_N": [
+              0.04970632120966911,
+              0.08190013468265533
+            ],
+            "position": [
+              0.3185184895992279,
+              -0.05677712336182594,
+              0.1675119549036026
+            ]
+          }
+        ],
+        "split": "source_train",
+        "scene_valid": true,
+        "labeled_windows": 8,
+        "eligible_train_windows": 8,
+        "path": "outputs/hand-motion/hand-data-v1-seed30017/seed30017"
+      },
+      {
+        "seed": 30018,
+        "selected": "126",
+        "success": true,
+        "wall_seconds": 53.271004659938626,
+        "process_stopped": true,
+        "lift_evidence": [
+          {
+            "brick": 126,
+            "lift_m": 0.13030208088457584,
+            "hold_drift_m": 1.5359765015432458e-08,
+            "tip_contact_force_N": [
+              0.04001626744866371,
+              0.12275036424398422
+            ],
+            "position": [
+              0.2837044298648834,
+              -0.036422427743673325,
+              0.14458684623241425
+            ]
+          }
+        ],
+        "split": "heldout_hand_scenes",
+        "scene_valid": true,
+        "labeled_windows": 8,
+        "eligible_train_windows": 0,
+        "path": "outputs/hand-motion/hand-data-v1-seed30018/seed30018"
+      },
+      {
+        "seed": 30019,
+        "selected": "143",
+        "success": false,
+        "wall_seconds": 60.28429322701413,
+        "process_stopped": true,
+        "lift_evidence": [],
+        "split": "heldout_hand_scenes",
+        "scene_valid": true,
+        "labeled_windows": 8,
+        "eligible_train_windows": 0,
+        "path": "outputs/hand-motion/hand-data-v1-seed30019/seed30019"
+      }
+    ]
+  },
+  "success_gate": {
+    "minimum_lift_m": 0.065,
+    "maximum_hold_drift_m": 0.003,
+    "hold_simulated_seconds": 1,
+    "minimum_normal_contact_force_each_fingertip_N": 0.001
+  },
+  "failure_diagnosis": {
+    "bug": "SingleGeometryPrim used just to bind material resets authored Cube collision scales to1; metre-sized handcolliders overlappedbasket",
+    "reproduced_changed_colliders": [
+      "/shadow_hand/robot0_palm/collisions/robot0_C_palm0",
+      "/shadow_hand/robot0_palm/collisions/robot0_C_palm1",
+      "/shadow_hand/robot0_lfmetacarpal/collisions/robot0_C_lfmetacarpal",
+      "/shadow_hand/robot0_thbase/collisions/robot0_V_thbase",
+      "/shadow_hand/robot0_thhub/collisions/robot0_V_thhub"
+    ],
+    "fix": "Direct UsdShade physics-material binding preserves geometry transforms",
+    "negative_control": "control023, handcollisionsdisabled:50bricksremainstable andnophysicallift"
+  },
+  "rendering": "CPU replay of native rigid-body transforms at20Hz; untextured meshes, native stud-instancer dimensions expanded at16segments; no motion interpolation",
+  "labels": "Eight RGB/3Dobject-point displacement windows per attempt at approximately0.5s horizon; nine local anchor points; seed-separated source_train/heldout_hand_scenes",
+  "training": {
+    "new_model_training_executed": false,
+    "YAM_transfer_evaluation_executed": false,
+    "reason": "This pilot gathers embodiment-matched source motion data; transfer improvement is not established"
+  },
+  "development_prototypes": "Keep failed implementation/physics prototypes out of the fresh-batch grasp denominator and all training data",
+  "dataset_manifest": "dataset/manifest.json",
+  "video_export": {
+    "completed": 11,
+    "total": 11,
+    "seconds": 220.0896974997595,
+    "folders": [
+      "outputs/hand-motion/pilot024/seed30000",
+      "outputs/hand-motion/hand-data-v1-seed30010/seed30010",
+      "outputs/hand-motion/hand-data-v1-seed30011/seed30011",
+      "outputs/hand-motion/hand-data-v1-seed30012/seed30012",
+      "outputs/hand-motion/hand-data-v1-seed30013/seed30013",
+      "outputs/hand-motion/hand-data-v1-seed30014/seed30014",
+      "outputs/hand-motion/hand-data-v1-seed30015/seed30015",
+      "outputs/hand-motion/hand-data-v1-seed30016/seed30016",
+      "outputs/hand-motion/hand-data-v1-seed30017/seed30017",
+      "outputs/hand-motion/hand-data-v1-seed30018/seed30018",
+      "outputs/hand-motion/hand-data-v1-seed30019/seed30019"
+    ]
+  },
+  "cleanup": {
+    "owned_simulator_groups_checked": 34,
+    "active_owned_processes": [],
+    "fresh_batch_finished": true,
+    "material_probe_cleanup": {
+      "stopped": true,
+      "returncode": 0
+    }
+  },
+  "shared_source_provenance": {
+    "demos/demo_yam_assembly.py": "1e2fab0043c40dc52ac4441486fce99357d27015f0ad81e7dcca175872ab4be4",
+    "python/bricksim/cap/basket.py": "f18d2e3eb51375adae02b9c6dabb6dc661e3c23e0fd23289bbd70789b6e86115",
+    "git_head": "e5fdd8c76ace53d1c20538ce1ed43d95415f6eb1"
+  },
+  "transfer_limitations": [
+    "Prescribed hand poses and compliant contacts are source-only; no validated hand actuator controller.",
+    "CPU images use an orthographic untextured renderer. A fair YAM co-training comparison must match renderer, camera and input format.",
+    "These are hand-source trajectories, not paired YAM rollouts or a measured transfer improvement."
+  ]
+}

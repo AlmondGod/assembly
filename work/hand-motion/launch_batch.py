@@ -1,0 +1,4 @@
+import argparse,json
+from pathlib import Path
+from remote import upload,call
+p=argparse.ArgumentParser();p.add_argument('name');p.add_argument('--seeds',default='30000');p.add_argument('--no-contact',action='store_true');args=p.parse_args();root=Path('outputs/hand-motion');jobs=[{'id':'seed'+s,'seed':int(s),'hand_contacts':not args.no_contact} for s in args.seeds.split(',')];(root/(args.name+'-jobs.json')).write_text(json.dumps(jobs));upload([(Path('work/hand-motion')/n,n) for n in ['session.py','supervisor.py','kinematics.py','recording.py']]+[(root/'pinch-collision.json','pinch.json'),(root/'hand-boxes.json','hand-boxes.json'),(root/'hand-collision-cloud.json','hand-collision-cloud.json'),(root/(args.name+'-jobs.json'),args.name+'-jobs.json')]);print(call('nohup env HAND_RUN='+args.name+' HAND_JOBS='+args.name+'-jobs.json python /opt/BrickSim/.runtime/hand-motion/supervisor.py >/opt/BrickSim/.runtime/hand-motion/'+args.name+'-supervisor.log 2>&1 </dev/null &\n'))

@@ -1,0 +1,8 @@
+{
+  "verified_files": 426,
+  "persistent_volume": "/workspace/hand-motion",
+  "bundle": "hand-motion-pilot.zip",
+  "bundle_bytes": 17551902,
+  "bundle_sha256": "aa118f790cf8e6c0313538dd8caa40f630b00a41f3903de305703460dbbabf7c",
+  "verification": "Remote extraction and SHA256 verification completed successfully"
+}

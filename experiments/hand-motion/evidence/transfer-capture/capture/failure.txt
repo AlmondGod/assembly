@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/opt/BrickSim/.runtime/hand-qwen-transfer/capture.py", line 36, in main
+    try:await Demo().run()
+        ^^^^^^^^^^^^^^^^^^
+  File "/opt/BrickSim/demos/demo_yam_assembly.py", line 554, in run
+    await session.run()
+  File "/opt/BrickSim/.runtime/hand-qwen-transfer/capture.py", line 25, in capture
+    else:poses=self.basket.scatter(seed)
+               ^^^^^^^^^^^
+AttributeError: 'InteractiveSession' object has no attribute 'basket'
