@@ -289,6 +289,9 @@ def main() -> None:
                 (24, 20),
                 "YAM grasp and transport probe"
                 if grasp_probe
+                else "YAM diagnostic · fixed cone fixture"
+                if preassembly is not None
+                and preassembly.get("isolated_fixed_cone_fixture")
                 else f"YAM diagnostic · {len(preassembly['parts'])} initialized pieces"
                 if preassembly is not None
                 else "Two YAM arms · pumpkin assembly physics",
