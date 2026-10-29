@@ -72,15 +72,18 @@ class YamKinematics:
             0.15 * Rotation.from_matrix(target[:3, :3].T @ actual[:3, :3]).as_rotvec(),
         ]
 
-    def inverse(self, target: np.ndarray, seed: np.ndarray) -> np.ndarray:
+    def inverse(
+        self, target: np.ndarray, seed: np.ndarray, residual_limit: float | None = None
+    ) -> np.ndarray:
         """Solve a reachable flange pose within the URDF limits or fail.
 
         Args:
             target: Desired base-to-flange 4x4 transform.
             seed: Current six joint angles in radians.
+            residual_limit: Optional metre-equivalent limit; defaults to0.1mm.
 
         Returns:
-            Six joint positions, with residual below 0.1 mm metre-equivalent.
+            Six joint positions within the requested metre-equivalent residual limit.
         """
         result = least_squares(
             self.residual,
@@ -92,8 +95,14 @@ class YamKinematics:
             xtol=1e-10,
             gtol=1e-10,
         )
-        if np.linalg.norm(result.fun) > 1e-4:
+        rejected = (
+            np.linalg.norm(result.fun) > 1e-4
+            if residual_limit is None
+            else np.linalg.norm(result.fun) > residual_limit
+        )
+        if rejected:
             raise RuntimeError(
-                f"YAM target unreachable: residual={result.fun.tolist()}"
+                f"YAM target unreachable: residual={result.fun.tolist()}, "
+                f"seed={seed.tolist()}, target={target.tolist()}"
             )
         return result.x

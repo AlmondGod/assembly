@@ -1,0 +1,5633 @@
+{
+  "designs": {
+    "3660": [
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.004,
+          0.007999999999999998,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studO",
+        "position": [
+          0.008,
+          0.007999999999999998,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud2a.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studO",
+        "position": [
+          0.0,
+          0.007999999999999998,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud2a.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "20"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3660as01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "20"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3660as01.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0096,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3660as01.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0096,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3660as01.dat"
+      }
+    ],
+    "3710": [
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.004,
+          0.0016,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.012,
+          0.0016,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.02,
+          0.0016,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.016,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.024,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3710.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3710.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.016,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3710.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.024,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3710.dat"
+      }
+    ],
+    "3010": [
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.016,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.024,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.004,
+          0.007999999999999998,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.012,
+          0.007999999999999998,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.02,
+          0.007999999999999998,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "24"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3010s01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "24"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3010s01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "24"
+        ],
+        "id": "",
+        "position": [
+          0.016,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3010s01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "24"
+        ],
+        "id": "",
+        "position": [
+          0.024,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3010s01.dat"
+      }
+    ],
+    "3039": [
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "20"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3039s01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "20"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3039s01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3039s01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          -1.734723475976807e-18,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3039s01.dat"
+      }
+    ],
+    "3795": [
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.04,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.032,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.024,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.016,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.04,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.032,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.024,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.016,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3795.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3795.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3795.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3795.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.016,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3795.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.016,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3795.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.024,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3795.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.024,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3795.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.032,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3795.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.032,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3795.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.04,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3795.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.04,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3795.dat"
+      }
+    ],
+    "3020": [
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.024,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.016,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.024,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.016,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3020.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3020.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3020.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3020.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.016,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3020.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.016,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3020.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.024,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3020.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.024,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3020.dat"
+      }
+    ],
+    "3666": [
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.004,
+          0.0016,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.012,
+          0.0016,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.02,
+          0.0016,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.028,
+          0.0016,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.036000000000000004,
+          0.0016,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.016,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.024,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.032,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.04,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3666.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3666.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.016,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3666.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.024,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3666.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.032,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3666.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.04,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3666.dat"
+      }
+    ],
+    "3009": [
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.036000000000000004,
+          0.007999999999999998,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.028,
+          0.007999999999999998,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.02,
+          0.007999999999999998,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.012,
+          0.007999999999999998,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "stud3",
+        "position": [
+          0.004,
+          0.007999999999999998,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud3.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.04,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.032,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.024,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.016,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "20"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3009s01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "20"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3009s01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "20"
+        ],
+        "id": "",
+        "position": [
+          0.016,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3009s01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "20"
+        ],
+        "id": "",
+        "position": [
+          0.024,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3009s01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "20"
+        ],
+        "id": "",
+        "position": [
+          0.032,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3009s01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "20"
+        ],
+        "id": "",
+        "position": [
+          0.04,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3009s01.dat"
+      }
+    ],
+    "54200": [
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/54200s01.dat"
+      }
+    ],
+    "3665": [
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studO",
+        "position": [
+          0.0,
+          0.007999999999999998,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud2a.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "S",
+          "6",
+          "20"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3665as01.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0096,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3665as01.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0096,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/s/3665as01.dat"
+      }
+    ],
+    "59900": [
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studO",
+        "position": [
+          0.0,
+          0.0096,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud2a.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "6",
+          "A",
+          "6",
+          "10",
+          "R",
+          "4",
+          "12"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/59900.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0032,
+        "sections": [
+          "R",
+          "8",
+          "5"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.001999999999999999,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "parts/59900.dat"
+      }
+    ],
+    "87580": [
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3022.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3022.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3022.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3022.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "S",
+        "radius": 0.0064,
+        "sections": [
+          "S",
+          "16",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.004,
+          0.0,
+          -0.004
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/3022.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studO",
+        "position": [
+          0.004,
+          0.0032,
+          -0.004
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud2.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "4"
+        ],
+        "id": "studO",
+        "position": [
+          0.004,
+          0.0048000000000000004,
+          -0.004
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud2.dat"
+      }
+    ],
+    "60474": [
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.016,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.024,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.016,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.024,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0032,
+          -0.016
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0032,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.016,
+          0.0032,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.016,
+          0.0032,
+          -0.016
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0032,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.0,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "studC",
+        "position": [
+          0.008,
+          0.0032,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "p/stud.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0028,
+        "sections": [
+          "R",
+          "7",
+          "2",
+          "_L",
+          "8",
+          "2"
+        ],
+        "id": "",
+        "position": [
+          0.012,
+          0.0016,
+          -0.004
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "p/stud18a.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.016,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.016,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.024,
+          0.0,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.024,
+          0.0,
+          -0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.008,
+          0.0,
+          -0.016
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.016,
+          0.0,
+          0.008
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "4"
+        ],
+        "id": "",
+        "position": [
+          0.016,
+          0.0,
+          -0.016
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "F",
+        "shape": "R",
+        "radius": 0.0024000000000000002,
+        "sections": [
+          "R",
+          "6",
+          "8"
+        ],
+        "id": "",
+        "position": [
+          0.012,
+          0.0,
+          -0.004
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      },
+      {
+        "gender": "M",
+        "shape": "L_",
+        "radius": 0.003,
+        "sections": [
+          "L_",
+          "7.5",
+          "2",
+          "R",
+          "7",
+          "2"
+        ],
+        "id": "",
+        "position": [
+          0.012,
+          0.0,
+          -0.004
+        ],
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "source": "parts/60474.dat"
+      }
+    ],
+    "64647": [
+      {
+        "gender": "M",
+        "shape": "R",
+        "radius": 0.0016,
+        "sections": [
+          "R",
+          "4",
+          "6",
+          "R",
+          "2",
+          "6"
+        ],
+        "id": "",
+        "position": [
+          0.0,
+          0.0024000000000000002,
+          0.0
+        ],
+        "axis": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "source": "parts/64647.dat"
+      }
+    ]
+  },
+  "stud_connections": [
+    {
+      "stud": 3,
+      "socket": 2,
+      "stud_port": 7,
+      "socket_port": 0,
+      "distance_m": 1.1766965340087966e-08,
+      "position_m": [
+        0.01999999237060547,
+        -0.0440000057220459,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 3,
+      "socket": 4,
+      "stud_port": 2,
+      "socket_port": 3,
+      "distance_m": 1.4007654582026341e-08,
+      "position_m": [
+        0.01199999237060547,
+        -0.0360000057220459,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 3,
+      "socket": 4,
+      "stud_port": 3,
+      "socket_port": 2,
+      "distance_m": 1.4007654581937763e-08,
+      "position_m": [
+        0.003999992370605469,
+        -0.0360000057220459,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 3,
+      "socket": 4,
+      "stud_port": 8,
+      "socket_port": 5,
+      "distance_m": 1.4007654582026341e-08,
+      "position_m": [
+        0.01199999237060547,
+        -0.0440000057220459,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 3,
+      "socket": 4,
+      "stud_port": 9,
+      "socket_port": 4,
+      "distance_m": 1.4007654581937763e-08,
+      "position_m": [
+        0.003999992370605469,
+        -0.0440000057220459,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 3,
+      "socket": 5,
+      "stud_port": 10,
+      "socket_port": 0,
+      "distance_m": 1.9156513698897255e-08,
+      "position_m": [
+        -0.004000007629394531,
+        -0.0440000057220459,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 3,
+      "socket": 6,
+      "stud_port": 0,
+      "socket_port": 4,
+      "distance_m": 5.539526263438299e-09,
+      "position_m": [
+        0.02799999237060547,
+        -0.0360000057220459,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 3,
+      "socket": 6,
+      "stud_port": 1,
+      "socket_port": 2,
+      "distance_m": 5.539526263438299e-09,
+      "position_m": [
+        0.01999999237060547,
+        -0.0360000057220459,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 3,
+      "socket": 11,
+      "stud_port": 4,
+      "socket_port": 3,
+      "distance_m": 7.90170572250695e-09,
+      "position_m": [
+        -0.004000007629394531,
+        -0.0360000057220459,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 3,
+      "socket": 11,
+      "stud_port": 5,
+      "socket_port": 5,
+      "distance_m": 7.90170572250695e-09,
+      "position_m": [
+        -0.012000007629394531,
+        -0.0360000057220459,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 4,
+      "socket": 10,
+      "stud_port": 1,
+      "socket_port": 9,
+      "distance_m": 9.591896792189403e-09,
+      "position_m": [
+        0.011999993801116944,
+        -0.03599999189376831,
+        0.06400000057220459
+      ]
+    },
+    {
+      "stud": 4,
+      "socket": 12,
+      "stud_port": 0,
+      "socket_port": 8,
+      "distance_m": 1.9077300641029474e-08,
+      "position_m": [
+        0.003999993801116943,
+        -0.03599999189376831,
+        0.06400000057220459
+      ]
+    },
+    {
+      "stud": 6,
+      "socket": 10,
+      "stud_port": 0,
+      "socket_port": 8,
+      "distance_m": 2.8612772509626313e-08,
+      "position_m": [
+        0.019999992847442628,
+        -0.036000010967254636,
+        0.06400000057220459
+      ]
+    },
+    {
+      "stud": 6,
+      "socket": 10,
+      "stud_port": 1,
+      "socket_port": 10,
+      "distance_m": 2.8612772509626313e-08,
+      "position_m": [
+        0.019999992847442628,
+        -0.028000010967254636,
+        0.06400000057220459
+      ]
+    },
+    {
+      "stud": 7,
+      "socket": 3,
+      "stud_port": 0,
+      "socket_port": 18,
+      "distance_m": 6.9246541014655164e-09,
+      "position_m": [
+        0.011999999284744264,
+        -0.0440000057220459,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 7,
+      "socket": 3,
+      "stud_port": 3,
+      "socket_port": 20,
+      "distance_m": 6.9246540997334275e-09,
+      "position_m": [
+        0.019999999284744264,
+        -0.0440000057220459,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 8,
+      "socket": 3,
+      "stud_port": 0,
+      "socket_port": 16,
+      "distance_m": 2.200509200275306e-08,
+      "position_m": [
+        0.004000003337860107,
+        -0.04399998664855957,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 8,
+      "socket": 3,
+      "stud_port": 3,
+      "socket_port": 14,
+      "distance_m": 2.200509200275306e-08,
+      "position_m": [
+        -0.003999996662139893,
+        -0.04399998664855957,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 9,
+      "socket": 1,
+      "stud_port": 5,
+      "socket_port": 1,
+      "distance_m": 6.4983934970595105e-09,
+      "position_m": [
+        0.00799998813867569,
+        -0.023999980449676515,
+        0.07040000267028808
+      ]
+    },
+    {
+      "stud": 10,
+      "socket": 9,
+      "stud_port": 1,
+      "socket_port": 3,
+      "distance_m": 5.362576590721565e-09,
+      "position_m": [
+        0.011999992847442627,
+        -0.019999982357025145,
+        0.06720000095367432
+      ]
+    },
+    {
+      "stud": 10,
+      "socket": 9,
+      "stud_port": 2,
+      "socket_port": 2,
+      "distance_m": 5.362576590721565e-09,
+      "position_m": [
+        0.011999992847442627,
+        -0.027999982357025145,
+        0.06720000095367432
+      ]
+    },
+    {
+      "stud": 11,
+      "socket": 12,
+      "stud_port": 0,
+      "socket_port": 11,
+      "distance_m": 2.6891800571719945e-08,
+      "position_m": [
+        -0.004000003039836884,
+        -0.027999999523162844,
+        0.06400000057220459
+      ]
+    },
+    {
+      "stud": 11,
+      "socket": 12,
+      "stud_port": 1,
+      "socket_port": 9,
+      "distance_m": 2.6891800571719945e-08,
+      "position_m": [
+        -0.004000003039836884,
+        -0.035999999523162844,
+        0.06400000057220459
+      ]
+    },
+    {
+      "stud": 12,
+      "socket": 9,
+      "stud_port": 5,
+      "socket_port": 1,
+      "distance_m": 9.65492955200505e-09,
+      "position_m": [
+        0.003999993801116943,
+        -0.019999972820281986,
+        0.06720000095367432
+      ]
+    },
+    {
+      "stud": 12,
+      "socket": 9,
+      "stud_port": 6,
+      "socket_port": 0,
+      "distance_m": 9.65492955200505e-09,
+      "position_m": [
+        0.003999993801116943,
+        -0.027999972820281986,
+        0.06720000095367432
+      ]
+    },
+    {
+      "stud": 13,
+      "socket": 6,
+      "stud_port": 6,
+      "socket_port": 5,
+      "distance_m": 1.17282555644997e-08,
+      "position_m": [
+        0.02799999475479126,
+        -0.027999999523162844,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 13,
+      "socket": 6,
+      "stud_port": 7,
+      "socket_port": 3,
+      "distance_m": 1.17282555644997e-08,
+      "position_m": [
+        0.01999999475479126,
+        -0.027999999523162844,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 13,
+      "socket": 11,
+      "stud_port": 10,
+      "socket_port": 2,
+      "distance_m": 2.794714269717519e-09,
+      "position_m": [
+        -0.00400000524520874,
+        -0.027999999523162844,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 13,
+      "socket": 11,
+      "stud_port": 11,
+      "socket_port": 4,
+      "distance_m": 2.794714269717519e-09,
+      "position_m": [
+        -0.01200000524520874,
+        -0.027999999523162844,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 13,
+      "socket": 14,
+      "stud_port": 0,
+      "socket_port": 4,
+      "distance_m": 8.327056864903376e-09,
+      "position_m": [
+        0.02799999475479126,
+        -0.019999999523162844,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 13,
+      "socket": 14,
+      "stud_port": 1,
+      "socket_port": 2,
+      "distance_m": 8.327056864903376e-09,
+      "position_m": [
+        0.01999999475479126,
+        -0.019999999523162844,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 13,
+      "socket": 16,
+      "stud_port": 4,
+      "socket_port": 3,
+      "distance_m": 4.011459015576804e-09,
+      "position_m": [
+        -0.00400000524520874,
+        -0.019999999523162844,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 13,
+      "socket": 16,
+      "stud_port": 5,
+      "socket_port": 5,
+      "distance_m": 4.011459015576804e-09,
+      "position_m": [
+        -0.01200000524520874,
+        -0.019999999523162844,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 14,
+      "socket": 10,
+      "stud_port": 0,
+      "socket_port": 12,
+      "distance_m": 2.5252748467960134e-08,
+      "position_m": [
+        0.01999999761581421,
+        -0.020000007152557373,
+        0.06400000057220459
+      ]
+    },
+    {
+      "stud": 14,
+      "socket": 10,
+      "stud_port": 1,
+      "socket_port": 14,
+      "distance_m": 2.5252748467960134e-08,
+      "position_m": [
+        0.01999999761581421,
+        -0.012000007152557373,
+        0.06400000057220459
+      ]
+    },
+    {
+      "stud": 15,
+      "socket": 3,
+      "stud_port": 9,
+      "socket_port": 23,
+      "distance_m": 7.162722675510764e-09,
+      "position_m": [
+        0.027999999523162844,
+        -0.0360000057220459,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 15,
+      "socket": 3,
+      "stud_port": 10,
+      "socket_port": 22,
+      "distance_m": 7.162722675510764e-09,
+      "position_m": [
+        0.027999999523162844,
+        -0.0440000057220459,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 15,
+      "socket": 13,
+      "stud_port": 7,
+      "socket_port": 23,
+      "distance_m": 7.830008800132346e-09,
+      "position_m": [
+        0.027999999523162844,
+        -0.020000005722045897,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 15,
+      "socket": 13,
+      "stud_port": 8,
+      "socket_port": 22,
+      "distance_m": 7.830008800132346e-09,
+      "position_m": [
+        0.027999999523162844,
+        -0.028000005722045897,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 15,
+      "socket": 21,
+      "stud_port": 5,
+      "socket_port": 23,
+      "distance_m": 2.918710857896102e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.004000005722045896,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 15,
+      "socket": 21,
+      "stud_port": 6,
+      "socket_port": 22,
+      "distance_m": 2.918710857896102e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.012000005722045896,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 16,
+      "socket": 12,
+      "stud_port": 0,
+      "socket_port": 15,
+      "distance_m": 2.433015749296108e-08,
+      "position_m": [
+        -0.00400000274181366,
+        -0.011999996900558472,
+        0.06400000057220459
+      ]
+    },
+    {
+      "stud": 16,
+      "socket": 12,
+      "stud_port": 1,
+      "socket_port": 13,
+      "distance_m": 2.4330157494677985e-08,
+      "position_m": [
+        -0.00400000274181366,
+        -0.019999996900558474,
+        0.06400000057220459
+      ]
+    },
+    {
+      "stud": 17,
+      "socket": 15,
+      "stud_port": 3,
+      "socket_port": 12,
+      "distance_m": 1.0904464101269484e-08,
+      "position_m": [
+        0.027999989986419678,
+        -0.036000010967254636,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 17,
+      "socket": 15,
+      "stud_port": 4,
+      "socket_port": 13,
+      "distance_m": 1.0904464101269484e-08,
+      "position_m": [
+        0.027999989986419678,
+        -0.028000010967254636,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 17,
+      "socket": 15,
+      "stud_port": 5,
+      "socket_port": 14,
+      "distance_m": 1.0904464101269484e-08,
+      "position_m": [
+        0.027999989986419678,
+        -0.020000010967254636,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 17,
+      "socket": 15,
+      "stud_port": 6,
+      "socket_port": 15,
+      "distance_m": 1.0904464101269484e-08,
+      "position_m": [
+        0.027999989986419678,
+        -0.012000010967254636,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 18,
+      "socket": 3,
+      "stud_port": 9,
+      "socket_port": 13,
+      "distance_m": 2.1328217692284717e-08,
+      "position_m": [
+        -0.011999998092651367,
+        -0.03599998664855957,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 18,
+      "socket": 3,
+      "stud_port": 10,
+      "socket_port": 12,
+      "distance_m": 2.1328217692284717e-08,
+      "position_m": [
+        -0.011999998092651367,
+        -0.04399998664855957,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 18,
+      "socket": 13,
+      "stud_port": 7,
+      "socket_port": 13,
+      "distance_m": 1.473295644286177e-08,
+      "position_m": [
+        -0.011999998092651367,
+        -0.01999998664855957,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 18,
+      "socket": 13,
+      "stud_port": 8,
+      "socket_port": 12,
+      "distance_m": 1.473295644286177e-08,
+      "position_m": [
+        -0.011999998092651367,
+        -0.02799998664855957,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 18,
+      "socket": 21,
+      "stud_port": 5,
+      "socket_port": 13,
+      "distance_m": 1.0020843778449956e-08,
+      "position_m": [
+        -0.011999998092651367,
+        -0.003999986648559571,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 18,
+      "socket": 21,
+      "stud_port": 6,
+      "socket_port": 12,
+      "distance_m": 1.0020843778449956e-08,
+      "position_m": [
+        -0.011999998092651367,
+        -0.011999986648559571,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 19,
+      "socket": 17,
+      "stud_port": 6,
+      "socket_port": 10,
+      "distance_m": 5.259062071497962e-09,
+      "position_m": [
+        0.027999989986419678,
+        -0.012000005722045896,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 19,
+      "socket": 17,
+      "stud_port": 7,
+      "socket_port": 9,
+      "distance_m": 5.259062071497962e-09,
+      "position_m": [
+        0.027999989986419678,
+        -0.020000005722045897,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 19,
+      "socket": 17,
+      "stud_port": 8,
+      "socket_port": 8,
+      "distance_m": 5.259062071497962e-09,
+      "position_m": [
+        0.027999989986419678,
+        -0.028000005722045897,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 19,
+      "socket": 17,
+      "stud_port": 9,
+      "socket_port": 7,
+      "distance_m": 5.259062071497962e-09,
+      "position_m": [
+        0.027999989986419678,
+        -0.0360000057220459,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 19,
+      "socket": 37,
+      "stud_port": 5,
+      "socket_port": 16,
+      "distance_m": 1.9817173879491485e-08,
+      "position_m": [
+        0.027999989986419678,
+        -0.004000005722045896,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 19,
+      "socket": 48,
+      "stud_port": 10,
+      "socket_port": 16,
+      "distance_m": 2.132821769293628e-08,
+      "position_m": [
+        0.027999989986419678,
+        -0.0440000057220459,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 20,
+      "socket": 18,
+      "stud_port": 3,
+      "socket_port": 12,
+      "distance_m": 1.7514988911381773e-08,
+      "position_m": [
+        -0.012000008821487426,
+        -0.035999972820281986,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 20,
+      "socket": 18,
+      "stud_port": 4,
+      "socket_port": 13,
+      "distance_m": 1.7514988911381773e-08,
+      "position_m": [
+        -0.012000008821487426,
+        -0.027999972820281986,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 20,
+      "socket": 18,
+      "stud_port": 5,
+      "socket_port": 14,
+      "distance_m": 1.7514988911381773e-08,
+      "position_m": [
+        -0.012000008821487426,
+        -0.019999972820281986,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 20,
+      "socket": 18,
+      "stud_port": 6,
+      "socket_port": 15,
+      "distance_m": 1.7514988911381773e-08,
+      "position_m": [
+        -0.012000008821487426,
+        -0.011999972820281986,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 21,
+      "socket": 14,
+      "stud_port": 6,
+      "socket_port": 5,
+      "distance_m": 3.086562173523721e-08,
+      "position_m": [
+        0.028000001907348634,
+        -0.011999976634979249,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 21,
+      "socket": 14,
+      "stud_port": 7,
+      "socket_port": 3,
+      "distance_m": 3.086562173523721e-08,
+      "position_m": [
+        0.020000001907348634,
+        -0.011999976634979249,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 21,
+      "socket": 16,
+      "stud_port": 10,
+      "socket_port": 2,
+      "distance_m": 2.086277004894833e-08,
+      "position_m": [
+        -0.003999998092651367,
+        -0.011999976634979249,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 21,
+      "socket": 16,
+      "stud_port": 11,
+      "socket_port": 4,
+      "distance_m": 2.086277004894833e-08,
+      "position_m": [
+        -0.011999998092651367,
+        -0.011999976634979249,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 21,
+      "socket": 22,
+      "stud_port": 2,
+      "socket_port": 4,
+      "distance_m": 3.35349101359168e-09,
+      "position_m": [
+        0.012000001907348633,
+        -0.003999976634979249,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 21,
+      "socket": 22,
+      "stud_port": 3,
+      "socket_port": 5,
+      "distance_m": 3.35349101359168e-09,
+      "position_m": [
+        0.004000001907348633,
+        -0.003999976634979249,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 21,
+      "socket": 22,
+      "stud_port": 8,
+      "socket_port": 2,
+      "distance_m": 3.35349101359168e-09,
+      "position_m": [
+        0.012000001907348633,
+        -0.011999976634979249,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 21,
+      "socket": 22,
+      "stud_port": 9,
+      "socket_port": 3,
+      "distance_m": 3.35349101359168e-09,
+      "position_m": [
+        0.004000001907348633,
+        -0.011999976634979249,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 21,
+      "socket": 23,
+      "stud_port": 1,
+      "socket_port": 0,
+      "distance_m": 1.4265004190801595e-08,
+      "position_m": [
+        0.020000001907348634,
+        -0.003999976634979249,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 21,
+      "socket": 25,
+      "stud_port": 4,
+      "socket_port": 0,
+      "distance_m": 1.0595962478670985e-08,
+      "position_m": [
+        -0.003999998092651367,
+        -0.003999976634979249,
+        0.054399998855590825
+      ]
+    },
+    {
+      "stud": 22,
+      "socket": 10,
+      "stud_port": 0,
+      "socket_port": 15,
+      "distance_m": 7.880662770624311e-09,
+      "position_m": [
+        0.011999999284744264,
+        -0.011999977827072144,
+        0.06400000057220459
+      ]
+    },
+    {
+      "stud": 22,
+      "socket": 12,
+      "stud_port": 1,
+      "socket_port": 14,
+      "distance_m": 7.435296593246456e-09,
+      "position_m": [
+        0.0039999992847442635,
+        -0.011999977827072144,
+        0.06400000057220459
+      ]
+    },
+    {
+      "stud": 24,
+      "socket": 19,
+      "stud_port": 3,
+      "socket_port": 12,
+      "distance_m": 3.4262533342637977e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.035999972820281986,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 24,
+      "socket": 19,
+      "stud_port": 4,
+      "socket_port": 13,
+      "distance_m": 3.4262533342637977e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.027999972820281986,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 24,
+      "socket": 19,
+      "stud_port": 5,
+      "socket_port": 14,
+      "distance_m": 3.4262533342637977e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.019999972820281986,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 24,
+      "socket": 19,
+      "stud_port": 6,
+      "socket_port": 15,
+      "distance_m": 3.4262533342637977e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.011999972820281986,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 26,
+      "socket": 20,
+      "stud_port": 6,
+      "socket_port": 10,
+      "distance_m": 1.3884807006292856e-08,
+      "position_m": [
+        -0.012000007629394531,
+        -0.011999986648559571,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 26,
+      "socket": 20,
+      "stud_port": 7,
+      "socket_port": 9,
+      "distance_m": 1.3884807006292856e-08,
+      "position_m": [
+        -0.012000007629394531,
+        -0.01999998664855957,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 26,
+      "socket": 20,
+      "stud_port": 8,
+      "socket_port": 8,
+      "distance_m": 1.3884807006292856e-08,
+      "position_m": [
+        -0.012000007629394531,
+        -0.02799998664855957,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 26,
+      "socket": 20,
+      "stud_port": 9,
+      "socket_port": 7,
+      "distance_m": 1.3884807006292856e-08,
+      "position_m": [
+        -0.012000007629394531,
+        -0.03599998664855957,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 26,
+      "socket": 37,
+      "stud_port": 5,
+      "socket_port": 11,
+      "distance_m": 7.076655415994006e-10,
+      "position_m": [
+        -0.012000007629394531,
+        -0.003999986648559571,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 26,
+      "socket": 48,
+      "stud_port": 10,
+      "socket_port": 11,
+      "distance_m": 7.162722675141215e-09,
+      "position_m": [
+        -0.012000007629394531,
+        -0.04399998664855957,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 27,
+      "socket": 24,
+      "stud_port": 6,
+      "socket_port": 10,
+      "distance_m": 1.3833538236279788e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.011999986648559571,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 27,
+      "socket": 24,
+      "stud_port": 7,
+      "socket_port": 9,
+      "distance_m": 1.3833538236279788e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.01999998664855957,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 27,
+      "socket": 24,
+      "stud_port": 8,
+      "socket_port": 8,
+      "distance_m": 1.3833538236279788e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.02799998664855957,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 27,
+      "socket": 24,
+      "stud_port": 9,
+      "socket_port": 7,
+      "distance_m": 1.3833538236279788e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.03599998664855957,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 27,
+      "socket": 43,
+      "stud_port": 5,
+      "socket_port": 16,
+      "distance_m": 1.967323152947839e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.003999986648559571,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 27,
+      "socket": 51,
+      "stud_port": 10,
+      "socket_port": 16,
+      "distance_m": 2.4145105196583984e-09,
+      "position_m": [
+        0.027999999523162844,
+        -0.04399998664855957,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 28,
+      "socket": 27,
+      "stud_port": 0,
+      "socket_port": 13,
+      "distance_m": 2.4768971004615452e-08,
+      "position_m": [
+        0.028000003099441527,
+        -0.028000010967254636,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 28,
+      "socket": 27,
+      "stud_port": 6,
+      "socket_port": 12,
+      "distance_m": 2.4768971004615452e-08,
+      "position_m": [
+        0.028000003099441527,
+        -0.036000010967254636,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 28,
+      "socket": 38,
+      "stud_port": 5,
+      "socket_port": 13,
+      "distance_m": 2.5891028243371143e-08,
+      "position_m": [
+        -0.011999996900558472,
+        -0.028000010967254636,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 28,
+      "socket": 38,
+      "stud_port": 11,
+      "socket_port": 12,
+      "distance_m": 2.5891028243371143e-08,
+      "position_m": [
+        -0.011999996900558472,
+        -0.036000010967254636,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 30,
+      "socket": 27,
+      "stud_port": 10,
+      "socket_port": 11,
+      "distance_m": 7.401889002386877e-09,
+      "position_m": [
+        0.028000004291534424,
+        -0.04399998188018799,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 30,
+      "socket": 29,
+      "stud_port": 9,
+      "socket_port": 0,
+      "distance_m": 8.753047104905195e-09,
+      "position_m": [
+        0.020000004291534423,
+        -0.04399998188018799,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 30,
+      "socket": 31,
+      "stud_port": 8,
+      "socket_port": 0,
+      "distance_m": 1.0925295632816869e-08,
+      "position_m": [
+        0.012000004291534423,
+        -0.04399998188018799,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 30,
+      "socket": 32,
+      "stud_port": 7,
+      "socket_port": 0,
+      "distance_m": 6.4849853506999546e-09,
+      "position_m": [
+        0.004000004291534423,
+        -0.04399998188018799,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 30,
+      "socket": 33,
+      "stud_port": 6,
+      "socket_port": 0,
+      "distance_m": 8.21710938462905e-09,
+      "position_m": [
+        -0.003999995708465577,
+        -0.04399998188018799,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 30,
+      "socket": 38,
+      "stud_port": 5,
+      "socket_port": 11,
+      "distance_m": 1.1090539366114321e-08,
+      "position_m": [
+        -0.011999995708465577,
+        -0.04399998188018799,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 34,
+      "socket": 28,
+      "stud_port": 1,
+      "socket_port": 18,
+      "distance_m": 2.1482241656582924e-08,
+      "position_m": [
+        0.012000002145767212,
+        -0.03599998950958252,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 34,
+      "socket": 28,
+      "stud_port": 3,
+      "socket_port": 16,
+      "distance_m": 2.1482241656582924e-08,
+      "position_m": [
+        0.004000002145767212,
+        -0.03599998950958252,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 34,
+      "socket": 30,
+      "stud_port": 7,
+      "socket_port": 13,
+      "distance_m": 7.934576038457048e-09,
+      "position_m": [
+        0.004000002145767212,
+        -0.04399998950958252,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 34,
+      "socket": 30,
+      "stud_port": 8,
+      "socket_port": 14,
+      "distance_m": 7.934576038457048e-09,
+      "position_m": [
+        0.012000002145767212,
+        -0.04399998950958252,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 35,
+      "socket": 26,
+      "stud_port": 3,
+      "socket_port": 12,
+      "distance_m": 1.3895610776988242e-08,
+      "position_m": [
+        -0.012000006437301636,
+        -0.035999972820281986,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 35,
+      "socket": 26,
+      "stud_port": 4,
+      "socket_port": 13,
+      "distance_m": 1.3895610776988242e-08,
+      "position_m": [
+        -0.012000006437301636,
+        -0.027999972820281986,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 35,
+      "socket": 26,
+      "stud_port": 5,
+      "socket_port": 14,
+      "distance_m": 1.3895610776988242e-08,
+      "position_m": [
+        -0.012000006437301636,
+        -0.019999972820281986,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 35,
+      "socket": 26,
+      "stud_port": 6,
+      "socket_port": 15,
+      "distance_m": 1.3895610776988242e-08,
+      "position_m": [
+        -0.012000006437301636,
+        -0.011999972820281986,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 36,
+      "socket": 21,
+      "stud_port": 0,
+      "socket_port": 15,
+      "distance_m": 2.956858768910861e-08,
+      "position_m": [
+        -0.004000008702278137,
+        -0.004000004231929779,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 36,
+      "socket": 21,
+      "stud_port": 1,
+      "socket_port": 17,
+      "distance_m": 2.956858768910861e-08,
+      "position_m": [
+        0.003999991297721863,
+        -0.004000004231929779,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 36,
+      "socket": 21,
+      "stud_port": 2,
+      "socket_port": 19,
+      "distance_m": 2.956858768941983e-08,
+      "position_m": [
+        0.011999991297721863,
+        -0.004000004231929779,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 36,
+      "socket": 21,
+      "stud_port": 3,
+      "socket_port": 21,
+      "distance_m": 2.956858768941983e-08,
+      "position_m": [
+        0.019999991297721863,
+        -0.004000004231929779,
+        0.05119999847412109
+      ]
+    },
+    {
+      "stud": 37,
+      "socket": 15,
+      "stud_port": 10,
+      "socket_port": 16,
+      "distance_m": 2.0940278147477975e-08,
+      "position_m": [
+        0.02799999237060547,
+        -0.003999986052513123,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 37,
+      "socket": 18,
+      "stud_port": 5,
+      "socket_port": 16,
+      "distance_m": 9.578642594318175e-09,
+      "position_m": [
+        -0.012000007629394531,
+        -0.003999986052513123,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 37,
+      "socket": 36,
+      "stud_port": 6,
+      "socket_port": 7,
+      "distance_m": 1.8223279660550412e-08,
+      "position_m": [
+        -0.004000007629394531,
+        -0.003999986052513123,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 37,
+      "socket": 36,
+      "stud_port": 7,
+      "socket_port": 8,
+      "distance_m": 1.8223279660550412e-08,
+      "position_m": [
+        0.003999992370605469,
+        -0.003999986052513123,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 37,
+      "socket": 36,
+      "stud_port": 8,
+      "socket_port": 9,
+      "distance_m": 1.8223279660601475e-08,
+      "position_m": [
+        0.01199999237060547,
+        -0.003999986052513123,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 37,
+      "socket": 36,
+      "stud_port": 9,
+      "socket_port": 10,
+      "distance_m": 1.8223279660703606e-08,
+      "position_m": [
+        0.01999999237060547,
+        -0.003999986052513123,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 38,
+      "socket": 35,
+      "stud_port": 6,
+      "socket_port": 10,
+      "distance_m": 1.3884807006537112e-08,
+      "position_m": [
+        -0.01200000524520874,
+        -0.011999986648559571,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 38,
+      "socket": 35,
+      "stud_port": 7,
+      "socket_port": 9,
+      "distance_m": 1.3884807006537112e-08,
+      "position_m": [
+        -0.01200000524520874,
+        -0.01999998664855957,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 38,
+      "socket": 35,
+      "stud_port": 8,
+      "socket_port": 8,
+      "distance_m": 1.3884807006537112e-08,
+      "position_m": [
+        -0.01200000524520874,
+        -0.02799998664855957,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 38,
+      "socket": 35,
+      "stud_port": 9,
+      "socket_port": 7,
+      "distance_m": 1.3884807006537112e-08,
+      "position_m": [
+        -0.01200000524520874,
+        -0.03599998664855957,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 38,
+      "socket": 43,
+      "stud_port": 5,
+      "socket_port": 11,
+      "distance_m": 2.024286062663839e-08,
+      "position_m": [
+        -0.01200000524520874,
+        -0.003999986648559571,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 38,
+      "socket": 51,
+      "stud_port": 10,
+      "socket_port": 11,
+      "distance_m": 2.4145105162325257e-09,
+      "position_m": [
+        -0.01200000524520874,
+        -0.04399998664855957,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 39,
+      "socket": 28,
+      "stud_port": 3,
+      "socket_port": 21,
+      "distance_m": 1.1472765441315069e-08,
+      "position_m": [
+        0.02000000238418579,
+        -0.027999999523162844,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 39,
+      "socket": 28,
+      "stud_port": 7,
+      "socket_port": 23,
+      "distance_m": 1.1472765441315069e-08,
+      "position_m": [
+        0.02800000238418579,
+        -0.027999999523162844,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 39,
+      "socket": 41,
+      "stud_port": 1,
+      "socket_port": 20,
+      "distance_m": 1.4454459404204025e-08,
+      "position_m": [
+        0.02000000238418579,
+        -0.019999999523162844,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 39,
+      "socket": 41,
+      "stud_port": 8,
+      "socket_port": 22,
+      "distance_m": 1.4454459404204025e-08,
+      "position_m": [
+        0.02800000238418579,
+        -0.019999999523162844,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 40,
+      "socket": 37,
+      "stud_port": 0,
+      "socket_port": 12,
+      "distance_m": 3.4703828698032525e-09,
+      "position_m": [
+        -0.004000008702278137,
+        -0.00399998277425766,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 40,
+      "socket": 37,
+      "stud_port": 1,
+      "socket_port": 13,
+      "distance_m": 3.4703828698032525e-09,
+      "position_m": [
+        0.003999991297721863,
+        -0.00399998277425766,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 40,
+      "socket": 37,
+      "stud_port": 2,
+      "socket_port": 14,
+      "distance_m": 3.4703828700714013e-09,
+      "position_m": [
+        0.011999991297721863,
+        -0.00399998277425766,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 40,
+      "socket": 37,
+      "stud_port": 3,
+      "socket_port": 15,
+      "distance_m": 3.4703828706076985e-09,
+      "position_m": [
+        0.019999991297721863,
+        -0.00399998277425766,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 41,
+      "socket": 27,
+      "stud_port": 0,
+      "socket_port": 15,
+      "distance_m": 6.847388235695068e-09,
+      "position_m": [
+        0.027999993562698364,
+        -0.011999988079071044,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 41,
+      "socket": 27,
+      "stud_port": 6,
+      "socket_port": 14,
+      "distance_m": 6.847388235695068e-09,
+      "position_m": [
+        0.027999993562698364,
+        -0.019999988079071045,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 41,
+      "socket": 38,
+      "stud_port": 5,
+      "socket_port": 15,
+      "distance_m": 3.5750068967320843e-09,
+      "position_m": [
+        -0.012000006437301636,
+        -0.011999988079071044,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 41,
+      "socket": 38,
+      "stud_port": 11,
+      "socket_port": 14,
+      "distance_m": 3.5750068967320843e-09,
+      "position_m": [
+        -0.012000006437301636,
+        -0.019999988079071045,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 42,
+      "socket": 28,
+      "stud_port": 1,
+      "socket_port": 15,
+      "distance_m": 2.1850282336425563e-08,
+      "position_m": [
+        -0.003999999463558197,
+        -0.02799998927116394,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 42,
+      "socket": 28,
+      "stud_port": 8,
+      "socket_port": 13,
+      "distance_m": 2.185028233632382e-08,
+      "position_m": [
+        -0.011999999463558196,
+        -0.02799998927116394,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 42,
+      "socket": 41,
+      "stud_port": 3,
+      "socket_port": 14,
+      "distance_m": 7.08517481695986e-09,
+      "position_m": [
+        -0.003999999463558197,
+        -0.01999998927116394,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 42,
+      "socket": 41,
+      "stud_port": 7,
+      "socket_port": 12,
+      "distance_m": 7.08517481781358e-09,
+      "position_m": [
+        -0.011999999463558196,
+        -0.01999998927116394,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 43,
+      "socket": 19,
+      "stud_port": 10,
+      "socket_port": 16,
+      "distance_m": 3.990509556134454e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.003999966979026794,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 43,
+      "socket": 26,
+      "stud_port": 5,
+      "socket_port": 16,
+      "distance_m": 2.0940278151068697e-08,
+      "position_m": [
+        -0.012000000476837159,
+        -0.003999966979026794,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 43,
+      "socket": 40,
+      "stud_port": 6,
+      "socket_port": 7,
+      "distance_m": 1.782113491889389e-08,
+      "position_m": [
+        -0.004000000476837158,
+        -0.003999966979026794,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 43,
+      "socket": 40,
+      "stud_port": 7,
+      "socket_port": 8,
+      "distance_m": 1.782113491889389e-08,
+      "position_m": [
+        0.003999999523162842,
+        -0.003999966979026794,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 43,
+      "socket": 40,
+      "stud_port": 8,
+      "socket_port": 9,
+      "distance_m": 1.7821134919294226e-08,
+      "position_m": [
+        0.011999999523162842,
+        -0.003999966979026794,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 43,
+      "socket": 40,
+      "stud_port": 9,
+      "socket_port": 10,
+      "distance_m": 1.7821134920094897e-08,
+      "position_m": [
+        0.019999999523162844,
+        -0.003999966979026794,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 44,
+      "socket": 34,
+      "stud_port": 5,
+      "socket_port": 5,
+      "distance_m": 1.0168216989424072e-08,
+      "position_m": [
+        0.004000001728534698,
+        -0.035999999523162844,
+        0.0032
+      ]
+    },
+    {
+      "stud": 44,
+      "socket": 34,
+      "stud_port": 6,
+      "socket_port": 6,
+      "distance_m": 1.0168216989459664e-08,
+      "position_m": [
+        0.012000001728534698,
+        -0.035999999523162844,
+        0.0032
+      ]
+    },
+    {
+      "stud": 44,
+      "socket": 39,
+      "stud_port": 1,
+      "socket_port": 5,
+      "distance_m": 1.8375639261870017e-09,
+      "position_m": [
+        0.020000001728534698,
+        -0.027999999523162844,
+        0.0032
+      ]
+    },
+    {
+      "stud": 44,
+      "socket": 39,
+      "stud_port": 3,
+      "socket_port": 6,
+      "distance_m": 1.8375639261870017e-09,
+      "position_m": [
+        0.020000001728534698,
+        -0.019999999523162844,
+        0.0032
+      ]
+    },
+    {
+      "stud": 44,
+      "socket": 42,
+      "stud_port": 8,
+      "socket_port": 6,
+      "distance_m": 1.0462854763232825e-08,
+      "position_m": [
+        -0.003999998271465302,
+        -0.027999999523162844,
+        0.0032
+      ]
+    },
+    {
+      "stud": 44,
+      "socket": 42,
+      "stud_port": 10,
+      "socket_port": 5,
+      "distance_m": 1.0462854763232825e-08,
+      "position_m": [
+        -0.003999998271465302,
+        -0.019999999523162844,
+        0.0032
+      ]
+    },
+    {
+      "stud": 44,
+      "socket": 47,
+      "stud_port": 4,
+      "socket_port": 6,
+      "distance_m": 3.9745349673120364e-09,
+      "position_m": [
+        0.004000001728534698,
+        -0.011999999523162844,
+        0.0032
+      ]
+    },
+    {
+      "stud": 44,
+      "socket": 47,
+      "stud_port": 7,
+      "socket_port": 5,
+      "distance_m": 3.974534966778729e-09,
+      "position_m": [
+        0.012000001728534698,
+        -0.011999999523162844,
+        0.0032
+      ]
+    },
+    {
+      "stud": 45,
+      "socket": 43,
+      "stud_port": 0,
+      "socket_port": 12,
+      "distance_m": 1.6929183983849386e-08,
+      "position_m": [
+        -0.003999994397163391,
+        -0.00399998277425766,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 45,
+      "socket": 43,
+      "stud_port": 1,
+      "socket_port": 13,
+      "distance_m": 1.6929183983849386e-08,
+      "position_m": [
+        0.004000005602836609,
+        -0.00399998277425766,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 45,
+      "socket": 43,
+      "stud_port": 2,
+      "socket_port": 14,
+      "distance_m": 1.6929183983537896e-08,
+      "position_m": [
+        0.012000005602836608,
+        -0.00399998277425766,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 45,
+      "socket": 43,
+      "stud_port": 3,
+      "socket_port": 15,
+      "distance_m": 1.6929183982914917e-08,
+      "position_m": [
+        0.02000000560283661,
+        -0.00399998277425766,
+        0.025599999046325685
+      ]
+    },
+    {
+      "stud": 46,
+      "socket": 27,
+      "stud_port": 10,
+      "socket_port": 16,
+      "distance_m": 3.918269900264897e-09,
+      "position_m": [
+        0.028000001907348634,
+        -0.003999986052513123,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 46,
+      "socket": 38,
+      "stud_port": 5,
+      "socket_port": 16,
+      "distance_m": 7.799203427399079e-09,
+      "position_m": [
+        -0.011999998092651367,
+        -0.003999986052513123,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 46,
+      "socket": 45,
+      "stud_port": 6,
+      "socket_port": 7,
+      "distance_m": 5.806618294777199e-09,
+      "position_m": [
+        -0.003999998092651367,
+        -0.003999986052513123,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 46,
+      "socket": 45,
+      "stud_port": 7,
+      "socket_port": 8,
+      "distance_m": 5.806618294777199e-09,
+      "position_m": [
+        0.004000001907348633,
+        -0.003999986052513123,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 46,
+      "socket": 45,
+      "stud_port": 8,
+      "socket_port": 9,
+      "distance_m": 5.806618294225187e-09,
+      "position_m": [
+        0.012000001907348633,
+        -0.003999986052513123,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 46,
+      "socket": 45,
+      "stud_port": 9,
+      "socket_port": 10,
+      "distance_m": 5.806618294225187e-09,
+      "position_m": [
+        0.020000001907348634,
+        -0.003999986052513123,
+        0.016000002098083495
+      ]
+    },
+    {
+      "stud": 47,
+      "socket": 41,
+      "stud_port": 1,
+      "socket_port": 17,
+      "distance_m": 1.052169039968813e-08,
+      "position_m": [
+        0.0039999992847442635,
+        -0.011999996900558472,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 47,
+      "socket": 41,
+      "stud_port": 3,
+      "socket_port": 19,
+      "distance_m": 1.052169039968813e-08,
+      "position_m": [
+        0.011999999284744264,
+        -0.011999996900558472,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 47,
+      "socket": 46,
+      "stud_port": 7,
+      "socket_port": 14,
+      "distance_m": 1.11670793285789e-08,
+      "position_m": [
+        0.011999999284744264,
+        -0.003999996900558472,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 47,
+      "socket": 46,
+      "stud_port": 8,
+      "socket_port": 13,
+      "distance_m": 1.11670793285789e-08,
+      "position_m": [
+        0.0039999992847442635,
+        -0.003999996900558472,
+        0.012800001716613768
+      ]
+    },
+    {
+      "stud": 48,
+      "socket": 7,
+      "stud_port": 8,
+      "socket_port": 2,
+      "distance_m": 1.9086654405920803e-08,
+      "position_m": [
+        0.011999999523162842,
+        -0.04399998664855957,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 48,
+      "socket": 8,
+      "stud_port": 7,
+      "socket_port": 2,
+      "distance_m": 3.872669315544508e-09,
+      "position_m": [
+        0.003999999523162842,
+        -0.04399998664855957,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 48,
+      "socket": 15,
+      "stud_port": 10,
+      "socket_port": 11,
+      "distance_m": 1.9085165259766173e-08,
+      "position_m": [
+        0.027999999523162844,
+        -0.04399998664855957,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 48,
+      "socket": 18,
+      "stud_port": 5,
+      "socket_port": 11,
+      "distance_m": 2.475882527156374e-09,
+      "position_m": [
+        -0.012000000476837159,
+        -0.04399998664855957,
+        0.041599999141693114
+      ]
+    },
+    {
+      "stud": 49,
+      "socket": 48,
+      "stud_port": 0,
+      "socket_port": 15,
+      "distance_m": 6.426519618270921e-09,
+      "position_m": [
+        0.019999995231628417,
+        -0.04399998188018799,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 49,
+      "socket": 48,
+      "stud_port": 3,
+      "socket_port": 14,
+      "distance_m": 6.4265196171124976e-09,
+      "position_m": [
+        0.011999995231628417,
+        -0.04399998188018799,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 50,
+      "socket": 48,
+      "stud_port": 0,
+      "socket_port": 12,
+      "distance_m": 1.52411955490373e-08,
+      "position_m": [
+        -0.004000005722045899,
+        -0.04400000095367432,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 50,
+      "socket": 48,
+      "stud_port": 3,
+      "socket_port": 13,
+      "distance_m": 1.52411955490373e-08,
+      "position_m": [
+        0.003999994277954101,
+        -0.04400000095367432,
+        0.03839999876022339
+      ]
+    },
+    {
+      "stud": 51,
+      "socket": 19,
+      "stud_port": 10,
+      "socket_port": 11,
+      "distance_m": 2.0381428065207772e-08,
+      "position_m": [
+        0.02799999713897705,
+        -0.04399998664855957,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 51,
+      "socket": 26,
+      "stud_port": 5,
+      "socket_port": 11,
+      "distance_m": 4.814874863464468e-09,
+      "position_m": [
+        -0.01200000286102295,
+        -0.04399998664855957,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 51,
+      "socket": 49,
+      "stud_port": 9,
+      "socket_port": 2,
+      "distance_m": 5.1788993756253256e-09,
+      "position_m": [
+        0.01999999713897705,
+        -0.04399998664855957,
+        0.028799999427795413
+      ]
+    },
+    {
+      "stud": 51,
+      "socket": 50,
+      "stud_port": 6,
+      "socket_port": 2,
+      "distance_m": 1.4603678050790267e-08,
+      "position_m": [
+        -0.00400000286102295,
+        -0.04399998664855957,
+        0.028799999427795413
+      ]
+    }
+  ],
+  "source_revision": "9b1131fb1991f8c0bfc072325e4e12f6271aba35",
+  "license": "CC BY-SA4.0; source shadow library"
+}

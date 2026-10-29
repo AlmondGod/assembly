@@ -1,0 +1,47 @@
+{
+  "parts/64647.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/parts/64647.dat",
+    "sha256": "57489ad506b652833954b01ca3122e9a49b107ced5a34992d442a3ae5652b659",
+    "header": "0 Minifig Plume/Flame Triple\n0 Name: 64647.dat\n0 Author: Philippe Hurbain [Philo]\n0 !LDRAW_ORG Part UPDATE 2012-03\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !CATEGORY Minifig Headwear\n0 !HISTORY 2012-12-28 [PTadmin] Official Update 2012-03"
+  },
+  "p/4-4cylc.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4cylc.dat",
+    "sha256": "0183cffc7f56a2f3e5e3511f0d07ac484d3039c2d41bee802a94344ec95ec8bd",
+    "header": "0 Cylinder Closed 1.0\n0 Name: 4-4cylc.dat\n0 Author: Alex Taylor [anathema]\n0 !LDRAW_ORG Primitive UPDATE 2009-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2008-12-29 [cwdee] Removed one disc\n0 !HISTORY 2009-09-03 [PTadmin] Official Update 2009-02"
+  },
+  "p/4-4edge.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4edge.dat",
+    "sha256": "54a52196e421fd1717d291ff52ea57553b1fb238907c1678cc1f1a84c698b1da",
+    "header": "0 Circle 1.0\n0 Name: 4-4edge.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2017-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2005-12-28 [PTadmin] Official Update 2005-01\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2017-01-15 [Steffen] BFCed\n0 !HISTORY 2017-12-30 [PTadmin] Official Update 2017-01"
+  },
+  "p/4-4disc.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4disc.dat",
+    "sha256": "a00b5547776f61a7389d303616987c76b3c4de86ad8ec32f22857e1bd5e5e40f",
+    "header": "0 Disc 1.0\n0 Name: 4-4disc.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2002-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-03-23 [sbliss] Added BFC statement\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/4-4cyli.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4cyli.dat",
+    "sha256": "4a742c2765b6ebf98245baaf8a160a4ff587fc93d36c8ee2b9074712a2f968c4",
+    "header": "0 Cylinder 1.0\n0 Name: 4-4cyli.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2005-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-03-23 [sbliss] Added BFC statement; merged headers from files in distributions LDraw 0.27 and Complete.\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2004-12-14 [guyvivan] BFC CCW\n0 !HISTORY 2005-12-28 [PTadmin] Official Update 2005-01\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/4-4ring1.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4ring1.dat",
+    "sha256": "4ae21061a6d0c9c80c608decb750f16fe1d113d84e08ef2f6082bcbb0f55194c",
+    "header": "0 Ring  1 x 1.0\n0 Name: 4-4ring1.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2009-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-04-08 [BrickCaster] Modified for BFC compliance\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2008-08-26 [cwdee] Switch polygon winding and rename\n0 !HISTORY 2009-05-02 [PTadmin] Official Update 2009-01"
+  },
+  "p/4-8sphe.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-8sphe.dat",
+    "sha256": "37fa33d0b13605e0e1a84b8e0917953d42beebee08dc444e1bd44015acd64d9e",
+    "header": "0 Sphere 0.5\n0 Name: 4-8sphe.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2003-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-08-31 [izanette] Modified with WINDZ for BFC compliance\n0 !HISTORY 2003-08-01 [PTadmin] Official Update 2003-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/1-8sphe.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/1-8sphe.dat",
+    "sha256": "c38f9b8df6f260a26e920d8bbfb2d6b11667026e0675733d7fc2d3653ef92c53",
+    "header": "0 Sphere 0.125\n0 Name: 1-8sphe.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2012-03\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2000-08-01 {Axel Poque} fixes to resolve L3P error messages.\n0 !HISTORY 2000-08-01 {Manfred Moolhuysen} fixes to resolve L3P error messages.\n0 !HISTORY 2000-09-30 [PTadmin] Official Update 2000-02\n0 !HISTORY 2002-03-28 [hafhead] Made BFC compliant\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-22 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2010-09-12 [MagFors] Changed winding, removed duplicated cond-line, optimized filesize\n0 !HISTORY 2010-12-31 [PTadmin] Official Update 2010-03\n0 !HISTORY 2012-07-01 [tcobbs] Replaced with geometry from LDView\n0 !HISTORY 2012-12-28 [PTadmin] Official Update 2012-03"
+  },
+  "parts/s/64647s01.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/parts/s/64647s01.dat",
+    "sha256": "5bcb20f7dc694739c3276da042a9324c860be278eda0b8b9d5ca746577ee531a",
+    "header": "0 ~Minifig Plume/Flame Triple - Half\n0 Name: s\\64647s01.dat\n0 Author: Philippe Hurbain [Philo]\n0 !LDRAW_ORG Subpart UPDATE 2012-03\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2012-12-28 [PTadmin] Official Update 2012-03"
+  }
+}

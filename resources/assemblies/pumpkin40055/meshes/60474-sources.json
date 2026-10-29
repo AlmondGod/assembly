@@ -1,0 +1,177 @@
+{
+  "parts/60474.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/parts/60474.dat",
+    "sha256": "848d6dc06f8fea18a17af0ea16e4d30109cc37285763e9060767b2790a504967",
+    "header": "0 Plate  4 x  4 Round with Hole and Snapstud\n0 Name: 60474.dat\n0 Author: Alex Taylor [anathema]\n0 !LDRAW_ORG Part UPDATE 2011-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 !HELP turntable together with 61485\n0 BFC CERTIFY CCW\n0 !KEYWORDS turntable\n0 !HISTORY 2010-04-05 [PTadmin] Official Update 2010-01\n0 !HISTORY 2010-11-06 [MagFors] Added new primitive, modified subfile\n0 !HISTORY 2011-12-29 [PTadmin] Official Update 2011-02\n0 //"
+  },
+  "parts/s/60474s01.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/parts/s/60474s01.dat",
+    "sha256": "7282425c21281a87ea0a87da5f70cd004374e4b4f043a7954d2bf852e2458a3a",
+    "header": "0 ~Plate  4 x  4 Round - 1/8\n0 Name: s\\60474s01.dat\n0 Author: Alex Taylor [anathema]\n0 !LDRAW_ORG Subpart UPDATE 2024-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2010-04-05 [PTadmin] Official Update 2010-01\n0 !HISTORY 2010-11-06 [MagFors] Removed some areas to allow new primitive\n0 !HISTORY 2011-12-29 [PTadmin] Official Update 2011-02\n0 !HISTORY 2024-03-23 [OrionP] Updated ring primitives\n0 !HISTORY 2024-03-24 [OrionP] Official Update 2024-02\n0 BFC INVERTNEXT\n0 BFC INVERTNEXT"
+  },
+  "p/1-8ring3.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/1-8ring3.dat",
+    "sha256": "641f3ae7395e7d38e57ab918928ac19209ed72e8474fd1646e2d70f223c4a0ce",
+    "header": "0 Ring  3 x 0.125\n0 Name: 1-8ring3.dat\n0 Author: Paul Easter [pneaster]\n0 !LDRAW_ORG Primitive UPDATE 2012-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-22 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01"
+  },
+  "p/48/1-8ring1.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/48/1-8ring1.dat",
+    "sha256": "24efcdb212c01fd1dc111f001b6272f35505a4380fb2cdc01acdaabe25fa8c51",
+    "header": "0 Hi-Res Ring  1 x 0.125\n0 Name: 48\\1-8ring1.dat\n0 Author: Alex Taylor [anathema]\n0 !LDRAW_ORG 48_Primitive UPDATE 2010-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2010-04-05 [PTadmin] Official Update 2010-01"
+  },
+  "p/48/1-8ring8.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/48/1-8ring8.dat",
+    "sha256": "1f0d062d6672a64654a6d9f5a6ee63f032db505f98a4dfb9352ca2065b4287d7",
+    "header": "0 Hi-Res Ring  8 x 0.125\n0 Name: 48\\1-8ring8.dat\n0 Author: Philippe Hurbain [Philo]\n0 !LDRAW_ORG 48_Primitive UPDATE 2010-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2010-04-05 [PTadmin] Official Update 2010-01\n0 end of file"
+  },
+  "p/48/1-12edge.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/48/1-12edge.dat",
+    "sha256": "c1320fa098058f1bb4bb73a4bd02a9533bdcc4f22ac4a0f0a1dcd5cdf85deaed",
+    "header": "0 Hi-Res Circle 0.0833\n0 Name: 48\\1-12edge.dat\n0 Author: Willy Tschager [Holly-Wood]\n0 !LDRAW_ORG 48_Primitive UPDATE 2024-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2009-05-02 [PTadmin] Official Update 2009-01\n0 !HISTORY 2024-01-07 [Holly-Wood] Complete regeneration, original by westrate\n0 !HISTORY 2024-01-29 [OrionP] Official Update 2024-01\n0 // Build by LDPartEditor (PrimGen 2.X)"
+  },
+  "p/48/1-48ring9.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/48/1-48ring9.dat",
+    "sha256": "737eebf82b2c17353e2c9e499c657f58fb7f74d2745cd7d77a8651af4abb6aae",
+    "header": "0 Hi-Res Ring  9 x 0.0208\n0 Name: 48\\1-48ring9.dat\n0 Author: Alex Taylor [anathema]\n0 !LDRAW_ORG 48_Primitive UPDATE 2024-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2010-04-05 [PTadmin] Official Update 2010-01\n0 !HISTORY 2024-03-23 [OrionP] Moved from 48\\1-48rin9.dat\n0 !HISTORY 2024-03-24 [OrionP] Official Update 2024-02"
+  },
+  "p/48/1-48edge.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/48/1-48edge.dat",
+    "sha256": "89dbd38b8578e8fa60ce2f80e8d7aa9b20d53c31cf40d2d322519287e6eeff19",
+    "header": "0 Hi-Res Circle 0.02083\n0 Name: 48\\1-48edge.dat\n0 Author: Alex Taylor [anathema]\n0 !LDRAW_ORG 48_Primitive UPDATE 2010-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2010-04-05 [PTadmin] Official Update 2010-01"
+  },
+  "p/48/1-8ring4.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/48/1-8ring4.dat",
+    "sha256": "e5c57d885ca33bfc26390017a3074351c30fee9fba6d0a3c106337e2b292a847",
+    "header": "0 Hi-Res Ring  4 x 0.125\n0 Name: 48\\1-8ring4.dat\n0 Author: Alex Taylor [anathema]\n0 !LDRAW_ORG 48_Primitive UPDATE 2010-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2010-04-05 [PTadmin] Official Update 2010-01"
+  },
+  "p/1-8edge.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/1-8edge.dat",
+    "sha256": "50436a0bce461198c342dccbccb658a1bffae13e44b7c48689b158c946c2c2ab",
+    "header": "0 Circle 0.125\n0 Name: 1-8edge.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2017-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2007-06-22 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2017-01-15 [Steffen] BFCed\n0 !HISTORY 2017-12-30 [PTadmin] Official Update 2017-01"
+  },
+  "p/48/1-8edge.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/48/1-8edge.dat",
+    "sha256": "eec30153f06bac336ca71ae16b31c5d0c7ae432acb5e91befe37fdb7b6bb1c8e",
+    "header": "0 Hi-Res Circle 0.125\n0 Name: 48\\1-8edge.dat\n0 Author: [PTadmin]\n0 !LDRAW_ORG 48_Primitive UPDATE 2017-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2000-09-30 [PTadmin] Official Update 2000-02\n0 !HISTORY 2007-10-13 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2017-01-17 [Steffen] added BFC CERTIFY statement\n0 !HISTORY 2017-12-30 [PTadmin] Official Update 2017-01"
+  },
+  "p/48/1-8cyli.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/48/1-8cyli.dat",
+    "sha256": "494069ca353e41885bf8f5b6b3ddc9b62aabeca3eedfe6aa5597ac8f12ca12b9",
+    "header": "0 Hi-Res Cylinder 0.125\n0 Name: 48\\1-8cyli.dat\n0 Author: Steve Bliss [sbliss]\n0 !LDRAW_ORG 48_Primitive UPDATE 2004-04\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2000-05-07 [PTadmin] Official Update 2000-01\n0 !HISTORY 2004-10-12 [sbliss] fixed title, BFC'ed\n0 !HISTORY 2004-11-06 [PTadmin] Official Update 2004-04\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/48/1-12cyli.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/48/1-12cyli.dat",
+    "sha256": "a645a42a5ed912a059a9336ab1449d02efd067008f034549cc8c5ae488159fd3",
+    "header": "0 Hi-Res Cylinder 0.0833\n0 Name: 48\\1-12cyli.dat\n0 Author: Willy Tschager [Holly-Wood]\n0 !LDRAW_ORG 48_Primitive UPDATE 2024-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2009-05-02 [PTadmin] Official Update 2009-01\n0 !HISTORY 2024-01-08 [Holly-Wood] Complete regeneration, original by westrate\n0 !HISTORY 2024-01-29 [OrionP] Official Update 2024-01\n0 // conditional lines\n0 // Build by LDPartEditor (PrimGen 2.X)"
+  },
+  "p/1-8cyli.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/1-8cyli.dat",
+    "sha256": "46def63dc8293ad9a2dd1d1a5cb720b9ba883850e65d3280d2093c664a6140c4",
+    "header": "0 Cylinder 0.125\n0 Name: 1-8cyli.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2005-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2004-12-11 [nielsk] Recreated using Primitive Generator, Edge lines fixed, BFC changed to CCW\n0 !HISTORY 2005-12-28 [PTadmin] Official Update 2005-01\n0 !HISTORY 2007-06-22 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/1-4cyli.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/1-4cyli.dat",
+    "sha256": "5a7168952a5a3570327873b9a5802fa7b3be40967ab78c03b6a2bfd4419a1f10",
+    "header": "0 Cylinder 0.25\n0 Name: 1-4cyli.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2012-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-03-23 [sbliss] Added BFC statement.\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-22 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01"
+  },
+  "p/1-4ring3.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/1-4ring3.dat",
+    "sha256": "4048b121d53509363cfaa7422648dd29b2eeb93074279feb0bcc7a45bbb7c2e1",
+    "header": "0 Ring  3 x 0.25\n0 Name: 1-4ring3.dat\n0 Author: Willy Tschager [Holly-Wood]\n0 !LDRAW_ORG Primitive UPDATE 2024-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1999-07-05 [PTadmin] Official Update 1999-05\n0 !HISTORY 2003-01-21 [cavehop] Update Added BFC and 1 digit of significance\n0 !HISTORY 2003-05-21 [cavehop] Corrected values as indicated by pneaster\n0 !HISTORY 2003-06-12 [cavehop] Re-corrected values as indicated by pneaster\n0 !HISTORY 2003-08-01 [PTadmin] Official Update 2003-02\n0 !HISTORY 2007-06-22 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01\n0 !HISTORY 2024-01-04 [Holly-Wood] Complete re-write, original by Karim Nassar\n0 !HISTORY 2024-01-29 [OrionP] Official Update 2024-01\n0 // Build by LDPartEditor (PrimGen 2.X)"
+  },
+  "p/1-4edge.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/1-4edge.dat",
+    "sha256": "9ce2de7e67bbac575d52cfdc771b9d00856efc9b88002d97db8e665e50f4d467",
+    "header": "0 Circle 0.25\n0 Name: 1-4edge.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2017-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2007-06-22 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2017-01-15 [Steffen] BFCed\n0 !HISTORY 2017-12-30 [PTadmin] Official Update 2017-01"
+  },
+  "p/box4-7a.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/box4-7a.dat",
+    "sha256": "93ac5f1805fc4e785c9532c0b40851a9d03da37241f85d5513b059c4358839f4",
+    "header": "0 Box with  4 Faces without  7 Adjacent Edges\n0 Name: box4-7a.dat\n0 Author: Willy Tschager [Holly-Wood]\n0 !LDRAW_ORG Primitive UPDATE 2024-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-07-15 [PTadmin] Official Update 1998-07\n0 !HISTORY 2002-12-13 [hafhead] Made BFC compliant\n0 !HISTORY 2003-03-12 [PTadmin] Official Update 2003-01\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01\n0 !HISTORY 2024-01-03 [Holly-Wood] Complete re-write, original by Manfred Moolhuysen\n0 !HISTORY 2024-01-29 [OrionP] Official Update 2024-01"
+  },
+  "p/stug-2x2.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/stug-2x2.dat",
+    "sha256": "16114159ea25719341a852d5403dc9982a6211f2fcb23f5c4c3eac05a2ad43f7",
+    "header": "0 Stud Group  2 x  2\n0 Name: stug-2x2.dat\n0 Author: Steffen [Steffen]\n0 !LDRAW_ORG Primitive UPDATE 2012-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2005-12-28 [PTadmin] Official Update 2005-01\n0 !HISTORY 2007-05-04 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2011-07-01 [PTadmin] Renamed from stug2\n0 !HISTORY 2011-07-25 [PTadmin] Official Update 2011-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01"
+  },
+  "p/stud.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/stud.dat",
+    "sha256": "db037d518d7c08bcdc1f0e7497f4f98e97d99850531dd62d602965520f3bf8f4",
+    "header": "0 Stud\n0 Name: stud.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2012-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-04-04 [sbliss] Modified for BFC compliance\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01"
+  },
+  "p/4-4edge.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4edge.dat",
+    "sha256": "54a52196e421fd1717d291ff52ea57553b1fb238907c1678cc1f1a84c698b1da",
+    "header": "0 Circle 1.0\n0 Name: 4-4edge.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2017-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2005-12-28 [PTadmin] Official Update 2005-01\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2017-01-15 [Steffen] BFCed\n0 !HISTORY 2017-12-30 [PTadmin] Official Update 2017-01"
+  },
+  "p/4-4cyli.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4cyli.dat",
+    "sha256": "4a742c2765b6ebf98245baaf8a160a4ff587fc93d36c8ee2b9074712a2f968c4",
+    "header": "0 Cylinder 1.0\n0 Name: 4-4cyli.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2005-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-03-23 [sbliss] Added BFC statement; merged headers from files in distributions LDraw 0.27 and Complete.\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2004-12-14 [guyvivan] BFC CCW\n0 !HISTORY 2005-12-28 [PTadmin] Official Update 2005-01\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/4-4disc.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4disc.dat",
+    "sha256": "a00b5547776f61a7389d303616987c76b3c4de86ad8ec32f22857e1bd5e5e40f",
+    "header": "0 Disc 1.0\n0 Name: 4-4disc.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2002-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-03-23 [sbliss] Added BFC statement\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/stud4.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/stud4.dat",
+    "sha256": "871cdcab26e7f5113488a24c453d6fabda75b275b06de592e0bfaad4292c12a3",
+    "header": "0 Stud Tube Open\n0 Name: stud4.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2009-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1999-07-05 [PTadmin] Official Update 1999-05\n0 !HISTORY 2002-04-04 [sbliss] Modified for BFC compliance\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2009-06-21 [cwdee] Update ring references to 4-4ring\n0 !HISTORY 2009-09-03 [PTadmin] Official Update 2009-02\n0 BFC INVERTNEXT"
+  },
+  "p/4-4ring3.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4ring3.dat",
+    "sha256": "1f2835ac308154edc2d6f479d8e742a55be981f6167b20bfa100c195bc0731dd",
+    "header": "0 Ring  3 x 1.0\n0 Name: 4-4ring3.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2009-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-04-05 [hafhead] Added BFC statement\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2008-08-26 [cwdee] Switch polygon winding and rename\n0 !HISTORY 2009-05-02 [PTadmin] Official Update 2009-01"
+  },
+  "p/48/4-4aring.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/48/4-4aring.dat",
+    "sha256": "4c0d575f91df941b5d3313427d699813cc3cf9f09c334cbad7a0eceeaf98f573",
+    "header": "0 Adapter Ring Hi-Res to Normal 1.0\n0 Name: 48\\4-4aring.dat\n0 Author: Philippe Hurbain [Philo]\n0 !LDRAW_ORG 48_Primitive UPDATE 2010-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2010-07-05 [PTadmin] Official Update 2010-02\n0 //"
+  },
+  "p/stud18a.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/stud18a.dat",
+    "sha256": "5c02e7ce688de49bc4db00751988cf9044ba9c8b2b0b45ba836154be3637b2e2",
+    "header": "0 Stud Tube Open Snap\n0 Name: stud18a.dat\n0 Author: Magnus Forsberg [MagFors]\n0 !LDRAW_ORG Primitive UPDATE 2011-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2011-12-29 [PTadmin] Official Update 2011-02\n0 BFC INVERTNEXT\n0 // mirrored\n0 // condlines\n0 //\n0 BFC INVERTNEXT\n0 // mirrored\n0 // condlines\n0 //\n0 BFC INVERTNEXT\n0 // mirrored\n0 // condlines\n0 //\n0 BFC INVERTNEXT\n0 // mirrored\n0 // condlines"
+  },
+  "p/4-4ring7.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4ring7.dat",
+    "sha256": "67b27c082eec7286888ac427f11db06c5eca6c9bcec76c7e2b2014841afa83f3",
+    "header": "0 Ring  7 x 1.0\n0 Name: 4-4ring7.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2009-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-04-05 [hafhead] Added BFC statement\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2008-08-26 [cwdee] Switch polygon winding and rename\n0 !HISTORY 2009-05-02 [PTadmin] Official Update 2009-01"
+  },
+  "p/1-8ring6.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/1-8ring6.dat",
+    "sha256": "bfec71b5d0b0ba1549923f349ec1d07cc8694a4827f88d9ef955457cecdd90a5",
+    "header": "0 Ring  6 x 0.125\n0 Name: 1-8ring6.dat\n0 Author: Paul Easter [pneaster]\n0 !LDRAW_ORG Primitive UPDATE 2012-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2009-09-03 [PTadmin] Official Update 2009-02\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01"
+  },
+  "p/t16o1429.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/t16o1429.dat",
+    "sha256": "feacc63d988960380c67d79f303dcfe0a62f93816d7282088796af745ddc1249",
+    "header": "0 Torus Outside  1 x 0.1429 x 0.0625\n0 Name: t16o1429.dat\n0 Author: Magnus Forsberg [MagFors]\n0 !LDRAW_ORG Primitive UPDATE 2013-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2011-12-29 [PTadmin] Official Update 2011-02\n0 !HISTORY 2013-09-27 [MMR1988] Recreated to fix condlines\n0 !HISTORY 2013-12-23 [PTadmin] Official Update 2013-02\n0 // Major Radius: 7\n0 // Tube(Minor) Radius: 1\n0 // Segments(Sweep): 1/16 = 0.0625\n0 // 1 9 0 0 0 1 0 0 0 1 0 0 0 1 4-4edge.dat\n0 // 1 12 1 0 0 0.1429 0 0 0 0 0.1429 0 1 0 4-4edge.dat\n0 // conditional lines\n0 // Build by Primitive Generator 2"
+  },
+  "p/1-4ndis.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/1-4ndis.dat",
+    "sha256": "ff6685838636e7ab6152356d8f09e4f00a38af0d878b0881423f5c45fb868f0c",
+    "header": "0 Disc Negative 0.25\n0 Name: 1-4ndis.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2012-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-03-23 [sbliss] Added BFC Statement\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-22 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01"
+  },
+  "p/1-4disc.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/1-4disc.dat",
+    "sha256": "3b8faa77185c576085c38f37b13c6a04e2e889eea6a7dc8c4db2d1699a33bcda",
+    "header": "0 Disc 0.25\n0 Name: 1-4disc.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2002-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-03-23 [sbliss] Added BFC statement.\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-22 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/2-8sphe.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/2-8sphe.dat",
+    "sha256": "63a1d64d6c27e64ace1fe6e5233aef04f7af15e39c6e1d36717dfe5c6d226c3a",
+    "header": "0 Sphere 0.25\n0 Name: 2-8sphe.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2003-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-08-31 [izanette] Modified with WINDZ for BFC compliance\n0 !HISTORY 2003-08-01 [PTadmin] Official Update 2003-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/1-8sphe.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/1-8sphe.dat",
+    "sha256": "c38f9b8df6f260a26e920d8bbfb2d6b11667026e0675733d7fc2d3653ef92c53",
+    "header": "0 Sphere 0.125\n0 Name: 1-8sphe.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2012-03\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2000-08-01 {Axel Poque} fixes to resolve L3P error messages.\n0 !HISTORY 2000-08-01 {Manfred Moolhuysen} fixes to resolve L3P error messages.\n0 !HISTORY 2000-09-30 [PTadmin] Official Update 2000-02\n0 !HISTORY 2002-03-28 [hafhead] Made BFC compliant\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-22 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2010-09-12 [MagFors] Changed winding, removed duplicated cond-line, optimized filesize\n0 !HISTORY 2010-12-31 [PTadmin] Official Update 2010-03\n0 !HISTORY 2012-07-01 [tcobbs] Replaced with geometry from LDView\n0 !HISTORY 2012-12-28 [PTadmin] Official Update 2012-03"
+  },
+  "p/rect3.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/rect3.dat",
+    "sha256": "07ac46908b6668d993b6de0fb001a34cd996542106b80ebc7de63317d8dde865",
+    "header": "0 Rectangle with 3 Edges\n0 Name: rect3.dat\n0 Author: Mark Kennedy [mkennedy]\n0 !LDRAW_ORG Primitive UPDATE 2010-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2003-08-01 [PTadmin] Official Update 2003-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2010-01-17 [mikeheide] Change winding to CCW\n0 !HISTORY 2010-04-05 [PTadmin] Official Update 2010-01\n0 //"
+  }
+}

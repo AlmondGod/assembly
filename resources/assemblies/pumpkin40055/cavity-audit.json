@@ -1,0 +1,721 @@
+[
+  {
+    "design": "3660",
+    "samples": 288,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 48,
+    "passed": true
+  },
+  {
+    "design": "3710",
+    "samples": 576,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.016,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.024,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 9,
+    "passed": true
+  },
+  {
+    "design": "3010",
+    "samples": 576,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.016,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.024,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 9,
+    "passed": true
+  },
+  {
+    "design": "3039",
+    "samples": 576,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          -1.734723475976807e-18,
+          0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 89,
+    "passed": true
+  },
+  {
+    "design": "3795",
+    "samples": 1728,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.0,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.016,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.016,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.024,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.024,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.032,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.032,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.04,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.04,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 17,
+    "passed": true
+  },
+  {
+    "design": "3020",
+    "samples": 1152,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.0,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.016,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.016,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.024,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.024,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 13,
+    "passed": true
+  },
+  {
+    "design": "3666",
+    "samples": 864,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.016,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.024,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.032,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.04,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 11,
+    "passed": true
+  },
+  {
+    "design": "3009",
+    "samples": 864,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.016,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.024,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.032,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.04,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 11,
+    "passed": true
+  },
+  {
+    "design": "54200",
+    "samples": 144,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 17,
+    "passed": true
+  },
+  {
+    "design": "3665",
+    "samples": 144,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 67,
+    "passed": true
+  },
+  {
+    "design": "59900",
+    "samples": 144,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          -1.734723475976807e-18,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 49,
+    "passed": true
+  },
+  {
+    "design": "87580",
+    "samples": 576,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.0,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 37,
+    "passed": true
+  },
+  {
+    "design": "60474",
+    "samples": 1872,
+    "filled": 0,
+    "details": [
+      {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.0,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.016,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.016,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.024,
+          0.0,
+          0.0
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.024,
+          0.0,
+          -0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          0.0,
+          0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.008,
+          0.0,
+          -0.016
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.016,
+          0.0,
+          0.008
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.016,
+          0.0,
+          -0.016
+        ],
+        "samples": 144,
+        "filled": 0
+      },
+      {
+        "position": [
+          0.012,
+          0.0,
+          -0.004
+        ],
+        "samples": 144,
+        "filled": 0
+      }
+    ],
+    "hulls": 322,
+    "passed": true
+  },
+  {
+    "design": "64647",
+    "samples": 0,
+    "filled": 0,
+    "details": [],
+    "hulls": 77,
+    "passed": true
+  }
+]

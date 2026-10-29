@@ -1,0 +1,62 @@
+{
+  "parts/87580.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/parts/87580.dat",
+    "sha256": "9f1fee81902d00778bb6e91d6239d83ac6e3fca788954f30bbaab149abff6d54",
+    "header": "0 Plate  2 x  2 with Groove with 1 Centre Stud\n0 Name: 87580.dat\n0 Author: Joerg Sommerer [Brickaneer]\n0 !LDRAW_ORG Part UPDATE 2017-01\n0 !LICENSE Licensed under CC BY 2.0 and CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !KEYWORDS jumper, offset, spacer, tile\n0 !HISTORY 2009-12-29 [PTadmin] Official Update 2009-03\n0 !HISTORY 2011-12-05 [MagFors] Retitled, was \"Tile 2 x 2 with Groove and 1 Stud\"\n0 !HISTORY 2011-12-29 [PTadmin] Official Update 2011-02\n0 !HISTORY 2017-08-19 [cwdee] Correct spelling\n0 !HISTORY 2017-12-30 [PTadmin] Official Update 2017-01"
+  },
+  "parts/3068b.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/parts/3068b.dat",
+    "sha256": "38fb0405d499d8174e9e0ee2c20f3db5f4a32d1da2bff4ee2b478bb45c03b6c2",
+    "header": "0 Tile  2 x  2 with Groove\n0 Name: 3068b.dat\n0 Author: Damien Guichard [BrickCaster]\n0 !LDRAW_ORG Part UPDATE 2004-04\n0 !LICENSE Licensed under CC BY 2.0 and CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2004-07-26 [guyvivan] Made BFC Compliant\n0 !HISTORY 2004-11-06 [PTadmin] Official Update 2004-04\n0 !HISTORY 2007-06-13 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "parts/s/3068bs01.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/parts/s/3068bs01.dat",
+    "sha256": "b49ecb2e8e57d8ae4a64aa5e71713d769c2a5dc91f4611fbd3157fbc30a4c6c3",
+    "header": "0 ~Tile  2 x  2 with Groove without Face\n0 Name: s\\3068bs01.dat\n0 Author: Willy Tschager [Holly-Wood]\n0 !LDRAW_ORG Subpart UPDATE 2024-03\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-04-02 [sbliss] Modified for BFC compliance\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-08-30 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2024-03-07 [Holly-Wood] Complete re-write, original by BrickCaster\n0 !HISTORY 2024-04-28 [OrionP] Official Update 2024-03\n0 BFC INVERTNEXT"
+  },
+  "p/box4.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/box4.dat",
+    "sha256": "2cbfcf075ef5c87c6a5f543f837972a78d43274ac7771b92229b5fe5da797c1e",
+    "header": "0 Box with 4 Faces (2 Parallel Pairs) and All Edges\n0 Name: box4.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2012-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-04-03 [sbliss] Modified for BFC compliance\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01"
+  },
+  "p/stud4.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/stud4.dat",
+    "sha256": "871cdcab26e7f5113488a24c453d6fabda75b275b06de592e0bfaad4292c12a3",
+    "header": "0 Stud Tube Open\n0 Name: stud4.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2009-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1999-07-05 [PTadmin] Official Update 1999-05\n0 !HISTORY 2002-04-04 [sbliss] Modified for BFC compliance\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2009-06-21 [cwdee] Update ring references to 4-4ring\n0 !HISTORY 2009-09-03 [PTadmin] Official Update 2009-02\n0 BFC INVERTNEXT"
+  },
+  "p/4-4edge.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4edge.dat",
+    "sha256": "54a52196e421fd1717d291ff52ea57553b1fb238907c1678cc1f1a84c698b1da",
+    "header": "0 Circle 1.0\n0 Name: 4-4edge.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2017-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2005-12-28 [PTadmin] Official Update 2005-01\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2017-01-15 [Steffen] BFCed\n0 !HISTORY 2017-12-30 [PTadmin] Official Update 2017-01"
+  },
+  "p/4-4cyli.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4cyli.dat",
+    "sha256": "4a742c2765b6ebf98245baaf8a160a4ff587fc93d36c8ee2b9074712a2f968c4",
+    "header": "0 Cylinder 1.0\n0 Name: 4-4cyli.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2005-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-03-23 [sbliss] Added BFC statement; merged headers from files in distributions LDraw 0.27 and Complete.\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2004-12-14 [guyvivan] BFC CCW\n0 !HISTORY 2005-12-28 [PTadmin] Official Update 2005-01\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/4-4ring3.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4ring3.dat",
+    "sha256": "1f2835ac308154edc2d6f479d8e742a55be981f6167b20bfa100c195bc0731dd",
+    "header": "0 Ring  3 x 1.0\n0 Name: 4-4ring3.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2009-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-04-05 [hafhead] Added BFC statement\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2008-08-26 [cwdee] Switch polygon winding and rename\n0 !HISTORY 2009-05-02 [PTadmin] Official Update 2009-01"
+  },
+  "p/4-4disc.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4disc.dat",
+    "sha256": "a00b5547776f61a7389d303616987c76b3c4de86ad8ec32f22857e1bd5e5e40f",
+    "header": "0 Disc 1.0\n0 Name: 4-4disc.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2002-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-03-23 [sbliss] Added BFC statement\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/4-4ndis.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4ndis.dat",
+    "sha256": "21202dc15823f4336bc2544244d0b539b76745c89f7a59ad18cdd03ad45cc543",
+    "header": "0 Disc Negative 1.0\n0 Name: 4-4ndis.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2012-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-03-23 [sbliss] Added BFC statement; compacted code\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01"
+  },
+  "p/stud2.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/stud2.dat",
+    "sha256": "5ed3702c7d7000bfac2906f12b74ae312c59194a8e3b504952820c826b51c810",
+    "header": "0 Stud Open\n0 Name: stud2.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2009-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1999-07-05 [PTadmin] Official Update 1999-05\n0 !HISTORY 2002-04-04 [sbliss] Modified for BFC compliance\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2009-06-21 [cwdee] Update ring references to 4-4ring\n0 !HISTORY 2009-09-03 [PTadmin] Official Update 2009-02\n0 BFC INVERTNEXT"
+  },
+  "p/4-4ring2.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4ring2.dat",
+    "sha256": "6fb38804b1f5e9bee8c0b80caf1397b09454fc58b048dc19045b6f37c8762ab0",
+    "header": "0 Ring  2 x 1.0\n0 Name: 4-4ring2.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2009-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-04-05 [hafhead] Added BFC statement\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2008-08-26 [cwdee] Switch polygon winding and rename\n0 !HISTORY 2009-05-02 [PTadmin] Official Update 2009-01"
+  }
+}

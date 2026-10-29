@@ -160,3 +160,7 @@ The [Cartesian experiment](CARTESIAN.md) exposes tool pose and gripper commands 
 ## Interactive clutter trial
 
 The [interactive compact-basket experiment](INTERACTIVE.md) records assistant-selected direct motions and simulator observations for a four-brick tower.
+
+## Pumpkin scene
+
+The [52-piece pumpkin prototype](../../resources/assemblies/pumpkin40055/README.md) adds fourteen part designs, visible supply fixtures, measured contact grasps and CPU-rendered physics replays. Full assembly validation is in progress; its clutch constraints are approximate and separate from the native four-brick tower model.
