@@ -108,6 +108,8 @@ def main() -> None:
     parser.add_argument("--stride", type=int, default=1)
     parser.add_argument("--fps", type=int, default=15)
     parser.add_argument("--focus-part", type=int)
+    parser.add_argument("--start-seconds", type=float, default=0.0)
+    parser.add_argument("--end-seconds", type=float, default=float("inf"))
     args = parser.parse_args()
     root = args.directory
     assets = np.load(root / "meshes.npz")
@@ -172,9 +174,16 @@ def main() -> None:
     success = (root / "result.json").exists() and json.loads(
         (root / "result.json").read_text()
     )["status"] == "complete"
-    selected = list(range(0, len(frames["poses"]), args.stride))
-    if selected[-1] != len(frames["poses"]) - 1:
-        selected.append(len(frames["poses"]) - 1)
+    available = [
+        index
+        for index in range(len(frames["poses"]))
+        if args.start_seconds <= frames["seconds"][index] <= args.end_seconds
+    ]
+    if not available:
+        raise ValueError("No recorded frames within the requested time range")
+    selected = available[:: args.stride]
+    if selected[-1] != available[-1]:
+        selected.append(available[-1])
     sample_dt = (
         float(np.median(np.diff(frames["seconds"])))
         if len(frames["seconds"]) > 1
