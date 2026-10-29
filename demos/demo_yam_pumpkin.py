@@ -211,6 +211,9 @@ async def run_pumpkin(self: InteractiveSession):
         )
         for index, part in enumerate(sequence):
             recording.contact_source = parts.paths[part]
+            recording.contact_watch = [
+                parts.paths[placed] for placed in sorted(parts.placed) if placed != 44
+            ]
             part_index = np.array([parts.rigid.prim_paths.index(parts.paths[part])])
             parts.rigid.set_sleep_thresholds(
                 np.array([0.0], dtype=np.float32), indices=part_index
@@ -237,13 +240,15 @@ async def run_pumpkin(self: InteractiveSession):
                 profiler.dump_stats(str(output / "controller-profile.pstats"))
             await arm.move(above, speed=0.10, tolerance=0.003)
             await arm.move(grasp, speed=0.025, tolerance=0.003)
-            if part == 0:
-                # Avoid squeezing the thin tapered plume as if it were a block.
+            if part in (0, 47):
+                # Center before closure; instantaneous closure rolled Part47
+                # by28degrees while it was still on its source supports.
                 command = grasp.copy()
                 for _ in range(2):
                     measured_tcp = YamArm.pose(arm.flange_path) @ arm.tool
                     command = grasp @ np.linalg.inv(measured_tcp) @ command
                     await arm.move(command, speed=0.01, tolerance=0.003)
+            if part == 0:
                 controller = arm.robot.get_articulation_controller()
                 kps, kds = controller.get_gains()
                 kps[arm.fingers] = 10000.0
@@ -264,6 +269,7 @@ async def run_pumpkin(self: InteractiveSession):
                     (YamArm.pose(arm.flange_path) @ arm.tool)[:3, 3] - grasp[:3, 3],
                     flush=True,
                 )
+            if part in (0, 47):
                 for close_step in range(int(np.ceil(2.0 / physics_dt))):
                     closing = max(0.0, opening - (close_step + 1) * 0.015 * physics_dt)
                     arm.grip_target = -closing / 2

@@ -35,6 +35,7 @@ class PhysicsRecording:
         self.contact_sensor = contact_sensor
         self.contact_filters = contact_filters or []
         self.contact_source: str | None = None
+        self.contact_watch: list[str] = []
         self.sample_period = sample_period
         self.bodies: list[str] = []
         self.frames: list[np.ndarray] = []
@@ -152,32 +153,34 @@ class PhysicsRecording:
         self.read_seconds += perf_counter() - sample_started
         self.times.append(self.seconds)
         if self.contact_sensor is not None and self.contact_source is not None:
+            sources = list(dict.fromkeys([self.contact_source, *self.contact_watch]))
             indices = np.array(
-                [self.contact_sensor.prim_paths.index(self.contact_source)]
+                [self.contact_sensor.prim_paths.index(path) for path in sources]
             )
             forces = np.asarray(
                 self.contact_sensor.get_contact_force_matrix(indices=indices, dt=dt)
-            )[0]
+            )
             net = np.asarray(
                 self.contact_sensor.get_net_contact_forces(indices=indices, dt=dt)
-            )[0]
-            pairs = {
-                path: force.tolist()
-                for path, force in zip(self.contact_filters, forces)
-                if np.linalg.norm(force) > 1e-5
-            }
+            )
             with (self.output / "contact-frames.jsonl").open("a") as log:
-                log.write(
-                    json.dumps(
-                        {
-                            "seconds": self.seconds,
-                            "body": self.contact_source,
-                            "net_normal_force_N": net.tolist(),
-                            "pairs": pairs,
-                        }
+                for source, force_row, normal in zip(sources, forces, net, strict=True):
+                    pairs = {
+                        path: force.tolist()
+                        for path, force in zip(self.contact_filters, force_row)
+                        if np.linalg.norm(force) > 1e-5
+                    }
+                    log.write(
+                        json.dumps(
+                            {
+                                "seconds": self.seconds,
+                                "body": source,
+                                "net_normal_force_N": normal.tolist(),
+                                "pairs": pairs,
+                            }
+                        )
+                        + "\n"
                     )
-                    + "\n"
-                )
         if self.seconds + 1e-7 >= self.next_save_seconds:
             self.next_save_seconds += 2.0
             print(
