@@ -148,6 +148,11 @@ def main() -> None:
         else {}
     )
     grasp_probe = str(result.get("status", "")).startswith("source_grasp")
+    preassembly = (
+        json.loads((root / "initial-preassembly.json").read_text())
+        if (root / "initial-preassembly.json").exists()
+        else None
+    )
     assembly_center = np.array([0.28, 0.0, 0.05])
     for vertices, _, body, _ in meshes:
         if body >= 0 and str(assets["body_paths"][body]).endswith("/Foundation44"):
@@ -284,6 +289,8 @@ def main() -> None:
                 (24, 20),
                 "YAM grasp and transport probe"
                 if grasp_probe
+                else f"YAM diagnostic · {len(preassembly['parts'])} initialized pieces"
+                if preassembly is not None
                 else "Two YAM arms · pumpkin assembly physics",
                 font=font,
                 fill=(245, 245, 240),
@@ -308,6 +315,8 @@ def main() -> None:
                 (870, 530),
                 "Assembly placements: 0 (probe only)"
                 if grasp_probe
+                else f"Robot placements: {placed} (diagnostic)"
+                if preassembly is not None
                 else f"Placed: {placed} / 51 + fixtured base",
                 font=small,
                 fill=(235, 235, 232),
@@ -332,6 +341,12 @@ def main() -> None:
                     else "Source lift verified"
                 )
                 if grasp_probe
+                else (
+                    "Diagnostic insertion verified"
+                    if result.get("status") == "diagnostic_preassembly_coupon"
+                    else "Diagnostic trial · see result log"
+                )
+                if preassembly is not None
                 else (
                     "Full assembly verified"
                     if success
