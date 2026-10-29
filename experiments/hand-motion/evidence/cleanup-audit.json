@@ -1,0 +1,9 @@
+{
+  "owned_simulator_groups_checked": 34,
+  "active_owned_processes": [],
+  "fresh_batch_finished": true,
+  "material_probe_cleanup": {
+    "stopped": true,
+    "returncode": 0
+  }
+}
