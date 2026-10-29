@@ -74,6 +74,7 @@ async def run_pumpkin(self: InteractiveSession):
         stage,
         canonical_clutch=os.environ.get("PUMPKIN_CANONICAL_CLUTCH") == "1",
         canonical_foundation=os.environ.get("PUMPKIN_CANONICAL_FOUNDATION", "1") == "1",
+        defer_correction=os.environ.get("PUMPKIN_DEFER_CORRECTION") == "1",
     )
     # Narrow extensions are compound colliders on the existing dynamic fingers.
     # URDF origins are column-vector transforms; USD matrices use row vectors.
@@ -199,6 +200,7 @@ async def run_pumpkin(self: InteractiveSession):
     self.world.add_physics_callback("pumpkin_recording", recording.record)
     events = []
     grasp_evidence = []
+    correction_evidence = []
     profiler = cProfile.Profile()
     if os.environ.get("PUMPKIN_PROFILE") == "1":
         profiler.enable()
@@ -502,13 +504,91 @@ async def run_pumpkin(self: InteractiveSession):
                         retention_ready = True
                         await get_app().next_update_async()  # ty: ignore[unresolved-attribute]
                 released_gap = float(-sum(arm.robot.get_joint_positions()[arm.fingers]))
-                if released_gap >= width + 0.004:
+                clearance_gap = (
+                    opening - 0.001 if parts.defer_correction else width + 0.004
+                )
+                if released_gap >= clearance_gap:
                     break
-            if released_gap < width + 0.004:
+            if released_gap < clearance_gap:
                 raise RuntimeError(f"Part{part} fingers did not clear: {released_gap}")
             if not retention_ready:
                 raise RuntimeError(f"Part{part} did not retain its unloaded seat")
             arm.grip_target = -opening / 2
+            if parts.defer_correction:
+                corrected = []
+                for parent, child in sorted(required):
+                    if child == 0 or not (
+                        parts.canonical_clutch
+                        or (parts.canonical_foundation and parent == 44)
+                    ):
+                        continue
+                    # Self-centering clutch approximation, only after measured
+                    # jaw clearance. Edit constraint frames, never actor poses.
+                    rest = np.linalg.inv(parts.targets[parent]) @ parts.targets[child]
+                    joint = UsdPhysics.FixedJoint(  # ty: ignore[unresolved-attribute]
+                        stage.GetPrimAtPath(f"/World/Pumpkin/Clutch_{parent}_{child}")
+                    )
+                    quaternion = Rotation.from_matrix(rest[:3, :3]).as_quat(
+                        scalar_first=True
+                    )
+                    joint.GetLocalPos0Attr().Set(Gf.Vec3f(*map(float, rest[:3, 3])))
+                    joint.GetLocalRot0Attr().Set(
+                        Gf.Quatf(
+                            float(quaternion[0]), Gf.Vec3f(*map(float, quaternion[1:]))
+                        )
+                    )
+                    corrected.append([parent, child])
+                    parts.connected[(parent, child)]["retention_model"] = (
+                        "contact-gated clutch; nominal correction "
+                        "after finger clearance"
+                    )
+                if corrected:
+                    before_correction = YamArm.pose(parts.paths[part])
+                    await get_app().next_update_async()  # ty: ignore[unresolved-attribute]
+                    for _ in range(int(np.ceil(0.25 / physics_dt))):
+                        await arm.tick()
+                        if parts.broken:
+                            raise RuntimeError(
+                                f"Clutch joints broke: {sorted(parts.broken)}"
+                            )
+                    corrected_pose = YamArm.pose(parts.paths[part])
+                    correction_position_error = float(
+                        np.linalg.norm(corrected_pose[:3, 3] - target[:3, 3])
+                    )
+                    correction_angle_error = float(
+                        Rotation.from_matrix(
+                            target[:3, :3].T @ corrected_pose[:3, :3]
+                        ).magnitude()
+                    )
+                    correction_evidence.append(
+                        {
+                            "part": part,
+                            "finger_gap_m": released_gap,
+                            "full_opening_m": opening,
+                            "corrected_connections": corrected,
+                            "before_body_pose": before_correction.tolist(),
+                            "after_body_pose": corrected_pose.tolist(),
+                            "position_error_m": correction_position_error,
+                            "angle_error_rad": correction_angle_error,
+                        }
+                    )
+                    (output / "correction-evidence.json").write_text(
+                        json.dumps(correction_evidence, indent=2)
+                    )
+                    if (
+                        correction_position_error > 0.00015
+                        or correction_angle_error > 0.005
+                    ):
+                        raise RuntimeError(
+                            f"Part{part} post-release correction failed: "
+                            f"{correction_position_error}m/{correction_angle_error}rad"
+                        )
+                    print(
+                        "PUMPKIN_CORRECTED_AFTER_RELEASE",
+                        part,
+                        released_gap,
+                        flush=True,
+                    )
             await arm.move(approach, speed=0.07, tolerance=0.003)
             for _ in range(settle_steps):
                 await arm.tick()
@@ -597,6 +677,7 @@ async def run_pumpkin(self: InteractiveSession):
                     else "canonical foundation, measured other connections"
                     if parts.canonical_foundation
                     else "measured",
+                    "correction_after_finger_clearance": parts.defer_correction,
                     "elapsed_seconds": time.monotonic() - started,
                 },
                 indent=2,
