@@ -102,6 +102,7 @@ class YamKinematics:
         )
         if rejected:
             raise RuntimeError(
-                f"YAM target unreachable: residual={result.fun.tolist()}"
+                f"YAM target unreachable: residual={result.fun.tolist()}, "
+                f"seed={seed.tolist()}, target={target.tolist()}"
             )
         return result.x

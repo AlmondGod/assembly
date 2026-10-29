@@ -130,6 +130,12 @@ class YamArm:
                 true, stop early and hold the latest joint targets; the caller
                 must verify the contact outcome rather than target convergence.
         """
+        reach = sum(np.linalg.norm(origin[:3, 3]) for origin in self.kinematics.origins)
+        reach += np.linalg.norm(self.tool[:3, 3])
+        if not np.isfinite(target).all() or (
+            np.linalg.norm(target[:3, 3] - self.base[:3, 3]) > reach + 0.0001
+        ):
+            raise RuntimeError("YAM target outside the finite kinematic reach bound")
         start = self.pose(self.flange_path) @ self.tool
         rotations = Rotation.from_matrix(np.stack([start[:3, :3], target[:3, :3]]))
         interpolation = Slerp([0, 1], rotations)

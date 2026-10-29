@@ -10,6 +10,7 @@ import os
 import runpy
 import time
 import traceback
+from itertools import product
 from pathlib import Path
 from xml.etree.ElementTree import parse
 
@@ -135,13 +136,28 @@ async def run_pumpkin(self: InteractiveSession):
     # Contact views disable sleeping globally; only the manipulated part needs
     # continuous force reports. Other dynamic parts still wake on real contact.
     parts.rigid.set_sleep_thresholds(np.full(51, 0.00005, dtype=np.float32))
+    reset_pose_evidence = []
     for arm in self.arms.values():
         positions = arm.robot.get_joint_positions()
         arm.joint_target = positions[arm.indices].copy()
         arm.grip_target = -0.04
         arm.inverse_residual_limit = 0.003
         arm.tool[2, 3] = tool_offset
-        arm.park_pose = YamArm.pose(arm.flange_path) @ arm.tool
+        reset_pose = YamArm.pose(arm.flange_path) @ arm.tool
+        # Fabric transforms may still describe the zero-joint pose immediately
+        # after reset. The articulation's reset joint state is already current.
+        arm.park_pose = arm.base @ arm.kinematics.forward(arm.joint_target) @ arm.tool
+        reset_pose_evidence.append(
+            {
+                "arm": arm.robot.name,
+                "reset_fabric_tcp": reset_pose.tolist(),
+                "park_tcp_from_joint_state": arm.park_pose.tolist(),
+                "reset_joints_rad": arm.joint_target.tolist(),
+            }
+        )
+    (output / "reset-pose-evidence.json").write_text(
+        json.dumps(reset_pose_evidence, indent=2)
+    )
     for _ in range(settle_steps):
         await self.arms["left"].tick()
     supply_evidence = []
@@ -170,6 +186,13 @@ async def run_pumpkin(self: InteractiveSession):
         max(x["rotation_rad"] for x in supply_evidence),
         flush=True,
     )
+    if parts.broken or any(
+        not np.isfinite(row["translation_m"])
+        or row["translation_m"] > 0.005
+        or row["rotation_rad"] > 0.2
+        for row in supply_evidence
+    ):
+        raise RuntimeError("Initial parts did not settle within the supply fixtures")
     if os.environ.get("PUMPKIN_SETUP_TEST") == "1":
         (output / "result.json").write_text(
             json.dumps(
@@ -389,7 +412,9 @@ async def run_pumpkin(self: InteractiveSession):
                 (output / "result.json").write_text(json.dumps(report, indent=2))
                 return
             if plan["via_park"]:
+                print("PUMPKIN_TRANSIT_TO_PARK", part, flush=True)
                 await arm.move(arm.park_pose, speed=0.10, tolerance=0.003)
+                print("PUMPKIN_TRANSIT_AT_PARK", part, flush=True)
                 lifted = YamArm.pose(parts.paths[part])
                 if lifted[2, 3] - before[2, 3] < 0.05:
                     raise RuntimeError(f"Part{part} dropped during transport")
@@ -403,14 +428,10 @@ async def run_pumpkin(self: InteractiveSession):
             goal = target @ relative_grasp
             approach = goal.copy()
             approach[2, 3] += float(plan["approach_height_m"])
+            print("PUMPKIN_TRANSIT_APPROACH", part, approach.tolist(), flush=True)
             await arm.move(approach, speed=0.10, tolerance=0.003)
             print("PUMPKIN_INSERT", part, "parent", parent, flush=True)
             seated = []
-            hover_target = target.copy()
-            hover_target[2, 3] += 0.004
-            hover_command = goal.copy()
-            hover_command[2, 3] += 0.004
-            await arm.move(hover_command, speed=0.025, tolerance=0.003)
             required = {(a, b) for a, b in parts.edges if b == part}
             stopped_on_contact = False
 
@@ -424,9 +445,82 @@ async def run_pumpkin(self: InteractiveSession):
                 seated.extend(parts.connect(part, physics_dt))
                 stopped_on_contact = (
                     required <= parts.seated.keys()
-                    or parts.latest_support_load[part] > 0.5
+                    or parts.latest_assembly_load[part] > 0.5
                 )
                 return stopped_on_contact
+
+            # Cancel measured tracking bias before entering adjacent brick height.
+            # A0.44mm bias exceeded a0.20mm side gap on Part45's old descent.
+            local_bounds = parts.bounds[parts.parts[part]["design"]]
+            corners = np.array(list(product(*zip(*local_bounds))))
+            bottom = float((corners @ target[:3, :3].T)[:, 2].min() + target[2, 3])
+            highest = -float("inf")
+            for placed in parts.placed:
+                pose = YamArm.pose(parts.paths[placed])
+                bounds = parts.bounds[parts.parts[placed]["design"]]
+                vertices = np.array(list(product(*zip(*bounds))))
+                highest = max(
+                    highest,
+                    float((vertices @ pose[:3, :3].T)[:, 2].max() + pose[2, 3]),
+                )
+            precision_height = max(0.015, highest + 0.004 - bottom)
+            if precision_height > float(plan["approach_height_m"]):
+                raise RuntimeError(f"Part{part} needs a higher safe approach")
+            hover_command = goal.copy()
+            hover_command[2, 3] += precision_height
+            await arm.move(
+                hover_command, speed=0.025, tolerance=0.003, stop_when=stop_press
+            )
+            if stopped_on_contact or parts.broken:
+                raise RuntimeError(f"Part{part} unexpected contact above assembly")
+            depths = [
+                precision_height,
+                precision_height,
+                *np.arange(precision_height - 0.002, 0.004, -0.002),
+                0.004,
+            ]
+            for depth in depths:
+                desired = target.copy()
+                desired[2, 3] += depth
+                for correction in range(3):
+                    measured = YamArm.pose(parts.paths[part])
+                    hover_command = desired @ np.linalg.inv(measured) @ hover_command
+                    await arm.move(
+                        hover_command,
+                        speed=0.01,
+                        tolerance=0.003,
+                        minimum_duration=0.05,
+                        settle_seconds=0.1,
+                        stop_when=stop_press,
+                    )
+                    if stopped_on_contact or parts.broken:
+                        raise RuntimeError(
+                            f"Part{part} unexpected assembly contact before insertion: "
+                            f"{parts.latest_assembly_load[part]}N, "
+                            f"breaks={sorted(parts.broken)}"
+                        )
+                    measured = YamArm.pose(parts.paths[part])
+                    lateral = float(np.linalg.norm(measured[:2, 3] - target[:2, 3]))
+                    angle = float(
+                        Rotation.from_matrix(
+                            target[:3, :3].T @ measured[:3, :3]
+                        ).magnitude()
+                    )
+                    if lateral <= 0.00002 and angle <= 0.0005:
+                        break
+                else:
+                    raise RuntimeError(
+                        f"Part{part} pre-insertion alignment failed: "
+                        f"{lateral}m/{angle}rad"
+                    )
+                print(
+                    "PUMPKIN_APPROACH_ALIGNMENT",
+                    part,
+                    float(depth),
+                    lateral,
+                    angle,
+                    flush=True,
+                )
 
             press_command = hover_command.copy()
             # Reobserve the held part at each small descent instead of driving
@@ -444,7 +538,7 @@ async def run_pumpkin(self: InteractiveSession):
                     tolerance=0.003,
                     minimum_duration=0.05,
                     settle_seconds=0.1,
-                    stop_when=stop_press if index >= 4 else None,
+                    stop_when=stop_press if parent != 44 else None,
                 )
                 if stopped_on_contact:
                     press_command = (

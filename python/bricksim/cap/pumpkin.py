@@ -79,6 +79,7 @@ class PumpkinParts:
         self.rigid: RigidPrim
         self.bounds: dict[str, np.ndarray] = {}
         self.latest_support_load: dict[int, float] = {}
+        self.latest_assembly_load: dict[int, float] = {}
         self.connected: dict[tuple[int, int], dict[str, object]] = {}
         self.seated: dict[tuple[int, int], dict[str, object]] = {}
         self.placed = {44}
@@ -313,6 +314,13 @@ class PumpkinParts:
         total_force = support_pairs.sum(0)
         support_load = float(np.linalg.norm(support_pairs, axis=1).sum())
         self.latest_support_load[part] = support_load
+        assembly_indices = [
+            self.contact_filter_paths.index(self.paths[placed])
+            for placed in self.placed
+        ]
+        self.latest_assembly_load[part] = float(
+            np.linalg.norm(pair_forces[assembly_indices], axis=1).sum()
+        )
         evidence = []
         for (parent, child), studs in self.edges.items():
             if (
