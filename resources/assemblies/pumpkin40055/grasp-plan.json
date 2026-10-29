@@ -70,7 +70,7 @@
   "source_ik_residual_limit_m": 0.003,
   "target_ik_residual_limit_m": 0.0001,
   "planner": "Convex-proxy clearance and endpoint IK; not physical trajectory validation",
-  "elapsed_seconds": 1.514176166150719,
+  "elapsed_seconds": 1.3940345840528607,
   "grasps": [
     {
       "part": 34,
@@ -2833,16 +2833,16 @@
       ],
       "source_pose_world_m": [
         [
-          1.0,
+          -1.0,
+          -1.2246467991473532e-16,
           0.0,
-          0.0,
-          0.366
+          0.374
         ],
         [
+          1.2246467991473532e-16,
+          -1.0,
           0.0,
-          1.0,
-          0.0,
-          0.10400000000000001
+          0.096
         ],
         [
           0.0,

@@ -307,6 +307,9 @@ for part in order:
                         target_choices.append(g)
                 if not target_choices:
                     continue
+                # Rank both supply flips together; otherwise a valid180degree
+                # turn can be selected before an equivalent zero-turn supply.
+                choices = []
                 for source_delta in [0, np.pi]:
                     source = source_poses[part].copy()
                     source_center = (source @ np.r_[b.mean(0), 1])[:3]
@@ -315,70 +318,63 @@ for part in order:
                         @ source[:3, :3]
                     )
                     source[:3, 3] = source_center - source[:3, :3] @ b.mean(0)
-                    choices = [
-                        (
-                            Rotation.from_matrix(
-                                park.T @ source[:3, :3] @ g[:3, :3]
-                            ).magnitude(),
-                            g,
+                    for g in target_choices:
+                        angle = Rotation.from_matrix(
+                            park.T @ source[:3, :3] @ g[:3, :3]
+                        ).magnitude()
+                        choices.append((angle, source, g))
+                for _, source, g in sorted(choices, key=lambda item: item[0]):
+                    try:
+                        q = kin.inverse(
+                            np.linalg.inv(base) @ source @ g @ np.linalg.inv(tool),
+                            seeds[side],
+                            residual_limit=0.003,
                         )
-                        for g in target_choices
-                    ]
-                    for _, g in sorted(choices, key=lambda x: x[0]):
                         try:
-                            q = kin.inverse(
-                                np.linalg.inv(base) @ source @ g @ np.linalg.inv(tool),
-                                seeds[side],
-                                residual_limit=0.003,
+                            kin.inverse(
+                                np.linalg.inv(base)
+                                @ transforms[part]
+                                @ g
+                                @ np.linalg.inv(tool),
+                                q,
+                                residual_limit=0.0001,
                             )
-                            try:
-                                kin.inverse(
-                                    np.linalg.inv(base)
-                                    @ transforms[part]
-                                    @ g
-                                    @ np.linalg.inv(tool),
-                                    q,
-                                    residual_limit=0.0001,
-                                )
-                                via_park = False
-                            except RuntimeError:
-                                kin.inverse(
-                                    np.linalg.inv(base)
-                                    @ transforms[part]
-                                    @ g
-                                    @ np.linalg.inv(tool),
-                                    seeds[side],
-                                    residual_limit=0.0001,
-                                )
-                                via_park = True
+                            via_park = False
                         except RuntimeError:
-                            continue
-                        chosen = {
-                            "part": part,
-                            "design": d,
-                            "grasp_in_part_m": g.tolist(),
-                            "source_pose_world_m": source.tolist(),
-                            "jaw_axis": axis,
-                            "via_park": via_park,
-                            # Recorded Part47 grip tilt makes the 70mm transit
-                            # exceed reach; 30mm clears its low foundation.
-                            "approach_height_m": 0.03 if part == 47 else 0.07,
-                            "estimated_contact_width_m": width,
-                            "opening_width_m": float(size[axis]),
-                            "opening_m": float(
-                                min(
-                                    0.09,
-                                    size[axis]
-                                    + (0.008 if size[axis] > 0.032 else 0.014),
-                                )
-                            ),
-                            "height_above_default_m": float(z - height),
-                            "static_collisions": [],
-                            "candidates_tested": attempts,
-                        }
-                        break
-                    if chosen:
-                        break
+                            kin.inverse(
+                                np.linalg.inv(base)
+                                @ transforms[part]
+                                @ g
+                                @ np.linalg.inv(tool),
+                                seeds[side],
+                                residual_limit=0.0001,
+                            )
+                            via_park = True
+                    except RuntimeError:
+                        continue
+                    chosen = {
+                        "part": part,
+                        "design": d,
+                        "grasp_in_part_m": g.tolist(),
+                        "source_pose_world_m": source.tolist(),
+                        "jaw_axis": axis,
+                        "via_park": via_park,
+                        # Recorded Part47 grip tilt makes the 70mm transit
+                        # exceed reach; 30mm clears its low foundation.
+                        "approach_height_m": 0.03 if part == 47 else 0.07,
+                        "estimated_contact_width_m": width,
+                        "opening_width_m": float(size[axis]),
+                        "opening_m": float(
+                            min(
+                                0.09,
+                                size[axis] + (0.008 if size[axis] > 0.032 else 0.014),
+                            )
+                        ),
+                        "height_above_default_m": float(z - height),
+                        "static_collisions": [],
+                        "candidates_tested": attempts,
+                    }
+                    break
                 if chosen:
                     break
             if chosen:
