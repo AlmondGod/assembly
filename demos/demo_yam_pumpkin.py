@@ -146,7 +146,7 @@ async def run_pumpkin(self: InteractiveSession):
         reset_pose = YamArm.pose(arm.flange_path) @ arm.tool
         # Fabric transforms may still describe the zero-joint pose immediately
         # after reset. The articulation's reset joint state is already current.
-        arm.park_pose = arm.base @ arm.kinematics.forward(arm.joint_target) @ arm.tool
+        arm.park_pose = arm.commanded_pose()
         reset_pose_evidence.append(
             {
                 "arm": arm.robot.name,
@@ -469,7 +469,11 @@ async def run_pumpkin(self: InteractiveSession):
             hover_command = goal.copy()
             hover_command[2, 3] += precision_height
             await arm.move(
-                hover_command, speed=0.025, tolerance=0.003, stop_when=stop_press
+                hover_command,
+                speed=0.025,
+                tolerance=0.003,
+                stop_when=stop_press,
+                start_from_command=True,
             )
             if stopped_on_contact or parts.broken:
                 raise RuntimeError(f"Part{part} unexpected contact above assembly")
@@ -492,6 +496,7 @@ async def run_pumpkin(self: InteractiveSession):
                         minimum_duration=0.05,
                         settle_seconds=0.1,
                         stop_when=stop_press,
+                        start_from_command=True,
                     )
                     if stopped_on_contact or parts.broken:
                         raise RuntimeError(
@@ -539,11 +544,10 @@ async def run_pumpkin(self: InteractiveSession):
                     minimum_duration=0.05,
                     settle_seconds=0.1,
                     stop_when=stop_press if parent != 44 else None,
+                    start_from_command=True,
                 )
                 if stopped_on_contact:
-                    press_command = (
-                        arm.base @ arm.kinematics.forward(arm.joint_target) @ arm.tool
-                    )
+                    press_command = arm.commanded_pose()
                 for _ in range(20):
                     await arm.tick()
                     if parts.broken:
@@ -583,10 +587,12 @@ async def run_pumpkin(self: InteractiveSession):
             measured = YamArm.pose(parts.paths[part])
             unload_height = max(0.0, target[2, 3] + 0.0001 - measured[2, 3])
             if unload_height > 0.0001:
-                relaxed = YamArm.pose(arm.flange_path) @ arm.tool
+                relaxed = arm.commanded_pose()
                 relaxed[2, 3] += unload_height
                 print("PUMPKIN_UNLOAD", part, unload_height, flush=True)
-                await arm.move(relaxed, speed=0.01, tolerance=0.003)
+                await arm.move(
+                    relaxed, speed=0.01, tolerance=0.003, start_from_command=True
+                )
             starting_gap = float(-sum(arm.robot.get_joint_positions()[arm.fingers]))
             released_gap = starting_gap
             seated = []
