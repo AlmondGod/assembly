@@ -61,13 +61,21 @@ async def run_pumpkin(self: InteractiveSession):
     for path in self.paths.values():
         if not deallocate_part(path):
             raise RuntimeError(f"Unable to remove default scene part {path}")
-    if os.environ.get("PUMPKIN_GPU_PHYSICS") == "1":
-        physics = self.world.get_physics_context()
-        physics.enable_gpu_dynamics(True)
+    physics = self.world.get_physics_context()
+    gpu_physics = os.environ.get("PUMPKIN_GPU_PHYSICS") == "1"
+    physics.enable_gpu_dynamics(gpu_physics)
+    if gpu_physics:
         physics.set_broadphase_type("GPU")
         physics.set_gpu_total_aggregate_pairs_capacity(16384)
         physics.set_gpu_found_lost_aggregate_pairs_capacity(16384)
     physics_dt = 1 / int(os.environ.get("PUMPKIN_PHYSICS_HZ", "240"))
+    engine = {
+        "gpu_dynamics": physics.is_gpu_dynamics_enabled(),
+        "broadphase": physics.get_broadphase_type(),
+        "physics_dt_s": physics_dt,
+    }
+    (output / "engine.json").write_text(json.dumps(engine, indent=2))
+    print("PUMPKIN_ENGINE", engine, flush=True)
     self.world.set_simulation_dt(physics_dt=physics_dt, rendering_dt=physics_dt)
     settle_steps = int(np.ceil(1.5 / physics_dt))
     parts = PumpkinParts(
