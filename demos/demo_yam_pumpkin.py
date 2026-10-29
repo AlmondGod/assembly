@@ -71,7 +71,9 @@ async def run_pumpkin(self: InteractiveSession):
     self.world.set_simulation_dt(physics_dt=physics_dt, rendering_dt=physics_dt)
     settle_steps = int(np.ceil(1.5 / physics_dt))
     parts = PumpkinParts(
-        stage, canonical_clutch=os.environ.get("PUMPKIN_CANONICAL_CLUTCH") == "1"
+        stage,
+        canonical_clutch=os.environ.get("PUMPKIN_CANONICAL_CLUTCH") == "1",
+        canonical_foundation=os.environ.get("PUMPKIN_CANONICAL_FOUNDATION", "1") == "1",
     )
     # Narrow extensions are compound colliders on the existing dynamic fingers.
     # URDF origins are column-vector transforms; USD matrices use row vectors.
@@ -592,6 +594,8 @@ async def run_pumpkin(self: InteractiveSession):
                     "retention_model": "contact-gated breakable fixed joints",
                     "clutch_frame": "canonical studs, measured bar"
                     if parts.canonical_clutch
+                    else "canonical foundation, measured other connections"
+                    if parts.canonical_foundation
                     else "measured",
                     "elapsed_seconds": time.monotonic() - started,
                 },

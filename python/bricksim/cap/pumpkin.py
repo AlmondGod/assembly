@@ -52,6 +52,7 @@ class PumpkinParts:
         stage: Usd.Stage,
         resource: Path = RESOURCE,
         canonical_clutch: bool = False,
+        canonical_foundation: bool = False,
     ):
         """Load exact visual/collision assets and the target connection graph.
 
@@ -59,9 +60,11 @@ class PumpkinParts:
             stage: Live simulator stage.
             resource: Directory containing sourced meshes and connector frames.
             canonical_clutch: Use nominal socket frames for constraint correction.
+            canonical_foundation: Correct only the four foundation connections.
         """
         self.stage = stage
         self.canonical_clutch = canonical_clutch
+        self.canonical_foundation = canonical_foundation
         self.resource = resource
         self.manifest = json.loads((resource / "assembly.json").read_text())
         self.connectors = json.loads((resource / "connectors.json").read_text())
@@ -368,7 +371,9 @@ class PumpkinParts:
             )
             joint.CreateBody0Rel().SetTargets([self.paths[parent]])
             joint.CreateBody1Rel().SetTargets([self.paths[child]])
-            canonical_rest = self.canonical_clutch and child != 0
+            canonical_rest = (
+                self.canonical_clutch or (self.canonical_foundation and parent == 44)
+            ) and child != 0
             rest_frame = expected if canonical_rest else actual
             quaternion = Rotation.from_matrix(rest_frame[:3, :3]).as_quat(
                 scalar_first=True
