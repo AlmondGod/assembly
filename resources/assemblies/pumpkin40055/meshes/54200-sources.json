@@ -1,0 +1,27 @@
+{
+  "parts/54200.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/parts/54200.dat",
+    "sha256": "3f0c25da3dac0600209a032c53c040b8668e617374997546d5449528eb7099c9",
+    "header": "0 Slope Brick 31  1 x  1 x  0.667\n0 Name: 54200.dat\n0 Author: Orion Pobursky [OrionP]\n0 !LDRAW_ORG Part UPDATE 2022-04\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !KEYWORDS cheese\n0 !HISTORY 2006-01-14 [cwdee] Rotated to match other slope bricks\n0 !HISTORY 2009-09-03 [PTadmin] Official Update 2009-02\n0 !HISTORY 2013-08-04 [cwdee] Description change\n0 !HISTORY 2013-12-23 [PTadmin] Official Update 2013-02\n0 !HISTORY 2014-11-21 [roland] Auto-corrected with libfix version of LDCad 1.4\n0 !HISTORY 2015-10-11 [PTadmin] Official Update 2015-01\n0 !HISTORY 2019-06-03 [Philo] Rounded corners and flattened top.\n0 !HISTORY 2019-06-28 [PTadmin] Official Update 2019-01\n0 !HISTORY 2021-05-21 [OrionP] Subfiled for patterns\n0 !HISTORY 2022-05-07 [PTadmin] Official Update 2022-03\n0 !HISTORY 2022-07-13 [Jaco] added keyword Cheese\n0 !HISTORY 2022-07-18 [PTadmin] Official Update 2022-04"
+  },
+  "parts/s/54200s01.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/parts/s/54200s01.dat",
+    "sha256": "cf96613781f9e09ef1e12bf1be127a99b1a8f18a5e8ee9af434ef4e757696cc7",
+    "header": "0 ~Slope Brick 31  1 x  1 x  0.667 without Sloped Face\n0 Name: s\\54200s01.dat\n0 Author: Orion Pobursky [OrionP]\n0 !LDRAW_ORG Subpart UPDATE 2022-03\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2022-05-07 [PTadmin] Official Update 2022-03"
+  },
+  "p/rect.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/rect.dat",
+    "sha256": "ffeb2dd3d9b83c38841f18f1f74800fbba9e90c5fb6badfff2a795f08a96cb71",
+    "header": "0 Rectangle\n0 Name: rect.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2010-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-04-05 [hafhead] Added BFC statement\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2010-01-17 [mikeheide] changed winding to CCW\n0 !HISTORY 2010-04-05 [PTadmin] Official Update 2010-01"
+  },
+  "p/box4.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/box4.dat",
+    "sha256": "2cbfcf075ef5c87c6a5f543f837972a78d43274ac7771b92229b5fe5da797c1e",
+    "header": "0 Box with 4 Faces (2 Parallel Pairs) and All Edges\n0 Name: box4.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2012-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-04-03 [sbliss] Modified for BFC compliance\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01"
+  },
+  "p/rect3.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/rect3.dat",
+    "sha256": "07ac46908b6668d993b6de0fb001a34cd996542106b80ebc7de63317d8dde865",
+    "header": "0 Rectangle with 3 Edges\n0 Name: rect3.dat\n0 Author: Mark Kennedy [mkennedy]\n0 !LDRAW_ORG Primitive UPDATE 2010-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2003-08-01 [PTadmin] Official Update 2003-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2010-01-17 [mikeheide] Change winding to CCW\n0 !HISTORY 2010-04-05 [PTadmin] Official Update 2010-01\n0 //"
+  }
+}

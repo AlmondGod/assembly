@@ -4,6 +4,7 @@ Transforms use column vectors and metres; simulator quaternions are WXYZ.
 This controller uses joint drives, not brick pose updates or attachment shortcuts.
 """
 
+from collections.abc import Callable
 from pathlib import Path
 
 import numpy as np
@@ -46,6 +47,7 @@ class YamArm:
         self.tool = np.eye(4)
         self.tool[:3, 3] = [0, 0, 0.14465]
         self.park_pose = self.pose(self.flange_path) @ self.tool
+        self.inverse_residual_limit: float | None = None
         self.grip_target = -0.04
         self.joint_target = self.robot.get_joint_positions()[self.indices]
         error = np.linalg.norm(
@@ -108,7 +110,13 @@ class YamArm:
             await self.tick()
 
     async def move(
-        self, target: np.ndarray, speed: float = 0.07, tolerance: float = 0.0015
+        self,
+        target: np.ndarray,
+        speed: float = 0.07,
+        tolerance: float = 0.0015,
+        minimum_duration: float = 0.4,
+        settle_seconds: float | None = None,
+        stop_when: Callable[[], bool] | None = None,
     ):
         """Interpolate the actual TCP to a target using joint position drives.
 
@@ -116,13 +124,20 @@ class YamArm:
             target: World-to-TCP 4x4 transform in metres.
             speed: Maximum Cartesian translation speed in metres per second.
             tolerance: Position tolerance in metres; angular limit is 0.04 rad.
+            minimum_duration: Minimum interpolation duration in seconds.
+            settle_seconds: Optional final hold duration; defaults to90physicssteps.
+            stop_when: Optional contact condition checked after every step. When
+                true, stop early and hold the latest joint targets; the caller
+                must verify the contact outcome rather than target convergence.
         """
         start = self.pose(self.flange_path) @ self.tool
         rotations = Rotation.from_matrix(np.stack([start[:3, :3], target[:3, :3]]))
         interpolation = Slerp([0, 1], rotations)
         angle = (rotations[0].inv() * rotations[1]).magnitude()
         duration = max(
-            np.linalg.norm(target[:3, 3] - start[:3, 3]) / speed, angle / 0.6, 0.4
+            np.linalg.norm(target[:3, 3] - start[:3, 3]) / speed,
+            angle / 0.6,
+            minimum_duration,
         )
         steps = int(np.ceil(duration / self.world.get_physics_dt()))
         for index in range(1, steps + 1):
@@ -131,10 +146,26 @@ class YamArm:
             waypoint[:3, :3] = interpolation(fraction).as_matrix()
             waypoint[:3, 3] = start[:3, 3] * (1 - fraction) + target[:3, 3] * fraction
             flange = np.linalg.inv(self.base) @ waypoint @ np.linalg.inv(self.tool)
-            self.joint_target = self.kinematics.inverse(flange, self.joint_target)
+            if self.inverse_residual_limit is None:
+                self.joint_target = self.kinematics.inverse(flange, self.joint_target)
+            else:
+                self.joint_target = self.kinematics.inverse(
+                    flange,
+                    self.joint_target,
+                    residual_limit=self.inverse_residual_limit,
+                )
             await self.tick()
-        for _ in range(90):
+            if stop_when is not None and stop_when():
+                return
+        hold_steps = (
+            90
+            if settle_seconds is None
+            else int(np.ceil(settle_seconds / self.world.get_physics_dt()))
+        )
+        for _ in range(hold_steps):
             await self.tick()
+            if stop_when is not None and stop_when():
+                return
         actual = self.pose(self.flange_path) @ self.tool
         position_error = np.linalg.norm(actual[:3, 3] - target[:3, 3])
         rotation_error = Rotation.from_matrix(
@@ -287,7 +318,8 @@ class YamArm:
                 connected = are_parts_connected(stud, hole)
                 print(
                     f"YAM_TOP_PRESS {connection.hole} depth={depth:.4f} "
-                    f"connected={connected}", flush=True,
+                    f"connected={connected}",
+                    flush=True,
                 )
                 pick["top_press_depth_m"] = depth
                 if connected:

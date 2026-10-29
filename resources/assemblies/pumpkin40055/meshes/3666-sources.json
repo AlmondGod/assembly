@@ -1,0 +1,57 @@
+{
+  "parts/3666.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/parts/3666.dat",
+    "sha256": "f4fc83d8c3fc1df32c1a217dc09775a99fad1ced348cffc5167f9c6a69aa9bca",
+    "header": "0 Plate  1 x  6\n0 Name: 3666.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Part UPDATE 2023-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2004-07-25 [guyvivan] Made BFC Compliant\n0 !HISTORY 2004-11-06 [PTadmin] Official Update 2004-04\n0 !HISTORY 2007-06-29 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2023-03-22 [Sirio] Introduced use of subpart\n0 !HISTORY 2023-04-17 [OrionP] Official Update 2023-02"
+  },
+  "parts/s/3666s01.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/parts/s/3666s01.dat",
+    "sha256": "71aefa629ca2df065d9cde349bb46a51a8e59265ad4d74e55da24611095d5538",
+    "header": "0 ~Plate  1 x  6 without Front Face\n0 Name: s\\3666s01.dat\n0 Author: Massimo Maso [Sirio]\n0 !LDRAW_ORG Subpart UPDATE 2023-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2023-04-17 [OrionP] Official Update 2023-02\n0 BFC INVERTNEXT"
+  },
+  "p/stug3-1x5.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/stug3-1x5.dat",
+    "sha256": "85d37bfc3cbb90f12a55dfe2543f507c1763f0336962c712cbec327d688b5624",
+    "header": "0 Stud Tube Solid Group  1 x  5\n0 Name: stug3-1x5.dat\n0 Author: Steffen [Steffen]\n0 !LDRAW_ORG Primitive UPDATE 2013-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2013-07-21 [PTadmin] Official Update 2013-01"
+  },
+  "p/stud3.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/stud3.dat",
+    "sha256": "d29e9160faeaf85b2b72a098e89a81f41e0082517a82065d7b1f149b5fd2addd",
+    "header": "0 Stud Tube Solid\n0 Name: stud3.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2012-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-04-04 [sbliss] Modified for BFC compliance\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01"
+  },
+  "p/4-4edge.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4edge.dat",
+    "sha256": "54a52196e421fd1717d291ff52ea57553b1fb238907c1678cc1f1a84c698b1da",
+    "header": "0 Circle 1.0\n0 Name: 4-4edge.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2017-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2005-12-28 [PTadmin] Official Update 2005-01\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2017-01-15 [Steffen] BFCed\n0 !HISTORY 2017-12-30 [PTadmin] Official Update 2017-01"
+  },
+  "p/4-4disc.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4disc.dat",
+    "sha256": "a00b5547776f61a7389d303616987c76b3c4de86ad8ec32f22857e1bd5e5e40f",
+    "header": "0 Disc 1.0\n0 Name: 4-4disc.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2002-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-03-23 [sbliss] Added BFC statement\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/4-4cyli.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/4-4cyli.dat",
+    "sha256": "4a742c2765b6ebf98245baaf8a160a4ff587fc93d36c8ee2b9074712a2f968c4",
+    "header": "0 Cylinder 1.0\n0 Name: 4-4cyli.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2005-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1998-12-15 [PTadmin] Official Update 1998-10\n0 !HISTORY 2002-03-23 [sbliss] Added BFC statement; merged headers from files in distributions LDraw 0.27 and Complete.\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2004-12-14 [guyvivan] BFC CCW\n0 !HISTORY 2005-12-28 [PTadmin] Official Update 2005-01\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01"
+  },
+  "p/box5.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/box5.dat",
+    "sha256": "ccb7b8a1d36692335b10ea6aa196849afcad4b15331683ed8112a10b50977318",
+    "header": "0 Box with 5 Faces and All Edges\n0 Name: box5.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2012-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-04-03 [sbliss] Modified for BFC compliance\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01"
+  },
+  "p/box4t.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/box4t.dat",
+    "sha256": "72c7629db2b741e680ad548b2cbec631e44f75cdde206001b423ccb0f3b60c1f",
+    "header": "0 Box with 4 Adjacent Faces and All Edges\n0 Name: box4t.dat\n0 Author: Tore Eriksson [Tore_Eriksson]\n0 !LDRAW_ORG Primitive UPDATE 2003-02\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 1997-09-29 [PTadmin] Official Update 1997-15\n0 !HISTORY 2002-08-31 [izanette] Modified with WINDZ for BFC compliance\n0 !HISTORY 2003-08-01 [PTadmin] Official Update 2003-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 4 16 -1 1 -1 -1 0 -1 1 0 -1 1 1 -1"
+  },
+  "p/stug-1x6.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/stug-1x6.dat",
+    "sha256": "907b74bad03688f6d2f22220db6ec4a6c922203a3e3001aa24f214c6ed48a226",
+    "header": "0 Stud Group  1 x  6\n0 Name: stug-1x6.dat\n0 Author: Steffen [Steffen]\n0 !LDRAW_ORG Primitive UPDATE 2011-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2011-07-25 [PTadmin] Official Update 2011-01"
+  },
+  "p/stud.dat": {
+    "url": "https://raw.githubusercontent.com/pybricks/ldraw/c43ed06a128a10ed65675166bf42eb6fd608b9b0/p/stud.dat",
+    "sha256": "db037d518d7c08bcdc1f0e7497f4f98e97d99850531dd62d602965520f3bf8f4",
+    "header": "0 Stud\n0 Name: stud.dat\n0 Author: James Jessiman\n0 !LDRAW_ORG Primitive UPDATE 2012-01\n0 !LICENSE Licensed under CC BY 4.0 : see CAreadme.txt\n0 BFC CERTIFY CCW\n0 !HISTORY 2002-04-04 [sbliss] Modified for BFC compliance\n0 !HISTORY 2002-04-25 [PTadmin] Official Update 2002-02\n0 !HISTORY 2007-06-24 [PTadmin] Header formatted for Contributor Agreement\n0 !HISTORY 2008-07-01 [PTadmin] Official Update 2008-01\n0 !HISTORY 2012-02-16 [Philo] Changed to CCW\n0 !HISTORY 2012-03-30 [PTadmin] Official Update 2012-01"
+  }
+}
