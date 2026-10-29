@@ -1,7 +1,7 @@
 """Contact-driven two-YAM pumpkin assembly with a measured-motion replay.
 
 The round foundation is fixtured; supply pieces rest on visible tray supports.
-Set PUMPKIN_LIMIT=1 for the first insertion coupon, or51for the complete model.
+Set PUMPKIN_LIMIT=1 for the first insertion coupon, or 51 for the complete model.
 """
 
 import cProfile
