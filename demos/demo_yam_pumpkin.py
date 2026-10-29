@@ -196,6 +196,7 @@ async def run_pumpkin(self: InteractiveSession):
     )
     self.world.add_physics_callback("pumpkin_recording", recording.record)
     events = []
+    grasp_evidence = []
     profiler = cProfile.Profile()
     if os.environ.get("PUMPKIN_PROFILE") == "1":
         profiler.enable()
@@ -240,14 +241,13 @@ async def run_pumpkin(self: InteractiveSession):
                 profiler.dump_stats(str(output / "controller-profile.pstats"))
             await arm.move(above, speed=0.10, tolerance=0.003)
             await arm.move(grasp, speed=0.025, tolerance=0.003)
-            if part in (0, 47):
-                # Center before closure; instantaneous closure rolled Part47
-                # by28degrees while it was still on its source supports.
-                command = grasp.copy()
-                for _ in range(2):
-                    measured_tcp = YamArm.pose(arm.flange_path) @ arm.tool
-                    command = grasp @ np.linalg.inv(measured_tcp) @ command
-                    await arm.move(command, speed=0.01, tolerance=0.003)
+            # Center before closure; instantaneous closure rolled Part47 and
+            # the first bridge plate by28-30degrees on their source supports.
+            command = grasp.copy()
+            for _ in range(2):
+                measured_tcp = YamArm.pose(arm.flange_path) @ arm.tool
+                command = grasp @ np.linalg.inv(measured_tcp) @ command
+                await arm.move(command, speed=0.01, tolerance=0.003)
             if part == 0:
                 controller = arm.robot.get_articulation_controller()
                 kps, kds = controller.get_gains()
@@ -269,13 +269,11 @@ async def run_pumpkin(self: InteractiveSession):
                     (YamArm.pose(arm.flange_path) @ arm.tool)[:3, 3] - grasp[:3, 3],
                     flush=True,
                 )
-            if part in (0, 47):
-                for close_step in range(int(np.ceil(2.0 / physics_dt))):
-                    closing = max(0.0, opening - (close_step + 1) * 0.015 * physics_dt)
-                    arm.grip_target = -closing / 2
-                    await arm.tick()
-            else:
-                await arm.grip(0.0)
+            closure_steps = int(np.ceil(max(2.0, opening / 0.015) / physics_dt))
+            for close_step in range(closure_steps):
+                closing = max(0.0, opening - (close_step + 1) * 0.015 * physics_dt)
+                arm.grip_target = -closing / 2
+                await arm.tick()
             await arm.move(above, speed=0.07, tolerance=0.003)
             lifted = YamArm.pose(parts.paths[part])
             lift = float(lifted[2, 3] - before[2, 3])
@@ -283,6 +281,41 @@ async def run_pumpkin(self: InteractiveSession):
             minimum_gap = min(0.001, float(plan["estimated_contact_width_m"]) * 0.2)
             if lift < 0.05 or not minimum_gap < gap < opening - 0.002:
                 raise RuntimeError(f"Part{part} grasp failed: lift={lift}, gap={gap}")
+            held_grasp = np.linalg.inv(lifted) @ YamArm.pose(arm.flange_path) @ arm.tool
+            intended_grasp = np.array(plan["grasp_in_part_m"])
+            grasp_position_error = float(
+                np.linalg.norm(held_grasp[:3, 3] - intended_grasp[:3, 3])
+            )
+            grasp_angle_error = float(
+                Rotation.from_matrix(
+                    intended_grasp[:3, :3].T @ held_grasp[:3, :3]
+                ).magnitude()
+            )
+            grasp_evidence.append(
+                {
+                    "part": part,
+                    "lift_m": lift,
+                    "finger_gap_m": gap,
+                    "grasp_position_error_m": grasp_position_error,
+                    "grasp_angle_error_rad": grasp_angle_error,
+                    "measured_grasp_in_part_m": held_grasp.tolist(),
+                }
+            )
+            (output / "grasp-evidence.json").write_text(
+                json.dumps(grasp_evidence, indent=2)
+            )
+            print(
+                "PUMPKIN_GRASP_QUALITY",
+                part,
+                grasp_position_error,
+                grasp_angle_error,
+                flush=True,
+            )
+            if grasp_position_error > 0.0015 or grasp_angle_error > 0.05:
+                raise RuntimeError(
+                    f"Part{part} shifted in jaws: {grasp_position_error}m/"
+                    f"{grasp_angle_error}rad; stop before approaching the structure"
+                )
             if source_test is not None:
                 for _ in range(int(np.ceil(0.5 / physics_dt))):
                     await arm.tick()
