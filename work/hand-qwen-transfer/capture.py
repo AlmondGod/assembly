@@ -6,6 +6,7 @@ from scipy.spatial.transform import Rotation
 from isaacsim.core.prims import RigidPrim
 from omni.kit.app import get_app
 from bricksim.cap.interactive import InteractiveSession
+from bricksim.cap.basket import CompactBasket
 from bricksim.cap.yam import YamArm
 from recording import PhysicsRecording
 ROOT=Path('/opt/BrickSim/.runtime/hand-qwen-transfer');OUT=ROOT/'capture';OUT.mkdir(exist_ok=True)
@@ -20,9 +21,11 @@ async def capture(self):
  from isaacsim.core.utils.stage import get_current_stage
  stage=get_current_stage();bricks=RigidPrim(list(self.supply_paths.values()),reset_xform_properties=False);bricks.initialize();order=[list(self.supply_paths.values()).index(p) for p in bricks.prim_paths];old=Path('/opt/BrickSim/.runtime/object-motion-scale/snapshots')
  for seed in list(range(1000,1012))+list(range(1024,1028)):
-  out=OUT/f'seed{seed}';out.mkdir(exist_ok=False);self.output=out
+  out=OUT/f'seed{seed}'
+  if (out/'initial.json').exists():print('MATCHED_CAPTURE_SKIP',seed,flush=True);continue
+  out.mkdir(exist_ok=True);self.output=out
   if seed<1024:state=json.load(open(old/f'seed{seed}.json'));poses={int(k):np.array(v) for k,v in state['bricks'].items()}
-  else:poses=self.basket.scatter(seed)
+  else:poses=CompactBasket().scatter(seed)  # InteractiveSession has no basket; Demo uses the same compact layout
   ids=list(self.supply_paths);positions=np.array([poses[ids[i]][:3,3] for i in order]);quats=np.array([Rotation.from_matrix(poses[ids[i]][:3,:3]).as_quat(scalar_first=True) for i in order]);bricks.set_world_poses(positions,quats);bricks.set_velocities(np.zeros((50,6)))
   if seed>=1024:
    for _ in range(240):await self.arms['left'].tick()
