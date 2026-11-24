@@ -33,3 +33,7 @@ Pending. The existing renderer/material-wrapper collision-scale bug was fixed du
 ## Pause checkpoint (2026-10-29)
 
 User requested commit, push, PR merge and pause. Captured training seeds1000–1011; fresh seed1024 failed because InteractiveSession has no basket attribute. Capture exited1 and its owned process group is stopped. No new model training or transfer evaluation executed. Preserve source artifacts and resume only on further user instruction.
+
+## Resume attempt (2026-11-23)
+
+Fixed the capture failure: fresh seeds now use `CompactBasket().scatter(seed)` (the same layout `Demo` builds for `YAM_BASKET_LAYOUT=compact`), and capture skips seeds that already have `initial.json`, so seeds 1000–1011 are kept and only 1024–1027 run. Not executed: the RunPod pod `ozzzq5hjse3zov-64411314` no longer exists ("container not found"), the other saved GPU hosts time out or present changed host keys, and no RunPod API key is available to start a new pod. Next: provision a pod with /opt/BrickSim and the hand-motion runtime restored from /workspace backups, set BRICKSIM_SSH_TARGET, run `python3 work/hand-qwen-transfer/launch_capture.py`, then continue the unchecked steps above.
